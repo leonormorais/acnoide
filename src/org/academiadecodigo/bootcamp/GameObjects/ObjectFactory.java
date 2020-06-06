@@ -38,7 +38,7 @@ public class ObjectFactory {
         }
         return bricks;
     }
-
+ 
     private static Brick getRandomBrick() {
         return (Math.random() > NORMAL_BRICK_PROB) ? new NormalBrick(new GridPosition(posX, posY, BRICK_WIDTH, BRICK_HEIGHT, BrickType.NORMAL.getColor())) : createSuperBrick();
     }
