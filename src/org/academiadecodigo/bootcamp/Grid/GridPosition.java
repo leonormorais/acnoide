@@ -36,8 +36,12 @@ public class GridPosition {
 
     public void move(GridDirection direction) {
         switch (direction) {
-            case LEFT -> moveLeft();
-            case RIGHT -> moveRight();
+            case LEFT:
+                moveLeft();
+                break;
+            case RIGHT:
+                moveRight();
+                break;
         }
     }
 

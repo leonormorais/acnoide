@@ -21,7 +21,7 @@ public class Platform extends GameObject {
         //implementar limites
         position.move(GridDirection.RIGHT);
     }
-    
+
     public void moveLeft() {
         //implementar limites
         position.move(GridDirection.LEFT);
