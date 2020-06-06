@@ -21,6 +21,19 @@ public class GridPosition {
         this.width = width;
         this.height = height;
         this.color = color;
+        show();
+    }
+
+    public int getPosX() {
+        return posX;
+    }
+
+    public int getPosY() {
+        return posY;
+    }
+
+    public void setPosX(int posX) {
+        this.posX = posX;
     }
 
 
@@ -48,15 +61,15 @@ public class GridPosition {
     private void moveLeft() {
         //controlar limites
 
-        this.posX--;
-        rectangle.translate(-1, 0);
+        this.posX -= 6;
+        rectangle.translate(-6, 0);
     }
 
     private void moveRight() {
         //controlar limites
 
-        this.posX++;
-        rectangle.translate(1, 0);
+        this.posX += 6;
+        rectangle.translate(6, 0);
     }
 
 

@@ -23,7 +23,6 @@ public class Grid {
         background.draw();
     }
 
-
     public int getWidth() {
         return width;
     }
@@ -31,4 +30,5 @@ public class Grid {
     public int getHeight() {
         return height;
     }
+
 }
