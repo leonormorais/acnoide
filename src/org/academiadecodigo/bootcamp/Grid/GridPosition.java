@@ -2,15 +2,21 @@ package org.academiadecodigo.bootcamp.Grid;
 
 
 import org.academiadecodigo.simplegraphics.graphics.Color;
+import org.academiadecodigo.simplegraphics.graphics.Ellipse;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+import org.academiadecodigo.simplegraphics.graphics.Shape;
 
 public class GridPosition {
+
+    private final int BALL_POSITION_X = 400;
+    private final int BALL_POSITION_Y = 450;
 
     private int posX;
     private int posY;
     private int width;
     private int height;
     private Rectangle rectangle;
+    private Ellipse ellipse;
 
     private Color color;
 
@@ -23,6 +29,21 @@ public class GridPosition {
         this.color = color;
         show();
     }
+
+    public GridPosition (int width, int height) {
+        this.posX = BALL_POSITION_X;
+        this.posY = BALL_POSITION_Y;
+        this.width = width;
+        this.height = height;
+
+        ellipse = new Ellipse(BALL_POSITION_X, BALL_POSITION_Y, width, height);
+        this.color = Color.CYAN;
+
+        showBall();
+
+    }
+
+
 
     public int getPosX() {
         return posX;
@@ -38,9 +59,15 @@ public class GridPosition {
 
 
     public void show() {
-
         rectangle.setColor(color);
         rectangle.fill();
+
+    }
+
+
+    private void showBall() {
+        ellipse.setColor(color);
+        ellipse.fill();
     }
 
     public void hide() {
@@ -55,6 +82,15 @@ public class GridPosition {
             case RIGHT:
                 moveRight();
                 break;
+        }
+    }
+
+    //pensar numa solução única com o tipo de Game Object (Ball Or Brick)
+    public void moveBall(GridDirection direction) {
+        switch (direction) {
+            case DOWN:
+                this.posY += 6;
+                ellipse.translate(0, 6);
         }
     }
 
