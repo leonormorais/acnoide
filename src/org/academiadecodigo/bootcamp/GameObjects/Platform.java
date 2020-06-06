@@ -14,7 +14,11 @@ public class Platform extends GameObject {
 
     public Platform () {
         this.color = Color.PINK;
-        this.position = new GridPosition(300,650, WIDTH, HEIGHT, color);
+        this.position = new GridPosition(300,675, WIDTH, HEIGHT, color);
+    }
+
+    public GridPosition getPosition() {
+        return position;
     }
 
     public void moveRight() {

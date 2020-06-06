@@ -2,6 +2,7 @@ package org.academiadecodigo.bootcamp.Tests;
 
 import org.academiadecodigo.bootcamp.GameObjects.Bricks.Brick;
 import org.academiadecodigo.bootcamp.GameObjects.ObjectFactory;
+import org.academiadecodigo.bootcamp.GameObjects.Platform;
 import org.academiadecodigo.bootcamp.Grid.Grid;
 import org.academiadecodigo.bootcamp.Grid.GridPosition;
 
@@ -15,9 +16,14 @@ public class TestGrid {
 
         grid.init();
 
+        Platform test2 = new Platform();
+
         for (int i = 0; i < test.length; i++) {
             test[i].getPosition().show();
         }
+
+
+        test2.getPosition().show();
 
 
         System.out.println(test.toString());
