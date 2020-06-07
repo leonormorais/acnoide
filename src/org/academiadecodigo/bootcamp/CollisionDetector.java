@@ -19,19 +19,15 @@ public class CollisionDetector {
     }
 
     public boolean checkForCollisionPlatform() {
-
-
-        return ball.getPosition().getPosY() + ball.getPosition().getHeight() == platform.getPosition().getPosY() && //colisão entre o topo da plataforma e bola
-                ball.getPosition().getPosX() + ball.getPosition().getWidth() >= platform.getPosition().getPosX() && //limite da colisão entre a bola e a plataforma do lado esquerdo
-                ball.getPosition().getPosX() <= platform.getPosition().getPosX() + platform.getPosition().getWidth(); //limite de colisão entre a bola e a plataforma do lado direito
-
-
-
+        
+        return ball.getPosition().getPosY() + ball.getBallHeight() == platform.getPosition().getPosY() &&
+                ball.getPosition().getPosX() + ball.getBallWidth() >= platform.getPosition().getPosX() &&
+                ball.getPosition().getPosX() <= platform.getPosition().getPosX() + platform.getWIDTH();
 
 
     }
  
-    /*
+
     public boolean checkForCollisionBrick() {
         for (int i = 0; i < bricks.length; i++) {
 
@@ -52,8 +48,6 @@ public class CollisionDetector {
 
         return false;
     }
-
-     */
 
 
 }
