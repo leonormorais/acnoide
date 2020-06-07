@@ -6,14 +6,14 @@ import org.academiadecodigo.bootcamp.Grid.GridPosition;
 public class Ball {
 
     private final static int BALL_WIDTH = 10;
-    private final static int BALL_HEIGTH = 10;
+    private final static int BALL_HEIGHT = 10;
     private final static int BALL_SPEED = 6;
 
     private GridPosition position;
     private GridDirection currentDirection;
 
     public Ball () {
-        this.position = new GridPosition(BALL_WIDTH, BALL_HEIGTH);
+        this.position = new GridPosition(BALL_WIDTH, BALL_HEIGHT);
         this.currentDirection = GridDirection.DOWN;
     }
 
