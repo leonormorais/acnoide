@@ -1,4 +1,5 @@
 package org.academiadecodigo.bootcamp.GameObjects.Bricks;
+import org.academiadecodigo.bootcamp.Grid.GridDirection;
 import org.academiadecodigo.bootcamp.Grid.GridPosition;
 
 public class SuperBrick extends Brick {
@@ -14,6 +15,15 @@ public class SuperBrick extends Brick {
      */
     @Override
     public void destroy() {
+        this.isDestroyed = true;
+       // position.transform(); //tem de ser criado no position método transform
+        this.move();
+    }
 
+    @Override
+    public void move() {
+        if (isDestroyed) {
+            position.move(GridDirection.DOWN);
+        }
     }
 }

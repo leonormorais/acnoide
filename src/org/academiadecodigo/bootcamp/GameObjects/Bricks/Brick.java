@@ -22,6 +22,11 @@ abstract public class Brick extends GameObject {
     }
 
     public void destroy() {
+        this.isDestroyed = true;
+        position.hide();
+    }
+
+    public void move() {
 
     }
 
