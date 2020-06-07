@@ -17,7 +17,7 @@ public class Platform implements Hitable {
 
     public Platform (Grid grid) {
         this.color = Color.PINK;
-        this.position = grid.makeGridPosition(300,675, WIDTH, HEIGHT, color);
+        this.position = grid.makeGridPosition(300,675, "platform");
     }
 
     public int getWIDTH() {
@@ -52,7 +52,17 @@ public class Platform implements Hitable {
                 return;
             }
             position.move(GridDirection.LEFT);
+
         }
     }
 
+    @Override
+    public String toString() {
+        return "Platform{" +
+                "WIDTH=" + WIDTH +
+                ", HEIGHT=" + HEIGHT +
+                ", position=" + position +
+                ", color=" + color +
+                '}';
+    }
 }

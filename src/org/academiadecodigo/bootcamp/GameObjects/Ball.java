@@ -9,7 +9,7 @@ public class Ball {
 
     private final static int BALL_WIDTH = 10;
     private final static int BALL_HEIGHT = 10;
-    private final static int BALL_SPEED = 20;
+    private final static int BALL_SPEED = 15;
 
     private GridPosition position;
     private GridDirection currentDirection;
@@ -52,6 +52,7 @@ public class Ball {
         }
 
         if (collisionDetector.checkForCollisionPlatform()) {
+
                 currentDirection = GridDirection.NE;
         }
 
@@ -69,9 +70,10 @@ public class Ball {
                  //currentDirection = getnewdirection(currentDirection)
                 //currentDirection = GridDirection.getnewDirection(currentDirection);
 
-            position.moveBall(currentDirection);
-        }
 
+        position.moveBall(currentDirection);
+
+        }
     }
 
     public void gameOver() {
