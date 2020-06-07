@@ -26,7 +26,6 @@ abstract public class Brick implements Hitable {
     }
 
     public void destroy() {
-        System.out.println("Destroyed");
         this.isDestroyed = true;
         position.hide();
     }

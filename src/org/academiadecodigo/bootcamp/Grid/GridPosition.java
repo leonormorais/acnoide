@@ -140,6 +140,14 @@ public class GridPosition {
    }
 
     //pensar numa solução única com o tipo de Game Object (Ball Or Brick)
+   public void moveBall(int[] direction) {
+       this.posX += direction[0];
+       this.posY += direction[1];
+       ellipse.translate(direction[0], direction[1]);
+
+       System.out.println(this.toString());
+   }
+    /*
     public void moveBall(GridDirection direction) {
         switch (direction) {
             case DOWN:
@@ -168,18 +176,14 @@ public class GridPosition {
                 break;
 
         }
-    }
+    } */
 
     private void moveLeft() {
-        //controlar limites
-
         this.posX -= 1;
         pepino.translate(-1, 0);
     }
 
     private void moveRight() {
-        //controlar limites
-
         this.posX += 1;
         pepino.translate(1, 0);
     }
@@ -198,11 +202,10 @@ public class GridPosition {
     }
 
     public boolean isOnEdgePlatform(GridDirection direction) {
-
         switch (direction) {
-            case RIGHT: // , NE, NNE, ENE, ESE, SE, SSE:
+            case RIGHT:
                 return posX + width == grid.getWidth();
-            case LEFT: // , NW, NNW, WNW, WSW, SW, SSW:
+            case LEFT:
                 return posX == Grid.PADDING * 2;
         }
         return false;

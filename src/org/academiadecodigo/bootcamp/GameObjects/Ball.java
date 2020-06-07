@@ -9,17 +9,23 @@ public class Ball {
 
     private final static int BALL_WIDTH = 10;
     private final static int BALL_HEIGHT = 10;
-    private final static int BALL_SPEED = 12;
+    private final static int BALL_SPEED = 5;
 
     private GridPosition position;
     private GridDirection currentDirection;
     private CollisionDetector collisionDetector;
     private boolean isRunning;
 
+    private int[] direction;
+
     public Ball (Grid grid) {
         this.position = grid.makeGridPosition(BALL_WIDTH, BALL_HEIGHT);
         this.currentDirection = GridDirection.NW;
         this.isRunning = true;
+        this.direction = new int[2];
+
+        direction[0] = 1; //x
+        direction[1] = -1; //y
     }
 
     public int getBallWidth() {
@@ -39,11 +45,13 @@ public class Ball {
         for (int i = 0; i < BALL_SPEED; i++) {
 
         if (position.isOnTopEdge()) {
-            currentDirection = GridDirection.getNewTopDirection(currentDirection);
+            direction[1] = - direction[1];
+            // currentDirection = GridDirection.getNewTopDirection(currentDirection);
         }
 
         if (position.isOnEdge()) {
-            currentDirection = GridDirection.getNewDirection(currentDirection);
+            direction[0] = - direction[0];
+           //currentDirection = GridDirection.getNewDirection(currentDirection);
         }
 
         if (position.isOnBottomEdge()) {
@@ -70,7 +78,7 @@ public class Ball {
                 //currentDirection = GridDirection.getnewDirection(currentDirection);
 
 
-        position.moveBall(currentDirection);
+        position.moveBall(direction);
 
         }
     }

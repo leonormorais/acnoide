@@ -24,6 +24,8 @@ public class CollisionDetector {
                 ball.getPosition().getPosX() + ball.getBallWidth() >= platform.getPosition().getPosX() &&
                 ball.getPosition().getPosX() <= platform.getPosition().getPosX() + platform.getWIDTH();
 
+        //if bater na primeira metade da barra
+
 
     }
  
