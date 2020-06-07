@@ -11,6 +11,7 @@ public class GridPosition {
     private final int BALL_POSITION_X = 400;
     private final int BALL_POSITION_Y = 450;
 
+    Grid grid;
     private int posX;
     private int posY;
     private int width;
@@ -110,6 +111,7 @@ public class GridPosition {
 
 
     public boolean isOnEdge() {
+        if (posX + width >= )
         return false;
     }
 
