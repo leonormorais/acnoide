@@ -4,6 +4,7 @@ import org.academiadecodigo.bootcamp.GameObjects.Bricks.Brick;
 import org.academiadecodigo.bootcamp.GameObjects.Bricks.BrickType;
 import org.academiadecodigo.bootcamp.GameObjects.Bricks.NormalBrick;
 import org.academiadecodigo.bootcamp.GameObjects.Bricks.SuperBrick;
+import org.academiadecodigo.bootcamp.Grid.Grid;
 import org.academiadecodigo.bootcamp.Grid.GridPosition;
 
 public class ObjectFactory {
@@ -18,7 +19,7 @@ public class ObjectFactory {
 
    // private Brick[] bricks;
 
-    public static Brick[] createBricks(int numberOfBricks) {
+    public static Brick[] createBricks(int numberOfBricks, Grid grid) {
         /* if (numberOfBricks % 9 != 0) {
             System.out.println("error.");
             return;
@@ -27,7 +28,7 @@ public class ObjectFactory {
 
         for (int i = 0; i < bricks.length; i++) {
             int j = i + 1;
-            bricks[i] = getRandomBrick();
+            bricks[i] = getRandomBrick(grid);
 
             posX += (BRICK_WIDTH + 1);
 
@@ -39,22 +40,22 @@ public class ObjectFactory {
         return bricks;
     }
 
-    private static Brick getRandomBrick() {
-        return (Math.random() > NORMAL_BRICK_PROB) ? new NormalBrick(new GridPosition(posX, posY, BRICK_WIDTH, BRICK_HEIGHT, BrickType.NORMAL.getColor())) : createSuperBrick();
+    private static Brick getRandomBrick(Grid grid) {
+        return (Math.random() > NORMAL_BRICK_PROB) ? new NormalBrick(grid.makeGridPosition(posX, posY, BRICK_WIDTH, BRICK_HEIGHT, BrickType.NORMAL.getColor())) : createSuperBrick(grid);
     }
 
 
-    private static SuperBrick createSuperBrick() {
+    private static SuperBrick createSuperBrick(Grid grid) {
         BrickType[] bricksType = BrickType.values();
         int random = (int) (Math.random() * bricksType.length);
 
         if (random == 0) {
-            return createSuperBrick();
+            return createSuperBrick(grid);
         }
 
         BrickType newBrick = bricksType[random];
 
-        return new SuperBrick(new GridPosition(posX, posY, BRICK_WIDTH, BRICK_HEIGHT, newBrick.getColor()), newBrick);
+        return new SuperBrick(grid.makeGridPosition(posX, posY, BRICK_WIDTH, BRICK_HEIGHT, newBrick.getColor()), newBrick);
 
     }
 

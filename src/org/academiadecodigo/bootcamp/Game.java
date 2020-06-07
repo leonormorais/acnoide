@@ -29,19 +29,20 @@ public class Game {
         grid.init();
 
         //create bricks and set grid for bricks
-        bricks = ObjectFactory.createBricks(BRICKS_NUMBER);
+
+        bricks = ObjectFactory.createBricks(BRICKS_NUMBER, grid);
 
         for (Brick brick : bricks) {
             brick.setGrid(grid);
         }
 
         //initializing player and set grid to platform
-        player = new Player();
+        player = new Player(grid);
         player.init();
-        player.getPlatform().setGrid(grid);
+        //player.getPlatform().setGrid(grid);
 
         //initializing ball
-        ball = new Ball();
+        ball = new Ball(grid);
 
     }
 

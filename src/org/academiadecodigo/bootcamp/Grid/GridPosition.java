@@ -11,7 +11,7 @@ public class GridPosition {
     private final int BALL_POSITION_X = 400;
     private final int BALL_POSITION_Y = 450;
 
-    Grid grid;
+    private Grid grid;
     private int posX;
     private int posY;
     private int width;
@@ -21,7 +21,9 @@ public class GridPosition {
 
     private Color color;
 
-    public GridPosition(int posX, int posY, int width, int height, Color color) {
+    public GridPosition(Grid grid, int posX, int posY, int width, int height, Color color) {
+        this.grid = grid;
+
         rectangle = new Rectangle(posX, posY, width, height);
         this.posX = posX;
         this.posY = posY;
@@ -31,7 +33,9 @@ public class GridPosition {
         show();
     }
 
-    public GridPosition (int width, int height) {
+    public GridPosition (Grid grid, int width, int height) {
+        this.grid = grid;
+
         this.posX = BALL_POSITION_X;
         this.posY = BALL_POSITION_Y;
         this.width = width;
@@ -109,11 +113,13 @@ public class GridPosition {
         rectangle.translate(6, 0);
     }
 
-
+/*
     public boolean isOnEdge() {
         if (posX + width >= )
         return false;
     }
+
+ */
 
     @Override
     public String toString() {

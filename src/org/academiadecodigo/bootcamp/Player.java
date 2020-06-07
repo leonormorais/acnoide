@@ -1,6 +1,7 @@
 package org.academiadecodigo.bootcamp;
 
 import org.academiadecodigo.bootcamp.GameObjects.Platform;
+import org.academiadecodigo.bootcamp.Grid.Grid;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
@@ -12,10 +13,10 @@ public class Player implements KeyboardHandler {
     private Keyboard keyboard;
 
 
-    public Player () {
+    public Player (Grid grid) {
 
         keyboard = new Keyboard(this);
-        platform = new Platform();
+        platform = new Platform(grid);
 
     }
 

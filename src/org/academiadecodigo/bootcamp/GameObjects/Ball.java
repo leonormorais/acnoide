@@ -1,5 +1,6 @@
 package org.academiadecodigo.bootcamp.GameObjects;
 
+import org.academiadecodigo.bootcamp.Grid.Grid;
 import org.academiadecodigo.bootcamp.Grid.GridDirection;
 import org.academiadecodigo.bootcamp.Grid.GridPosition;
 
@@ -12,18 +13,18 @@ public class Ball {
     private GridPosition position;
     private GridDirection currentDirection;
 
-    public Ball () {
-        this.position = new GridPosition(BALL_WIDTH, BALL_HEIGHT);
+    public Ball (Grid grid) {
+        this.position = grid.makeGridPosition(BALL_WIDTH, BALL_HEIGHT);
         this.currentDirection = GridDirection.DOWN;
     }
 
     public void move() {
         for (int i = 0; i < BALL_SPEED; i++) {
 
-            if (position.isOnEdge()) {
+        /*    if (position.isOnEdge()) {
                 //currentDirection = getnewdirection(currentDirection)
             }
-
+        */
             // if (collisionDetection.check())
                  //currentDirection = getnewdirection(currentDirection)
                 //currentDirection = GridDirection.getnewDirection(currentDirection);
