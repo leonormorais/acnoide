@@ -18,7 +18,7 @@ public class Ball {
 
     public Ball (Grid grid) {
         this.position = grid.makeGridPosition(BALL_WIDTH, BALL_HEIGHT);
-        this.currentDirection = GridDirection.NE;
+        this.currentDirection = GridDirection.NW;
         this.isRunning = true;
     }
 

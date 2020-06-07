@@ -17,7 +17,8 @@ public class SuperBrick extends Brick {
     public void destroy() {
         this.isDestroyed = true;
        // position.transform(); //tem de ser criado no position método transform
-        this.move();
+        //this.move();
+        this.position.hide();
     }
 
     @Override

@@ -19,7 +19,7 @@ public class CollisionDetector {
     }
 
     public boolean checkForCollisionPlatform() {
-        
+
         return ball.getPosition().getPosY() + ball.getBallHeight() == platform.getPosition().getPosY() &&
                 ball.getPosition().getPosX() + ball.getBallWidth() >= platform.getPosition().getPosX() &&
                 ball.getPosition().getPosX() <= platform.getPosition().getPosX() + platform.getWIDTH();
@@ -33,15 +33,18 @@ public class CollisionDetector {
 
             if (bricks[i].getIsDestroyed()) {
                 return false;
-            }
+            } else {
+                System.out.println(ball.getPosition().toString());
+                System.out.println("# " + i + bricks[i].getPosition().toString());
 
-            if (ball.getPosition().getPosY() <= bricks[i].getPosition().getPosY() + bricks[i].getPosition().getHeight() && //limite de colisão da parte de baixo do tejolo
-            ball.getPosition().getPosY() + ball.getPosition().getHeight() >= bricks[i].getPosition().getHeight() && //limite da colisão da parte de cima do tejolo
-            ball.getPosition().getPosX() + ball.getPosition().getWidth() >= bricks[i].getPosition().getPosX() && //limite de colisão da parte esquerda do tejolo
-            ball.getPosition().getPosX() <= bricks[i].getPosition().getPosX() + bricks[i].getPosition().getWidth()) { //limite de colisão da parte direita do tejolo
-                System.out.println("collision");
-                bricks[i].destroy();
-                return true;
+                if (ball.getPosition().getPosY() <= bricks[i].getPosition().getPosY() + bricks[i].getPosition().getHeight() &&         //limite de colisão da parte de baixo do tijolo
+                        ball.getPosition().getPosY() + ball.getPosition().getHeight() >= bricks[i].getPosition().getHeight() &&        //limite da colisão da parte de cima do tijolo
+                        ball.getPosition().getPosX() + ball.getPosition().getWidth() >= bricks[i].getPosition().getPosX() &&           //limite de colisão da parte esquerda do tijolo
+                        ball.getPosition().getPosX() <= bricks[i].getPosition().getPosX() + bricks[i].getPosition().getWidth()) {       //limite de colisão da parte direita do tijolo
+                    System.out.println("collision");
+                    bricks[i].destroy();
+                    return true;
+                }
             }
 
         }
