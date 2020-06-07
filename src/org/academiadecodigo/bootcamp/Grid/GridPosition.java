@@ -11,6 +11,8 @@ public class GridPosition {
 
     private final int BALL_POSITION_X = 400;
     private final int BALL_POSITION_Y = 450;
+    private final int PLATFORM_WIDTH = 40;
+    private final int PLATFORM_HEIGHT = 10;
 
     private Grid grid;
     private int posX;
@@ -54,6 +56,9 @@ public class GridPosition {
         this.grid = grid;
         this.posX = posX;
         this.posY = posY;
+
+        this.width = PLATFORM_WIDTH;
+        this.height = PLATFORM_HEIGHT;
 
         pepino = new Picture(posX, posY, "src/org/academiadecodigo/bootcamp/assets/pepino.png");
 
@@ -144,8 +149,6 @@ public class GridPosition {
        this.posX += direction[0];
        this.posY += direction[1];
        ellipse.translate(direction[0], direction[1]);
-
-       System.out.println(this.toString());
    }
     /*
     public void moveBall(GridDirection direction) {
