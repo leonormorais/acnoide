@@ -19,6 +19,15 @@ public class Ball {
 
     public void move() {
         for (int i = 0; i < BALL_SPEED; i++) {
+
+            if (position.isOnEdge()) {
+                //currentDirection = getnewdirection(currentDirection)
+            }
+
+            // if (collisionDetection.check())
+                 //currentDirection = getnewdirection(currentDirection)
+                //currentDirection = GridDirection.getnewDirection(currentDirection);
+
             position.moveBall(currentDirection);
         }
 

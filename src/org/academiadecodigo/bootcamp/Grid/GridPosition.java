@@ -109,6 +109,10 @@ public class GridPosition {
     }
 
 
+    public boolean isOnEdge() {
+        return false;
+    }
+
     @Override
     public String toString() {
         return "GridPosition{" +
