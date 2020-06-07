@@ -52,7 +52,17 @@ public class Platform implements Hitable {
                 return;
             }
             position.move(GridDirection.LEFT);
+
         }
     }
 
+    @Override
+    public String toString() {
+        return "Platform{" +
+                "WIDTH=" + WIDTH +
+                ", HEIGHT=" + HEIGHT +
+                ", position=" + position +
+                ", color=" + color +
+                '}';
+    }
 }

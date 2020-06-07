@@ -24,11 +24,12 @@ public class CollisionDetector {
 
         return ball.getPosition().getPosY() + ball.getBallHeight() == platform.getPosition().getPosY() &&
                 ball.getPosition().getPosX() + ball.getBallWidth() >= platform.getPosition().getPosX() &&
-                ball.getPosition().getPosX() <= platform.getPosition().getPosX() + platform.getPosition().getPosX() + platform.getHEIGHT();
+                ball.getPosition().getPosX() <= platform.getPosition().getPosX() + platform.getWIDTH();
 
 
     }
 
+    /*
     public boolean checkForCollisionBrick() {
         for (int i = 0; i < bricks.length; i++) {
 
@@ -44,6 +45,8 @@ public class CollisionDetector {
         }
 
     }
+
+     */
 
 
 }
