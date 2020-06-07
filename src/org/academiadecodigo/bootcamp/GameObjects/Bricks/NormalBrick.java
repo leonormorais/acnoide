@@ -8,5 +8,4 @@ public NormalBrick(GridPosition position) {
     super(position, BrickType.NORMAL);
 }
 
-
 }

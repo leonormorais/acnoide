@@ -1,11 +1,11 @@
 package org.academiadecodigo.bootcamp.GameObjects.Bricks;
 
-import org.academiadecodigo.bootcamp.GameObjects.GameObject;
+import org.academiadecodigo.bootcamp.GameObjects.Hitable;
 import org.academiadecodigo.bootcamp.Grid.Grid;
 import org.academiadecodigo.bootcamp.Grid.GridPosition;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 
-abstract public class Brick extends GameObject {
+abstract public class Brick implements Hitable {
 
     protected Grid grid;
     protected GridPosition position;
@@ -19,6 +19,10 @@ abstract public class Brick extends GameObject {
         this.color = type.getColor();
         this.isDestroyed = false;
 
+    }
+
+    public boolean getIsDestroyed() {
+        return isDestroyed;
     }
 
     public void destroy() {

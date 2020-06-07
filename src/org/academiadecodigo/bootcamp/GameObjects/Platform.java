@@ -5,7 +5,7 @@ import org.academiadecodigo.bootcamp.Grid.GridDirection;
 import org.academiadecodigo.bootcamp.Grid.GridPosition;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 
-public class Platform extends GameObject {
+public class Platform implements Hitable {
 
     private final int WIDTH = 40;
     private final int HEIGHT = 10;
@@ -18,6 +18,14 @@ public class Platform extends GameObject {
     public Platform (Grid grid) {
         this.color = Color.PINK;
         this.position = grid.makeGridPosition(300,675, WIDTH, HEIGHT, color);
+    }
+
+    public int getWIDTH() {
+        return WIDTH;
+    }
+
+    public int getHEIGHT() {
+        return HEIGHT;
     }
 
     /*
@@ -46,6 +54,5 @@ public class Platform extends GameObject {
             position.move(GridDirection.LEFT);
         }
     }
-
 
 }

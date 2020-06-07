@@ -6,7 +6,6 @@ import org.academiadecodigo.bootcamp.GameObjects.Platform;
 
 public class CollisionDetector {
 
-    private final static int BALL_WIDTH = 10;
     private final int BRICK_WIDTH = 40;
 
     private Brick[] bricks;
@@ -19,38 +18,33 @@ public class CollisionDetector {
         this.ball = ball;
     }
 
-    public boolean checkForCollision() {
+    public boolean checkForCollisionPlatform() {
 
-        //precisa de ajustar as posições reais em pixels mas já da para testar
+        //necessário verificar
 
-        if (ball.getPosition().getPosX() >= platform.getPosition().getPosX() &&
-                ball.getPosition().getPosX() + BALL_WIDTH <= platform.getPosition().getPosX()
+        return ball.getPosition().getPosY() + ball.getBallHeight() == platform.getPosition().getPosY() &&
+                ball.getPosition().getPosX() + ball.getBallWidth() >= platform.getPosition().getPosX() &&
+                ball.getPosition().getPosX() <= platform.getPosition().getPosX() + platform.getPosition().getPosX() + platform.getHEIGHT();
 
 
-
-
-        ) {
-            return true;
-        }
-
+    }
+/*
+    public boolean checkForCollisionBrick() {
         for (int i = 0; i < bricks.length; i++) {
 
-            if (ball.getPosition() == bricks[i].getPosition()) {
-                // if (brick is destroyed)
-                  // return false;
+            if (bricks[i].getIsDestroyed()) {
+                return false;
+            }
+
+            if (ball.getPosition().getPosY() <= bricks[i].getPosition().getPosY() + ) {
                 bricks[i].destroy();
                 return true;
             }
 
         }
 
-        return false;
-
     }
 
-
-
-
-
+ */
 
 }

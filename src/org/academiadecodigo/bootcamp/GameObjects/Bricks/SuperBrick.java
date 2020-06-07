@@ -26,4 +26,5 @@ public class SuperBrick extends Brick {
             position.move(GridDirection.DOWN);
         }
     }
+
 }

@@ -43,6 +43,7 @@ public class Game {
 
         //initializing ball
         ball = new Ball(grid);
+        ball.setCollisionDetector(new CollisionDetector(bricks, player.getPlatform(), ball));
 
     }
 
