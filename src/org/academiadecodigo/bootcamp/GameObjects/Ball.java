@@ -51,15 +51,21 @@ public class Ball {
             break;
         }
 
+        if (collisionDetector.checkForCollisionPlatform()) {
+                currentDirection = GridDirection.NE;
+        }
+
+        if (collisionDetector.checkForCollisionBrick()) {
+            currentDirection = GridDirection.SW;
+        }
+
+
         /* if (position.isOnEdge()) {
             String edge = getHittedEdge();
             currentDirection = GridDirection.getNewDirection(currentDirection, edge);
         }
         */
-            if (collisionDetector.checkForCollisionPlatform()) {
-                currentDirection = GridDirection.NE;
 
-            }
                  //currentDirection = getnewdirection(currentDirection)
                 //currentDirection = GridDirection.getnewDirection(currentDirection);
 

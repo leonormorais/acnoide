@@ -20,12 +20,9 @@ public class CollisionDetector {
 
     public boolean checkForCollisionPlatform() {
 
-        //necessário verificar
-
-        return ball.getPosition().getPosY() + ball.getBallHeight() == platform.getPosition().getPosY() &&
-                ball.getPosition().getPosX() + ball.getBallWidth() >= platform.getPosition().getPosX() &&
-                ball.getPosition().getPosX() <= platform.getPosition().getPosX() + platform.getPosition().getPosX() + platform.getHEIGHT();
-
+        return ball.getPosition().getPosY() + ball.getPosition().getHeight() == platform.getPosition().getPosY() && //colisão entre o topo da plataforma e bola
+                ball.getPosition().getPosX() + ball.getPosition().getWidth() >= platform.getPosition().getPosX() && //limite da colisão entre a bola e a plataforma do lado esquerdo
+                ball.getPosition().getPosX() <= platform.getPosition().getPosX() + platform.getPosition().getWidth(); //limite de colisão entre a bola e a plataforma do lado direito
 
     }
 
@@ -36,13 +33,18 @@ public class CollisionDetector {
                 return false;
             }
 
-            if (ball.getPosition().getPosY() <= bricks[i].getPosition().getPosY() + bricks[i].getPosition().getHeight() ) {
+            if (ball.getPosition().getPosY() <= bricks[i].getPosition().getPosY() + bricks[i].getPosition().getHeight() && //limite de colisão da parte de baixo do tejolo
+            ball.getPosition().getPosY() + ball.getPosition().getHeight() >= bricks[i].getPosition().getHeight() && //limite da colisão da parte de cima do tejolo
+            ball.getPosition().getPosX() + ball.getPosition().getWidth() >= bricks[i].getPosition().getPosX() && //limite de colisão da parte esquerda do tejolo
+            ball.getPosition().getPosX() <= bricks[i].getPosition().getPosX() + bricks[i].getPosition().getWidth()) { //limite de colisão da parte direita do tejolo
+                System.out.println("collision");
                 bricks[i].destroy();
                 return true;
             }
 
         }
 
+        return false;
     }
 
 
