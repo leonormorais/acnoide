@@ -53,6 +53,10 @@ public class Game {
 
             ball.move();
 
+            for (Brick brick : bricks) {
+                brick.move();
+            }
+
             //animation speed
             Thread.sleep(DELAY);
 

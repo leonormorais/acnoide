@@ -52,12 +52,11 @@ public class Ball {
         }
 
         if (collisionDetector.checkForCollisionPlatform()) {
-
                 currentDirection = GridDirection.NE;
         }
 
         if (collisionDetector.checkForCollisionBrick()) {
-            currentDirection = GridDirection.SW;
+            currentDirection = GridDirection.NE;
         }
 
 

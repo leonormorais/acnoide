@@ -79,9 +79,18 @@ public class GridPosition {
         return posY;
     }
 
+    public Color getColor() {
+        return this.color;
+    }
+
     public void setPosX(int posX) {
         this.posX = posX;
     }
+
+    public void setColor(Color color) {
+        rectangle.setColor(color);
+    }
+
 
 
     public void show() {
@@ -109,6 +118,11 @@ public class GridPosition {
         ellipse.delete();
     }
 
+    //Transformação de SuperBrick em Cara de MC
+    public void transformBrick() {
+        rectangle.grow(-10,-5);
+    }
+
     public void move(GridDirection direction) {
         switch (direction) {
             case LEFT:
@@ -119,6 +133,11 @@ public class GridPosition {
                 break;
         }
     }
+
+   public void moveBrick() {
+        this.posY += 1;
+        rectangle.translate(0, 1);
+   }
 
     //pensar numa solução única com o tipo de Game Object (Ball Or Brick)
     public void moveBall(GridDirection direction) {
