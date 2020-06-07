@@ -212,7 +212,6 @@ public class GridPosition {
                 return posX == Grid.PADDING * 2;
         }
         return false;
-
     }
 
 
