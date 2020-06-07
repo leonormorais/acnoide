@@ -18,7 +18,6 @@ public class TestGrid {
         Game g = new Game();
 
         g.init();
-
         g.start();
 
         // Brick[] test = ObjectFactory.createBricks(72);

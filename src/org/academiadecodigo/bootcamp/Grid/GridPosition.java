@@ -79,6 +79,10 @@ public class GridPosition {
 
     }
 
+    public void hideBall() {
+        ellipse.delete();
+    }
+
     public void move(GridDirection direction) {
         switch (direction) {
             case LEFT:
@@ -107,6 +111,17 @@ public class GridPosition {
                 this.posY -= 1;
                 ellipse.translate(-1, -1);
                 break;
+            case SW:
+                this.posX -= 1;
+                this.posY += 1;
+                ellipse.translate(-1,1);
+                break;
+            case SE:
+                this.posX += 1;
+                this.posY += 1;
+                ellipse.translate(1, 1);
+                break;
+
         }
     }
 
@@ -125,13 +140,25 @@ public class GridPosition {
     }
 
 
-    public boolean isOnEdge(GridDirection direction) {
+    public boolean isOnEdge() {
+        return (posX + width == grid.getWidth() || posX == Grid.PADDING * 2);
+    }
+
+    public boolean isOnTopEdge() {
+        return posY == Grid.PADDING * 2;
+    }
+
+    public boolean isOnBottomEdge() {
+        return posY + height == grid.getHeight() + Grid.PADDING;
+    }
+
+    public boolean isOnEdgePlatform(GridDirection direction) {
 
         switch (direction) {
-            case RIGHT, NE, NNE, ENE, ESE, SE, SSE:
-                return posX + width >= grid.getWidth();
-            case LEFT, NW, NNW, WNW, WSW, SW, SSW:
-                return posX <= Grid.PADDING * 2;
+            case RIGHT: // , NE, NNE, ENE, ESE, SE, SSE:
+                return posX + width == grid.getWidth();
+            case LEFT: // , NW, NNW, WNW, WSW, SW, SSW:
+                return posX == Grid.PADDING * 2;
         }
         return false;
 

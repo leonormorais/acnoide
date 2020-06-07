@@ -12,20 +12,36 @@ public class Ball {
 
     private GridPosition position;
     private GridDirection currentDirection;
+    private boolean isRunning;
 
     public Ball (Grid grid) {
         this.position = grid.makeGridPosition(BALL_WIDTH, BALL_HEIGHT);
         this.currentDirection = GridDirection.NE;
+        this.isRunning = true;
     }
 
     public void move() {
+
         for (int i = 0; i < BALL_SPEED; i++) {
 
-        if (position.isOnEdge(currentDirection)) {
-         //   currentDirection = getNewdirection(currentDirection)
-            currentDirection = GridDirection.getNewDirection(currentDirection);
-            System.out.println("Hit the wall");
+        if (position.isOnTopEdge()) {
+            currentDirection = GridDirection.getNewTopDirection(currentDirection);
         }
+
+        if (position.isOnEdge()) {
+            currentDirection = GridDirection.getNewDirection(currentDirection);
+        }
+
+        if (position.isOnBottomEdge()) {
+            gameOver();
+            break;
+        }
+        /* if (position.isOnEdge()) {
+            String edge = getHittedEdge();
+            currentDirection = GridDirection.getNewDirection(currentDirection, edge);
+        }
+        */
+
 
             // if (collisionDetection.check())
                  //currentDirection = getnewdirection(currentDirection)
@@ -34,6 +50,15 @@ public class Ball {
             position.moveBall(currentDirection);
         }
 
+    }
+
+    public void gameOver() {
+        position.hideBall();
+        isRunning = false;
+    }
+
+    public boolean isBallRunning() {
+        return isRunning;
     }
 
     public GridPosition getPosition() {

@@ -48,7 +48,7 @@ public class Game {
 
    public void start() throws InterruptedException {
 
-        while (true) {
+        while (ball.isBallRunning()) {
 
             ball.move();
 
@@ -57,6 +57,7 @@ public class Game {
 
         }
 
+       System.out.println("Off while loop");
     }
 
 

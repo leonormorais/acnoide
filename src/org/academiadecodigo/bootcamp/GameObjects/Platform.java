@@ -31,7 +31,7 @@ public class Platform extends GameObject {
 
     public void moveRight() {
         for (int i = 0; i < PLATFORM_SPEED; i++) {
-            if (position.isOnEdge(GridDirection.RIGHT)) {
+            if (position.isOnEdgePlatform(GridDirection.RIGHT)) {
                 return;
             }
             position.move(GridDirection.RIGHT);
@@ -40,7 +40,7 @@ public class Platform extends GameObject {
 
     public void moveLeft() {
         for (int i = 0; i < PLATFORM_SPEED; i++) {
-            if (position.isOnEdge(GridDirection.LEFT)) {
+            if (position.isOnEdgePlatform(GridDirection.LEFT)) {
                 return;
             }
             position.move(GridDirection.LEFT);

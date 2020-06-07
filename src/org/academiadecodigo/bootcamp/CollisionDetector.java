@@ -36,6 +36,8 @@ public class CollisionDetector {
         for (int i = 0; i < bricks.length; i++) {
 
             if (ball.getPosition() == bricks[i].getPosition()) {
+                // if (brick is destroyed)
+                  // return false;
                 bricks[i].destroy();
                 return true;
             }
