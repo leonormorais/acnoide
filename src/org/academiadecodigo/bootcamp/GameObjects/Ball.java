@@ -15,16 +15,18 @@ public class Ball {
 
     public Ball (Grid grid) {
         this.position = grid.makeGridPosition(BALL_WIDTH, BALL_HEIGHT);
-        this.currentDirection = GridDirection.DOWN;
+        this.currentDirection = GridDirection.NE;
     }
 
     public void move() {
         for (int i = 0; i < BALL_SPEED; i++) {
 
-        /*    if (position.isOnEdge()) {
-                //currentDirection = getnewdirection(currentDirection)
-            }
-        */
+        if (position.isOnEdge(currentDirection)) {
+         //   currentDirection = getNewdirection(currentDirection)
+            currentDirection = GridDirection.getNewDirection(currentDirection);
+            System.out.println("Hit the wall");
+        }
+
             // if (collisionDetection.check())
                  //currentDirection = getnewdirection(currentDirection)
                 //currentDirection = GridDirection.getnewDirection(currentDirection);

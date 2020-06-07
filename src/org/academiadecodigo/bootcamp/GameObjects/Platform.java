@@ -9,6 +9,7 @@ public class Platform extends GameObject {
 
     private final int WIDTH = 40;
     private final int HEIGHT = 10;
+    private final static int PLATFORM_SPEED = 20;
 
     //private Grid grid;
     private GridPosition position;
@@ -29,21 +30,21 @@ public class Platform extends GameObject {
     }
 
     public void moveRight() {
-        //rever os limites
-       //implementar isOnEdege
-      /*  if (position.getPosX() + WIDTH >= grid.getWidth()) {
-            return;
-        } */
-        position.move(GridDirection.RIGHT);
+        for (int i = 0; i < PLATFORM_SPEED; i++) {
+            if (position.isOnEdge(GridDirection.RIGHT)) {
+                return;
+            }
+            position.move(GridDirection.RIGHT);
+        }
     }
 
     public void moveLeft() {
-        //rever os limites
-        //implementar is OnEdge
-       /* if(position.getPosX() <= Grid.PADDING * 2) {
-            return;
-        } */
-        position.move(GridDirection.LEFT);
+        for (int i = 0; i < PLATFORM_SPEED; i++) {
+            if (position.isOnEdge(GridDirection.LEFT)) {
+                return;
+            }
+            position.move(GridDirection.LEFT);
+        }
     }
 
 

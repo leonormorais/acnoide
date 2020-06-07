@@ -96,30 +96,48 @@ public class GridPosition {
             case DOWN:
                 this.posY += 1;
                 ellipse.translate(0, 1);
+                break;
+            case NE:
+                this.posX += 1;
+                this.posY -= 1;
+                ellipse.translate(1, -1);
+                break;
+            case NW:
+                this.posX -= 1;
+                this.posY -= 1;
+                ellipse.translate(-1, -1);
+                break;
         }
     }
 
     private void moveLeft() {
         //controlar limites
 
-        this.posX -= 6;
-        rectangle.translate(-6, 0);
+        this.posX -= 1;
+        rectangle.translate(-1, 0);
     }
 
     private void moveRight() {
         //controlar limites
 
-        this.posX += 6;
-        rectangle.translate(6, 0);
+        this.posX += 1;
+        rectangle.translate(1, 0);
     }
 
-/*
-    public boolean isOnEdge() {
-        if (posX + width >= )
+
+    public boolean isOnEdge(GridDirection direction) {
+
+        switch (direction) {
+            case RIGHT, NE, NNE, ENE, ESE, SE, SSE:
+                return posX + width >= grid.getWidth();
+            case LEFT, NW, NNW, WNW, WSW, SW, SSW:
+                return posX <= Grid.PADDING * 2;
+        }
         return false;
+
     }
 
- */
+
 
     @Override
     public String toString() {
