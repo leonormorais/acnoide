@@ -89,8 +89,8 @@ public class GridPosition {
     public void moveBall(GridDirection direction) {
         switch (direction) {
             case DOWN:
-                this.posY += 6;
-                ellipse.translate(0, 6);
+                this.posY += 1;
+                ellipse.translate(0, 1);
         }
     }
 

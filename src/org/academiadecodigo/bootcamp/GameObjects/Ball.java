@@ -7,7 +7,7 @@ public class Ball {
 
     private final static int BALL_WIDTH = 10;
     private final static int BALL_HEIGTH = 10;
-    private final static int BALL_SPEED = 1;
+    private final static int BALL_SPEED = 6;
 
     private GridPosition position;
     private GridDirection currentDirection;

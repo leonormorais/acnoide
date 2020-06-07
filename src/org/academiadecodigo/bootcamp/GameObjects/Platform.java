@@ -29,7 +29,7 @@ public class Platform extends GameObject {
 
     public void moveRight() {
         //rever os limites
-        if (position.getPosX() + WIDTH > grid.getWidth()) {
+        if (position.getPosX() + WIDTH >= grid.getWidth()) {
             return;
         }
         position.move(GridDirection.RIGHT);

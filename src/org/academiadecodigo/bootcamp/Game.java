@@ -8,6 +8,7 @@ import org.academiadecodigo.bootcamp.Grid.Grid;
 public class Game {
 
     private final int BRICKS_NUMBER = 72; //Level 1
+    private final int DELAY = 100;
 
     private Grid grid;
     private Brick[] bricks;
@@ -51,7 +52,7 @@ public class Game {
             ball.move();
 
             //animation speed
-            Thread.sleep(100);
+            Thread.sleep(DELAY);
 
         }
 
