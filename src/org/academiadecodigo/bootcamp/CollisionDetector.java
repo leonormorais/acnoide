@@ -28,7 +28,7 @@ public class CollisionDetector {
 
 
     }
-
+ 
     /*
     public boolean checkForCollisionBrick() {
         for (int i = 0; i < bricks.length; i++) {
