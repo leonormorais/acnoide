@@ -29,28 +29,24 @@ public class CollisionDetector {
  
 
     public boolean checkForCollisionBrick() {
-        for (int i = 0; i < bricks.length; i++) {
+        for (Brick brick : bricks) {
 
-            if (bricks[i].getIsDestroyed()) {
+            if (brick.getIsDestroyed()) {
                 return false;
-            } else {
-                System.out.println(ball.getPosition().toString());
-                System.out.println("# " + i + bricks[i].getPosition().toString());
-
-                if (ball.getPosition().getPosY() <= bricks[i].getPosition().getPosY() + bricks[i].getPosition().getHeight() &&         //limite de colisão da parte de baixo do tijolo
-                        ball.getPosition().getPosY() + ball.getPosition().getHeight() >= bricks[i].getPosition().getHeight() &&        //limite da colisão da parte de cima do tijolo
-                        ball.getPosition().getPosX() + ball.getPosition().getWidth() >= bricks[i].getPosition().getPosX() &&           //limite de colisão da parte esquerda do tijolo
-                        ball.getPosition().getPosX() <= bricks[i].getPosition().getPosX() + bricks[i].getPosition().getWidth()) {       //limite de colisão da parte direita do tijolo
-                    System.out.println("collision");
-                    bricks[i].destroy();
-                    return true;
-                }
             }
 
+            if (ball.getPosition().getPosY() <= brick.getPosition().getPosY() + brick.getPosition().getHeight() &&         //limite de colisão da parte de baixo do tijolo
+                    ball.getPosition().getPosY() + ball.getPosition().getHeight() >= brick.getPosition().getHeight() &&        //limite da colisão da parte de cima do tijolo
+                    ball.getPosition().getPosX() + ball.getPosition().getWidth() >= brick.getPosition().getPosX() &&         //limite de colisão da parte esquerda do tijolo
+                    ball.getPosition().getPosX() <= brick.getPosition().getPosX() + brick.getPosition().getWidth())             //limite de colisão da parte direita do tijolo
+            {
+          // if (ball.getPosition().getPosY().equals(brick.getPosition().getPosY())) {
+                System.out.println("collision");
+                brick.destroy();
+                return true;
+            }
         }
-
         return false;
     }
-
 
 }
