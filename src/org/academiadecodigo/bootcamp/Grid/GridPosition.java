@@ -5,6 +5,7 @@ import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Ellipse;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.graphics.Shape;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class GridPosition {
 
@@ -17,6 +18,7 @@ public class GridPosition {
     private int width;
     private int height;
     private Rectangle rectangle;
+    private Picture pepino;
     private Ellipse ellipse;
 
     private Color color;
@@ -47,6 +49,18 @@ public class GridPosition {
         showBall();
 
     }
+
+    public GridPosition (Grid grid, int posX, int posY, String platform) {
+        this.grid = grid;
+        this.posX = posX;
+        this.posY = posY;
+
+        pepino = new Picture(posX, posY, "src/org/academiadecodigo/bootcamp/assets/pepino.png");
+
+        showPlatform();
+
+    }
+
 
     public int getWidth() {
         return width;
@@ -81,6 +95,11 @@ public class GridPosition {
         ellipse.setColor(color);
         ellipse.fill();
     }
+
+    private void showPlatform() {
+        pepino.draw();
+    }
+
 
     public void hide() {
 
@@ -136,14 +155,14 @@ public class GridPosition {
         //controlar limites
 
         this.posX -= 1;
-        rectangle.translate(-1, 0);
+        pepino.translate(-1, 0);
     }
 
     private void moveRight() {
         //controlar limites
 
         this.posX += 1;
-        rectangle.translate(1, 0);
+        pepino.translate(1, 0);
     }
 
 
