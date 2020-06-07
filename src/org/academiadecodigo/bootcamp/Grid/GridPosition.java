@@ -102,7 +102,7 @@ public class GridPosition {
 
 
     public void hide() {
-
+        rectangle.delete();
     }
 
     public void hideBall() {
