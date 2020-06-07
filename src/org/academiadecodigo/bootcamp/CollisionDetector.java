@@ -28,7 +28,7 @@ public class CollisionDetector {
 
 
     }
-/*
+
     public boolean checkForCollisionBrick() {
         for (int i = 0; i < bricks.length; i++) {
 
@@ -36,7 +36,7 @@ public class CollisionDetector {
                 return false;
             }
 
-            if (ball.getPosition().getPosY() <= bricks[i].getPosition().getPosY() + ) {
+            if (ball.getPosition().getPosY() <= bricks[i].getPosition().getPosY() + bricks[i].getPosition().getHeight() ) {
                 bricks[i].destroy();
                 return true;
             }
@@ -45,6 +45,5 @@ public class CollisionDetector {
 
     }
 
- */
 
 }
