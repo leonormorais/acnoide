@@ -28,6 +28,7 @@ public class Ball {
         direction[1] = -1; //y
     }
 
+    //getters
     public int getBallWidth() {
         return BALL_WIDTH;
     }
@@ -36,10 +37,28 @@ public class Ball {
         return BALL_HEIGHT;
     }
 
+    public int getXDirection() {
+        return direction[0];
+    }
+
+    public int getYDirection() {
+        return direction[1];
+    }
+
+    //setters
+    public void setNewXDirection(int x) {
+        direction[0] = x;
+    }
+
+    public void setNewYDirection(int y) {
+        direction[1] = y;
+    }
+
     public void setCollisionDetector(CollisionDetector collisionDetector) {
         this.collisionDetector = collisionDetector;
     }
 
+    //move
     public void move() {
 
         for (int i = 0; i < BALL_SPEED; i++) {
@@ -60,23 +79,13 @@ public class Ball {
         }
 
         if (collisionDetector.checkForCollisionPlatform()) {
-                currentDirection = GridDirection.NE;
+            direction[1] = - direction[1];    
+            //currentDirection = GridDirection.NE;
         }
 
         if (collisionDetector.checkForCollisionBrick()) {
             currentDirection = GridDirection.NE;
         }
-
-
-        /* if (position.isOnEdge()) {
-            String edge = getHittedEdge();
-            currentDirection = GridDirection.getNewDirection(currentDirection, edge);
-        }
-        */
-
-                 //currentDirection = getnewdirection(currentDirection)
-                //currentDirection = GridDirection.getnewDirection(currentDirection);
-
 
         position.moveBall(direction);
 
