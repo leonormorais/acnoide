@@ -144,6 +144,9 @@ public class GridPosition {
    public void moveBrick() {
         this.posY += 1;
         rectangle.translate(0, 1);
+        if (posY + getHeight() == grid.getHeight()) {
+            hide();
+        }
    }
 
     //pensar numa solução única com o tipo de Game Object (Ball Or Brick)

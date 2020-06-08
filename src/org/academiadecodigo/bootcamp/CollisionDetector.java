@@ -20,6 +20,7 @@ public class CollisionDetector {
         this.ball = ball;
     }
 
+    //platform
     public boolean checkForCollisionPlatform() {
 
         if(hitTopLeftHalf(platform)) {
@@ -57,10 +58,17 @@ public class CollisionDetector {
     }
 
 
+    //bricks
     public boolean checkForCollisionBrick() {
         for (Brick brick : bricks) {
 
-
+            if (!brick.getIsDestroyed()) {
+                   if(checkForHits(brick))  {
+                    brick.destroy();
+                    return true;
+                }
+            }
+            /*
             //lógica para bater apenas em um lado (implementar)
             if (ball.getPosition().getPosY() <= brick.getPosition().getPosY() + brick.getPosition().getHeight() &&
                     ball.getPosition().getPosY() + ball.getPosition().getHeight() >= brick.getPosition().getHeight() &&
@@ -68,15 +76,43 @@ public class CollisionDetector {
                     ball.getPosition().getPosX() <= brick.getPosition().getPosX() + brick.getPosition().getWidth()) {
 
                if (!brick.getIsDestroyed()) {
-                   brick.destroy();
-                   return true;
+
                }
 
            }
-
+            */
         }
         return false;
     }
+
+    private boolean checkForHits(Hitable hitable) {
+        if (hitBottomLeftHalf(hitable)) {
+            ball.setNewXDirection(-1); // test
+            System.out.println("hit bottom left half");
+            return true;
+        }
+        if (hitBottomRightHalf(hitable)) {
+            ball.setNewXDirection(1); // test
+            System.out.println("hit bottom right half");
+            return true;
+        }
+        return false;
+    }
+
+
+
+    private boolean hitBottomRightHalf(Hitable hitable) {
+        return ball.getPosition().getPosY() == hitable.getPosition().getPosY() + hitable.getPosition().getHeight() &&
+                ball.getPosition().getPosX() >= hitable.getPosition().getPosX() + (hitable.getPosition().getWidth() / 2) &&
+                ball.getPosition().getPosX() <= hitable.getPosition().getPosX() + hitable.getPosition().getWidth();
+    }
+
+    private boolean hitBottomLeftHalf(Hitable hitable) {
+        return ball.getPosition().getPosY() == hitable.getPosition().getPosY() + hitable.getPosition().getHeight() &&
+                ball.getPosition().getPosX() >= hitable.getPosition().getPosX() &&
+                ball.getPosition().getPosX() <= hitable.getPosition().getPosX() + (hitable.getPosition().getWidth() / 2);
+    }
+
 
 
 
