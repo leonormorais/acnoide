@@ -85,7 +85,7 @@ public class Ball {
 
         if (collisionDetector.checkForCollisionBrick()) {
             //test
-            direction[1] = - direction[1];
+            direction[1] = - direction[1]; //y
 
             //currentDirection = GridDirection.NE;
         }

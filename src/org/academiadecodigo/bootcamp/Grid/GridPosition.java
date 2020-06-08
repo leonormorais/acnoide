@@ -96,7 +96,9 @@ public class GridPosition {
         rectangle.setColor(color);
     }
 
-
+    public void setWidth(int width) {
+        this.width = width;
+    }
 
     public void show() {
         rectangle.setColor(color);

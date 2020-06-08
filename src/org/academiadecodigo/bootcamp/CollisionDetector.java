@@ -2,6 +2,8 @@ package org.academiadecodigo.bootcamp;
 
 import org.academiadecodigo.bootcamp.GameObjects.Ball;
 import org.academiadecodigo.bootcamp.GameObjects.Bricks.Brick;
+import org.academiadecodigo.bootcamp.GameObjects.Bricks.SuperBrick;
+import org.academiadecodigo.bootcamp.GameObjects.Hitable;
 import org.academiadecodigo.bootcamp.GameObjects.Platform;
 
 public class CollisionDetector {
@@ -20,8 +22,7 @@ public class CollisionDetector {
 
     public boolean checkForCollisionPlatform() {
 
-        //if bater na primeira metade da barra
-        if(hitLeftHalf()) {
+        if(hitTopLeftHalf(platform)) {
             if(ball.getXDirection() == 0) {
                 ball.setNewXDirection(-1);
             }
@@ -34,12 +35,12 @@ public class CollisionDetector {
             return true;
         }
 
-        if(hitCenter()) {
+        if(hitTopCenter(platform)) {
             ball.setNewXDirection(0);
+            return true;
         }
 
-        //testing
-        if(hitRightHalf()) {
+        if(hitTopRightHalf(platform)) {
             if(ball.getXDirection() == 0) {
                 ball.setNewXDirection(1);
             }
@@ -58,8 +59,12 @@ public class CollisionDetector {
 
     public boolean checkForCollisionBrick() {
         for (Brick brick : bricks) {
-
-            //lógica para bater em todos
+/*
+            //lógica para bater em todos -- em baixo
+            if (ball.getPosition().getPosY() <= brick.getPosition().getPosY() + brick.getPosition().getHeight() &&
+            ball.getPosition().getPosX() >= brick.getPosition().getPosX()
+            )
+*/
             //lógica para bater apenas em um lado (implementar)
             if (ball.getPosition().getPosY() <= brick.getPosition().getPosY() + brick.getPosition().getHeight() &&
                     ball.getPosition().getPosY() + ball.getPosition().getHeight() >= brick.getPosition().getHeight() &&
@@ -68,6 +73,9 @@ public class CollisionDetector {
 
                if (!brick.getIsDestroyed()) {
                    brick.destroy();
+                   if (brick instanceof SuperBrick) {
+
+                   }
                    return true;
                }
 
@@ -77,25 +85,26 @@ public class CollisionDetector {
         return false;
     }
 
+
     //hit parte de cima lado esquerdo
-    private boolean hitLeftHalf() {
-        return ball.getPosition().getPosY() + ball.getBallHeight() == platform.getPosition().getPosY() &&
-                ball.getPosition().getPosX() + ball.getBallWidth() >= platform.getPosition().getPosX() &&
-                ball.getPosition().getPosX() <= platform.getPosition().getPosX() + (platform.getWIDTH() / 2) - 5;
+    private boolean hitTopLeftHalf(Hitable hitable) {
+        return ball.getPosition().getPosY() + ball.getBallHeight() == hitable.getPosition().getPosY() &&
+                ball.getPosition().getPosX() + ball.getBallWidth() >= hitable.getPosition().getPosX() &&
+                ball.getPosition().getPosX() <= hitable.getPosition().getPosX() + (hitable.getPosition().getWidth() / 2) - 10;
     }
 
     //hit parte de cima lado direito
-    private boolean hitRightHalf() {
-        return ball.getPosition().getPosY() + ball.getBallHeight() == platform.getPosition().getPosY() &&
-                ball.getPosition().getPosX() + ball.getBallWidth() >= platform.getPosition().getPosX() + (platform.getWIDTH() / 2) + 5 &&
-                ball.getPosition().getPosX() <= platform.getPosition().getPosX() + (platform.getWIDTH());
+    private boolean hitTopRightHalf(Hitable hitable) {
+        return ball.getPosition().getPosY() + ball.getBallHeight() == hitable.getPosition().getPosY() &&
+                ball.getPosition().getPosX() + ball.getBallWidth() >= hitable.getPosition().getPosX() + (hitable.getPosition().getWidth() / 2) + 10 &&
+                ball.getPosition().getPosX() <= hitable.getPosition().getPosX() + (hitable.getPosition().getWidth());
     }
 
     //hit parte de cima centro
-    private boolean hitCenter() {
-        return ball.getPosition().getPosY() + ball.getBallHeight() == platform.getPosition().getPosY() &&
-                ball.getPosition().getPosX() + ball.getBallWidth() >= platform.getPosition().getPosX() + (platform.getWIDTH() / 2) - 5 &&
-                ball.getPosition().getPosX() <= platform.getPosition().getPosX() + (platform.getWIDTH() /2 ) + 5;
+    private boolean hitTopCenter(Hitable hitable) {
+        return ball.getPosition().getPosY() + ball.getBallHeight() == hitable.getPosition().getPosY() &&
+                ball.getPosition().getPosX() + ball.getBallWidth() >= hitable.getPosition().getPosX() + (hitable.getPosition().getWidth() / 2) - 10 &&
+                ball.getPosition().getPosX() <= hitable.getPosition().getPosX() + (hitable.getPosition().getWidth() / 2) + 10;
     }
 
 }
