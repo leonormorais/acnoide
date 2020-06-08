@@ -11,8 +11,8 @@ public class GridPosition {
 
     private final int BALL_POSITION_X = 400;
     private final int BALL_POSITION_Y = 450;
-    private final int PLATFORM_WIDTH = 40;
-    private final int PLATFORM_HEIGHT = 10;
+    private final int PLATFORM_WIDTH = 50;
+    private final int PLATFORM_HEIGHT = 20;
 
     private Grid grid;
     private int posX;
@@ -150,42 +150,15 @@ public class GridPosition {
        this.posY += direction[1];
        ellipse.translate(direction[0], direction[1]);
    }
-    /*
-    public void moveBall(GridDirection direction) {
-        switch (direction) {
-            case DOWN:
-                this.posY += 1;
-                ellipse.translate(0, 1);
-                break;
-            case NE:
-                this.posX += 1;
-                this.posY -= 1;
-                ellipse.translate(1, -1);
-                break;
-            case NW:
-                this.posX -= 1;
-                this.posY -= 1;
-                ellipse.translate(-1, -1);
-                break;
-            case SW:
-                this.posX -= 1;
-                this.posY += 1;
-                ellipse.translate(-1,1);
-                break;
-            case SE:
-                this.posX += 1;
-                this.posY += 1;
-                ellipse.translate(1, 1);
-                break;
 
-        }
-    } */
 
+   //move platform
     private void moveLeft() {
         this.posX -= 1;
         pepino.translate(-1, 0);
     }
 
+    //move platform
     private void moveRight() {
         this.posX += 1;
         pepino.translate(1, 0);
@@ -227,3 +200,34 @@ public class GridPosition {
                 '}';
     }
 }
+
+  /*
+    public void moveBall(GridDirection direction) {
+        switch (direction) {
+            case DOWN:
+                this.posY += 1;
+                ellipse.translate(0, 1);
+                break;
+            case NE:
+                this.posX += 1;
+                this.posY -= 1;
+                ellipse.translate(1, -1);
+                break;
+            case NW:
+                this.posX -= 1;
+                this.posY -= 1;
+                ellipse.translate(-1, -1);
+                break;
+            case SW:
+                this.posX -= 1;
+                this.posY += 1;
+                ellipse.translate(-1,1);
+                break;
+            case SE:
+                this.posX += 1;
+                this.posY += 1;
+                ellipse.translate(1, 1);
+                break;
+
+        }
+    } */

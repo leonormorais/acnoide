@@ -22,22 +22,32 @@ public class CollisionDetector {
 
         //if bater na primeira metade da barra
         if(hitLeftHalf()) {
-            if (ball.getXDirection() == -2) {
+            if(ball.getXDirection() == 0) {
                 ball.setNewXDirection(-1);
             }
-            if (ball.getXDirection() == 1) {
+            if (ball.getXDirection() == 2) {
+                ball.setNewXDirection(1);
+            }
+            if (ball.getXDirection() == -1) {
                 ball.setNewXDirection(-2);
             }
             return true;
         }
 
+        if(hitCenter()) {
+            ball.setNewXDirection(0);
+        }
+
         //testing
         if(hitRightHalf()) {
-            if (ball.getXDirection() == -2 || ball.getXDirection() == 1) {
-                ball.setNewXDirection(-ball.getXDirection());
-            }
-            if (ball.getXDirection() == 2) {
+            if(ball.getXDirection() == 0) {
                 ball.setNewXDirection(1);
+            }
+            if (ball.getXDirection() == -2) {
+                ball.setNewXDirection(-1);
+            }
+            if (ball.getXDirection() == 1) {
+                ball.setNewXDirection(2);
             }
             return true;
         }
@@ -71,14 +81,21 @@ public class CollisionDetector {
     private boolean hitLeftHalf() {
         return ball.getPosition().getPosY() + ball.getBallHeight() == platform.getPosition().getPosY() &&
                 ball.getPosition().getPosX() + ball.getBallWidth() >= platform.getPosition().getPosX() &&
-                ball.getPosition().getPosX() <= platform.getPosition().getPosX() + (platform.getWIDTH() / 2);
+                ball.getPosition().getPosX() <= platform.getPosition().getPosX() + (platform.getWIDTH() / 2) - 5;
     }
 
     //hit parte de cima lado direito
     private boolean hitRightHalf() {
         return ball.getPosition().getPosY() + ball.getBallHeight() == platform.getPosition().getPosY() &&
-                ball.getPosition().getPosX() + ball.getBallWidth() >= platform.getPosition().getPosX() + (platform.getWIDTH() / 2) &&
+                ball.getPosition().getPosX() + ball.getBallWidth() >= platform.getPosition().getPosX() + (platform.getWIDTH() / 2) + 5 &&
                 ball.getPosition().getPosX() <= platform.getPosition().getPosX() + (platform.getWIDTH());
+    }
+
+    //hit parte de cima centro
+    private boolean hitCenter() {
+        return ball.getPosition().getPosY() + ball.getBallHeight() == platform.getPosition().getPosY() &&
+                ball.getPosition().getPosX() + ball.getBallWidth() >= platform.getPosition().getPosX() + (platform.getWIDTH() / 2) - 5 &&
+                ball.getPosition().getPosX() <= platform.getPosition().getPosX() + (platform.getWIDTH() /2 ) + 5;
     }
 
 }
