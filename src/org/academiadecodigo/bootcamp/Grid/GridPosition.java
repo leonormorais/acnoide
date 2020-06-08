@@ -193,7 +193,7 @@ public class GridPosition {
 
 
     public boolean isOnEdge() {
-        return (posX + width == grid.getWidth() || posX == Grid.PADDING * 2);
+        return (posX + width >= grid.getWidth() || posX <= Grid.PADDING * 2);
     }
 
     public boolean isOnTopEdge() {

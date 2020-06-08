@@ -20,20 +20,26 @@ public class CollisionDetector {
 
     public boolean checkForCollisionPlatform() {
 
-        return ball.getPosition().getPosY() + ball.getBallHeight() == platform.getPosition().getPosY() &&
-                ball.getPosition().getPosX() + ball.getBallWidth() >= platform.getPosition().getPosX() &&
-                ball.getPosition().getPosX() <= platform.getPosition().getPosX() + platform.getWIDTH();
-
         //if bater na primeira metade da barra
+        if(hitLeftHalf()) {
+            ball.setNewXDirection(-2);
+            return true;
+        }
 
+        if(hitRightHalf()) {
+            ball.setNewXDirection(2);
+            return true;
 
+        }
+    return false;
     }
- 
+
 
     public boolean checkForCollisionBrick() {
         for (Brick brick : bricks) {
 
             //lógica para bater em todos
+            //lógica para bater apenas em um lado (implementar)
             if (ball.getPosition().getPosY() <= brick.getPosition().getPosY() + brick.getPosition().getHeight() &&
                     ball.getPosition().getPosY() + ball.getPosition().getHeight() >= brick.getPosition().getHeight() &&
                     ball.getPosition().getPosX() + ball.getPosition().getWidth() >= brick.getPosition().getPosX() &&
@@ -48,6 +54,18 @@ public class CollisionDetector {
 
         }
         return false;
+    }
+
+    private boolean hitLeftHalf() {
+        return ball.getPosition().getPosY() + ball.getBallHeight() == platform.getPosition().getPosY() &&
+                ball.getPosition().getPosX() + ball.getBallWidth() >= platform.getPosition().getPosX() &&
+                ball.getPosition().getPosX() <= platform.getPosition().getPosX() + (platform.getWIDTH() / 2);
+    }
+
+    private boolean hitRightHalf() {
+        return ball.getPosition().getPosY() + ball.getBallHeight() == platform.getPosition().getPosY() &&
+                ball.getPosition().getPosX() + ball.getBallWidth() >= platform.getPosition().getPosX() + (platform.getWIDTH() / 2) &&
+                ball.getPosition().getPosX() <= platform.getPosition().getPosX() + (platform.getWIDTH());
     }
 
 }
