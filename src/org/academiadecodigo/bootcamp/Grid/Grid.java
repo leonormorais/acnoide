@@ -2,6 +2,7 @@ package org.academiadecodigo.bootcamp.Grid;
 
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Grid {
 
@@ -9,19 +10,21 @@ public class Grid {
     private Rectangle background; //substituido por picture
     private int width; //em px
     private int height; //em px
+    private Picture backgroundTest;
 
     //este contrutor deve ser invocado pelo Game init
     public Grid (int width, int height) {
         this.width = width;
         this.height = height;
 
-        background = new Rectangle(PADDING, PADDING, width, height); //substituido por picture
+       // background = new Rectangle(PADDING, PADDING, width, height); //substituido por picture
 
+        backgroundTest = new Picture(PADDING,PADDING, "src/org/academiadecodigo/bootcamp/assets/background_test.jpg");
     }
 
     //init dentro ou fora do construtor
     public void init() {
-        background.draw();
+        backgroundTest.draw();
     }
 
     public int getWidth() {
