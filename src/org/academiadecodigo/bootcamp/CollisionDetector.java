@@ -22,15 +22,26 @@ public class CollisionDetector {
 
         //if bater na primeira metade da barra
         if(hitLeftHalf()) {
-            ball.setNewXDirection(-2);
+            if (ball.getXDirection() == -2) {
+                ball.setNewXDirection(-1);
+            }
+            if (ball.getXDirection() == 1) {
+                ball.setNewXDirection(-2);
+            }
             return true;
         }
 
+        //testing
         if(hitRightHalf()) {
-            ball.setNewXDirection(2);
+            if (ball.getXDirection() == -2 || ball.getXDirection() == 1) {
+                ball.setNewXDirection(-ball.getXDirection());
+            }
+            if (ball.getXDirection() == 2) {
+                ball.setNewXDirection(1);
+            }
             return true;
-
         }
+
     return false;
     }
 

@@ -45,7 +45,7 @@ public class Grid {
     }
 
     public GridPosition makeGridPosition(int posX, int posY, String name) {
-        return new GridPosition(this, posX, posY, "platform");
+        return new GridPosition(this, posX, posY, name);
 
     }
 
