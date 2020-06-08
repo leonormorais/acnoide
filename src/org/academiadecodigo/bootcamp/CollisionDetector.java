@@ -59,12 +59,8 @@ public class CollisionDetector {
 
     public boolean checkForCollisionBrick() {
         for (Brick brick : bricks) {
-/*
-            //lógica para bater em todos -- em baixo
-            if (ball.getPosition().getPosY() <= brick.getPosition().getPosY() + brick.getPosition().getHeight() &&
-            ball.getPosition().getPosX() >= brick.getPosition().getPosX()
-            )
-*/
+
+
             //lógica para bater apenas em um lado (implementar)
             if (ball.getPosition().getPosY() <= brick.getPosition().getPosY() + brick.getPosition().getHeight() &&
                     ball.getPosition().getPosY() + ball.getPosition().getHeight() >= brick.getPosition().getHeight() &&
@@ -73,9 +69,6 @@ public class CollisionDetector {
 
                if (!brick.getIsDestroyed()) {
                    brick.destroy();
-                   if (brick instanceof SuperBrick) {
-
-                   }
                    return true;
                }
 
@@ -84,6 +77,7 @@ public class CollisionDetector {
         }
         return false;
     }
+
 
 
     //hit parte de cima lado esquerdo
