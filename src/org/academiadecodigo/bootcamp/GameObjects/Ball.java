@@ -9,7 +9,7 @@ public class Ball {
 
     private final static int BALL_WIDTH = 10;
     private final static int BALL_HEIGHT = 10;
-    private final static int BALL_SPEED = 5;
+    private final static int BALL_SPEED = 10;
 
     private GridPosition position;
     private GridDirection currentDirection;
@@ -79,12 +79,15 @@ public class Ball {
         }
 
         if (collisionDetector.checkForCollisionPlatform()) {
-            direction[1] = - direction[1];    
+            direction[1] = - direction[1];
             //currentDirection = GridDirection.NE;
         }
 
         if (collisionDetector.checkForCollisionBrick()) {
-            currentDirection = GridDirection.NE;
+            //test
+            direction[1] = - direction[1];
+
+            //currentDirection = GridDirection.NE;
         }
 
         position.moveBall(direction);
