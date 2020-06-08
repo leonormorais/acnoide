@@ -56,12 +56,14 @@ public class CollisionDetector {
         return false;
     }
 
+    //hit parte de cima lado esquerdo
     private boolean hitLeftHalf() {
         return ball.getPosition().getPosY() + ball.getBallHeight() == platform.getPosition().getPosY() &&
                 ball.getPosition().getPosX() + ball.getBallWidth() >= platform.getPosition().getPosX() &&
                 ball.getPosition().getPosX() <= platform.getPosition().getPosX() + (platform.getWIDTH() / 2);
     }
 
+    //hit parte de cima lado direito
     private boolean hitRightHalf() {
         return ball.getPosition().getPosY() + ball.getBallHeight() == platform.getPosition().getPosY() &&
                 ball.getPosition().getPosX() + ball.getBallWidth() >= platform.getPosition().getPosX() + (platform.getWIDTH() / 2) &&
