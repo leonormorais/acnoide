@@ -44,7 +44,7 @@ public class Sound {
         buttonPanel.setBackground(Color.BLUE);
         con.add(buttonPanel);
 
-        soundButton = new JButton("Sound Effect");
+        soundButton = new JButton("Testing sound");
         soundButton.setFocusPainted(false);
         soundButton.addActionListener(bHandler);
         buttonPanel.add(soundButton);
