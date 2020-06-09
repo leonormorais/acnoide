@@ -9,12 +9,12 @@ import org.academiadecodigo.bootcamp.Grid.GridPosition;
 
 public class ObjectFactory {
 
-    private final static int MARGIN_LEFT = 45;
+    private final static int MARGIN_LEFT = 41;
     public final static int BRICK_WIDTH = 60;
     public final static int BRICK_HEIGHT = 20;
     private final static double NORMAL_BRICK_PROB = 0.2;
 
-    private static int posX = 45;
+    private static int posX = 41;
     private static int posY = 100;
 
     private static String[] sourceImg = {

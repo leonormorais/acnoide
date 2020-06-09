@@ -19,7 +19,7 @@ public class Grid {
 
        // background = new Rectangle(PADDING, PADDING, width, height); //substituido por picture
 
-        backgroundTest = new Picture(PADDING,PADDING, "resources/backgroundV2.jpg");
+        backgroundTest = new Picture(PADDING,PADDING, "resources/backgroundV3.jpg");
     }
 
     //init dentro ou fora do construtor

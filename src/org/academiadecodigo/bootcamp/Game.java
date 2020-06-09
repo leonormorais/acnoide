@@ -16,7 +16,7 @@ public class Game {
     private Ball ball;
 
     public Game() {
-        this.grid = new Grid(612, 700);
+        this.grid = new Grid(600, 700);
 
     }
 
