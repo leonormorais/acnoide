@@ -34,7 +34,7 @@ public class SuperBrick extends Brick {
         this.position.transformBrick();
         this.move();
 
-        collisionDetector.checkForCollisionPlatform();
+        //collisionDetector.checkForCollisionPlatform();
 
        // position.transform(); //tem de ser criado no position método transform
 
