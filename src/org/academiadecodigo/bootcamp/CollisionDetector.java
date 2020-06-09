@@ -55,6 +55,12 @@ public class CollisionDetector {
             return true;
         }
 
+        if(hitEdges(platform)) {
+            ball.setNewXDirection(-ball.getXDirection());
+            ball.setNewYDirection(-ball.getYDirection());
+            return true;
+        }
+
     return false;
     }
 
@@ -123,7 +129,7 @@ public class CollisionDetector {
         //edges
         if (hitEdges(hitable)) {
             ball.setNewXDirection(-ball.getXDirection());
-            ball.setNewYDirection(-ball.getYDirection()); //
+            ball.setNewYDirection(-ball.getYDirection());
             System.out.println("hit edge");
             return true;
         }
