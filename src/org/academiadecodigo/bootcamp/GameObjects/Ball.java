@@ -4,6 +4,7 @@ import org.academiadecodigo.bootcamp.CollisionDetector;
 import org.academiadecodigo.bootcamp.Grid.Grid;
 import org.academiadecodigo.bootcamp.Grid.GridDirection;
 import org.academiadecodigo.bootcamp.Grid.GridPosition;
+import org.academiadecodigo.bootcamp.Tests.Sound;
 
 public class Ball {
 
@@ -84,7 +85,7 @@ public class Ball {
         }
 
         if (collisionDetector.checkForCollisionBrick()) {
-            //test
+            Sound.playBallEffect(); //testing sound
             direction[1] = - direction[1]; //y
 
             //currentDirection = GridDirection.NE;
