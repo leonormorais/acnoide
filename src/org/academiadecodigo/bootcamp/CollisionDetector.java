@@ -171,10 +171,12 @@ public class CollisionDetector {
 
         return ball.getPosition().getPosY() <= hitable.getPosition().getPosY() + hitable.getPosition().getHeight() &&
                ball.getPosition().getPosY() + ball.getPosition().getHeight() >= hitable.getPosition().getPosY() &&
-               ball.getPosition().getPosX() + ball.getPosition().getWidth() == hitable.getPosition().getPosX() ||
+               (ball.getPosition().getPosX() + ball.getPosition().getWidth() == hitable.getPosition().getPosX() ||
+               ball.getPosition().getPosX() + ball.getPosition().getWidth() == hitable.getPosition().getPosX() + 1) ||
                ball.getPosition().getPosY() <= hitable.getPosition().getPosY() + hitable.getPosition().getHeight() &&
                ball.getPosition().getPosY() + ball.getPosition().getHeight() >= hitable.getPosition().getPosY() &&
-               ball.getPosition().getPosX() == hitable.getPosition().getPosX() + hitable.getPosition().getWidth();
+               (ball.getPosition().getPosX() == hitable.getPosition().getPosX() + hitable.getPosition().getWidth() ||
+               ball.getPosition().getPosX() == hitable.getPosition().getPosX() + hitable.getPosition().getWidth() -1);
     }
 
     private boolean hitBottomCenter(Hitable hitable) {

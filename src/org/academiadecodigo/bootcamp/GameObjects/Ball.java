@@ -24,8 +24,8 @@ public class Ball {
         this.isRunning = true;
         this.direction = new int[2];
 
-        direction[0] = 1; //x
-        direction[1] = -1; //y
+        direction[0] = 0; //x
+        direction[1] = 1; //y
     }
 
     //getters
