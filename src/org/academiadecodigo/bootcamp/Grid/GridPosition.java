@@ -9,8 +9,8 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class GridPosition {
 
-    private final int BALL_POSITION_X = 310;
-    private final int BALL_POSITION_Y = 450;
+    private final int BALL_POSITION_X = 205;
+    private final int BALL_POSITION_Y = 50;
     private final int PLATFORM_WIDTH = 50;
     private final int PLATFORM_HEIGHT = 20;
 
