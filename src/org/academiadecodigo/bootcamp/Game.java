@@ -8,7 +8,7 @@ import org.academiadecodigo.bootcamp.Grid.Grid;
 public class Game {
 
     private final int BRICKS_NUMBER = 72; //Level 1
-    private final int DELAY = 100;
+    private final int DELAY = 50;
 
     private Grid grid;
     private Brick[] bricks;
