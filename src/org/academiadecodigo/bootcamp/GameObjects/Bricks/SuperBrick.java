@@ -36,6 +36,7 @@ public class SuperBrick extends Brick {
         
         //collisionDetector.checkForCollisionPlatform();
 
+
        // position.transform(); //tem de ser criado no position método transform
 
        /* if (this.position.getColor() == Color.YELLOW) {

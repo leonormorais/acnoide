@@ -7,17 +7,28 @@ import org.academiadecodigo.simplegraphics.graphics.Color;
 
 public class Platform implements Hitable {
 
-    private final int WIDTH = 40;
-    private final int HEIGHT = 10;
+    private int WIDTH = 40;
+    private int HEIGHT = 10;
     private final static int PLATFORM_SPEED = 25;
+    private int superSize = 0;
 
     //private Grid grid;
     private GridPosition position;
     private Color color;
 
+    public void setSuperSize(String superPower){
+        // fazer um switch por superpower;
+        switch (superPower){
+            case "Sergio": //dizer qual caso;
+                setSuperSize(20);
+                setWIDTH(getWIDTH() + superSize);
+                break;
+        }
+    }
+
     public Platform (Grid grid) {
         this.color = Color.PINK;
-        this.position = grid.makeGridPosition(300,675, "platform");
+        this.position = grid.makeGridPosition(300 - superSize/2,675 , "platform");
     }
 
     public int getWIDTH() {
@@ -55,6 +66,20 @@ public class Platform implements Hitable {
 
         }
     }
+
+    public void setWIDTH(int WIDTH) {
+        this.WIDTH = WIDTH;
+    }
+
+    public int getSuperSize() {
+        return superSize;
+    }
+
+    public void setSuperSize(int superSize) {
+        this.superSize = superSize;
+    }
+
+
 
     @Override
     public String toString() {
