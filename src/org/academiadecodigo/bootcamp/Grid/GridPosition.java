@@ -60,7 +60,7 @@ public class GridPosition {
         this.width = PLATFORM_WIDTH;
         this.height = PLATFORM_HEIGHT;
 
-        pepino = new Picture(posX, posY, "src/org/academiadecodigo/bootcamp/assets/pepino.png");
+        pepino = new Picture(posX, posY, "resources/pepino.png");
 
         showPlatform();
 
