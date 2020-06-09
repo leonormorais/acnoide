@@ -9,7 +9,7 @@ public class Platform implements Hitable {
 
     private int WIDTH = 40;
     private int HEIGHT = 10;
-    private final static int PLATFORM_SPEED = 25;
+    private final static int PLATFORM_SPEED = 15;
     private int superSize = 0;
 
     //private Grid grid;
