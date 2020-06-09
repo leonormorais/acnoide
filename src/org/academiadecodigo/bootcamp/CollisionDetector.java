@@ -69,9 +69,11 @@ public class CollisionDetector {
 
                     brick.destroy();
 
-                        if (brick instanceof SuperBrick) {
+                       /* if (brick instanceof SuperBrick) {
                             ((SuperBrick) brick).setCollisionDetector(this);
                         }
+
+                        */
 
                     return true;
                 }
@@ -83,18 +85,38 @@ public class CollisionDetector {
     private boolean checkForHits(Hitable hitable) {
         //bottom
         if (hitBottomLeftHalf(hitable)) {
-            ball.setNewXDirection(-1); // test
-            System.out.println("hit bottom left half");
+            if(ball.getXDirection() == 0) {  // Só mudou este em relação à plataforma.
+                ball.setNewXDirection(1);
+            }
+            if (ball.getXDirection() == 2) {
+                ball.setNewXDirection(1);
+            }
+            if (ball.getXDirection() == -1) {
+                ball.setNewXDirection(-2);
+            }
+            System.out.println("Hit bottom left");
             return true;
         }
+
+
         if (hitBottomRightHalf(hitable)) {
-            ball.setNewXDirection(1); // test
-            System.out.println("hit bottom right half");
+            if(ball.getXDirection() == 0) {  // Só mudou este em relação à plataforma.
+                ball.setNewXDirection(-1);
+            }
+            if (ball.getXDirection() == -2) {
+                ball.setNewXDirection(-1);
+            }
+            if (ball.getXDirection() == 1) {
+                ball.setNewXDirection(2);
+            }
+            System.out.println("Hit bottom right");
             return true;
         }
+
+
         if (hitBottomCenter(hitable)) {
-            ball.setNewXDirection(1); // test
-            System.out.println("hit bottom center");
+            ball.setNewXDirection(0);
+            System.out.println("Hit bottom center");
             return true;
         }
 
@@ -107,19 +129,37 @@ public class CollisionDetector {
         }
 
         //top
-        if (hitTopLeftHalf(hitable)) {
-            ball.setNewXDirection(-1);
-            System.out.println("hit top Right Half");
+        if (hitTopLeftHalf(hitable)) {              // Igual à plataforma
+            if(ball.getXDirection() == 0) {
+                ball.setNewXDirection(-1);
+            }
+            if (ball.getXDirection() == 2) {
+                ball.setNewXDirection(1);
+            }
+            if (ball.getXDirection() == -1) {
+                ball.setNewXDirection(-2);
+            }
+            System.out.println("hit top left");
             return true;
         }
+
         if (hitTopRightHalf(hitable)) {
-            ball.setNewXDirection(1);
-            System.out.println("hit top Right Half");
+            if(ball.getXDirection() == 0) {
+                ball.setNewXDirection(1);
+            }
+            if (ball.getXDirection() == -2) {
+                ball.setNewXDirection(-1);
+            }
+            if (ball.getXDirection() == 1) {
+                ball.setNewXDirection(2);
+            }
+            System.out.println("hit top right");
             return true;
         }
+
         if (hitTopCenter(hitable)) {
             ball.setNewXDirection(0);
-            System.out.println("hit top Right Half");
+            System.out.println("hit top center");
             return true;
         }
 
@@ -128,11 +168,13 @@ public class CollisionDetector {
     }
 
     private boolean hitEdges(Hitable hitable) {
-        return ball.getPosition().getPosY() < hitable.getPosition().getPosY() + hitable.getPosition().getHeight() &&
-               ball.getPosition().getPosY() > hitable.getPosition().getPosY() &&
-               (ball.getPosition().getPosX() == hitable.getPosition().getPosX()
-               || ball.getPosition().getPosX() + ball.getPosition().getWidth() == hitable.getPosition().getPosX() ||
-               ball.getPosition().getPosX() == hitable.getPosition().getPosX() + hitable.getPosition().getWidth());
+
+        return ball.getPosition().getPosY() <= hitable.getPosition().getPosY() + hitable.getPosition().getHeight() &&
+               ball.getPosition().getPosY() + ball.getPosition().getHeight() >= hitable.getPosition().getPosY() &&
+               ball.getPosition().getPosX() + ball.getPosition().getWidth() == hitable.getPosition().getPosX() ||
+               ball.getPosition().getPosY() <= hitable.getPosition().getPosY() + hitable.getPosition().getHeight() &&
+               ball.getPosition().getPosY() + ball.getPosition().getHeight() >= hitable.getPosition().getPosY() &&
+               ball.getPosition().getPosX() == hitable.getPosition().getPosX() + hitable.getPosition().getWidth();
     }
 
     private boolean hitBottomCenter(Hitable hitable) {
