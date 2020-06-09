@@ -197,22 +197,22 @@ public class CollisionDetector {
 
     //hit parte de cima lado esquerdo
     private boolean hitTopLeftHalf(Hitable hitable) {
-        return ball.getPosition().getPosY() + ball.getBallHeight() == hitable.getPosition().getPosY() &&
-                ball.getPosition().getPosX() + ball.getBallWidth() >= hitable.getPosition().getPosX() &&
+        return ball.getPosition().getPosY() + ball.getPosition().getHeight() == hitable.getPosition().getPosY() &&
+                ball.getPosition().getPosX() + ball.getPosition().getWidth() >= hitable.getPosition().getPosX() &&
                 ball.getPosition().getPosX() <= hitable.getPosition().getPosX() + (hitable.getPosition().getWidth() / 2) - BRICK_CENTER;
     }
 
     //hit parte de cima lado direito
     private boolean hitTopRightHalf(Hitable hitable) {
-        return ball.getPosition().getPosY() + ball.getBallHeight() == hitable.getPosition().getPosY() &&
-                ball.getPosition().getPosX() + ball.getBallWidth() >= hitable.getPosition().getPosX() + (hitable.getPosition().getWidth() / 2) + BRICK_CENTER &&
+        return ball.getPosition().getPosY() + ball.getPosition().getHeight() == hitable.getPosition().getPosY() &&
+                ball.getPosition().getPosX() + ball.getPosition().getWidth() >= hitable.getPosition().getPosX() + (hitable.getPosition().getWidth() / 2) + BRICK_CENTER &&
                 ball.getPosition().getPosX() <= hitable.getPosition().getPosX() + (hitable.getPosition().getWidth());
     }
 
     //hit parte de cima centro
     private boolean hitTopCenter(Hitable hitable) {
-        return ball.getPosition().getPosY() + ball.getBallHeight() == hitable.getPosition().getPosY() &&
-                ball.getPosition().getPosX() + ball.getBallWidth() >= hitable.getPosition().getPosX() + (hitable.getPosition().getWidth() / 2) - BRICK_CENTER &&
+        return ball.getPosition().getPosY() + ball.getPosition().getHeight() == hitable.getPosition().getPosY() &&
+                ball.getPosition().getPosX() + ball.getPosition().getWidth() >= hitable.getPosition().getPosX() + (hitable.getPosition().getWidth() / 2) - BRICK_CENTER &&
                 ball.getPosition().getPosX() <= hitable.getPosition().getPosX() + (hitable.getPosition().getWidth() / 2) + BRICK_CENTER;
     }
 }
