@@ -1,10 +1,8 @@
 package org.academiadecodigo.bootcamp.Grid;
 
 
-import org.academiadecodigo.simplegraphics.graphics.Color;
-import org.academiadecodigo.simplegraphics.graphics.Ellipse;
-import org.academiadecodigo.simplegraphics.graphics.Rectangle;
-import org.academiadecodigo.simplegraphics.graphics.Shape;
+import org.academiadecodigo.bootcamp.Score;
+import org.academiadecodigo.simplegraphics.graphics.*;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class GridPosition {
@@ -23,6 +21,8 @@ public class GridPosition {
     private Picture brickImage;
     private Picture pepino;
     private Ellipse ellipse;
+    private Text text;
+    private Score score;
 
     private Color color;
 
@@ -42,6 +42,7 @@ public class GridPosition {
 
         show();
     }
+
 
     public GridPosition (Grid grid, int width, int height) {
         this.grid = grid;
@@ -69,6 +70,19 @@ public class GridPosition {
         pepino = new Picture(posX, posY, "resources/pepino.png");
 
         showPlatform();
+
+
+               /* Implementar a Grid do score
+               break;
+            case "score":
+                this.score = new Score(grid);
+                this.text = new Text(posX, posY, score.getScore() + "");
+                showScore();
+                break;*/
+
+
+
+
 
     }
 
@@ -114,6 +128,9 @@ public class GridPosition {
         brickImage.draw();
     }
 
+    private void showScore(){
+        text.draw();
+    }
 
     private void showBall() {
         ellipse.setColor(color);

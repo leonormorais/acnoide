@@ -14,6 +14,7 @@ public class Game {
     private Brick[] bricks;
     private Player player;
     private Ball ball;
+    private Score score;
 
     public Game() {
         this.grid = new Grid(600, 700);
@@ -44,6 +45,12 @@ public class Game {
         //initializing ball
         ball = new Ball(grid);
         ball.setCollisionDetector(new CollisionDetector(bricks, player.getPlatform(), ball));
+
+        //initializing score
+        //score = new Score(grid);
+
+
+
 
     }
 
