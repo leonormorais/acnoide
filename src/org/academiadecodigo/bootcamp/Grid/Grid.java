@@ -35,8 +35,8 @@ public class Grid {
         return height;
     }
 
-    public GridPosition makeGridPosition(int posX, int posY, int width, int height, Color color) {
-        return new GridPosition(this, posX, posY, width, height, color);
+    public GridPosition makeGridPosition(int posX, int posY, int width, int height, String source) {
+        return new GridPosition(this, posX, posY, width, height, source);
 
     }
 

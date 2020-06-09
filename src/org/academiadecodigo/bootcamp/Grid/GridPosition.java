@@ -19,21 +19,27 @@ public class GridPosition {
     private int posY;
     private int width;
     private int height;
-    private Rectangle rectangle;
+    //private Rectangle rectangle;
+    private Picture brickImage;
     private Picture pepino;
     private Ellipse ellipse;
 
     private Color color;
 
-    public GridPosition(Grid grid, int posX, int posY, int width, int height, Color color) {
+    public GridPosition(Grid grid, int posX, int posY, int width, int height, String source) {
         this.grid = grid;
 
-        rectangle = new Rectangle(posX, posY, width, height);
+        //rectangle = new Rectangle(posX, posY, width, height);
+
+        brickImage = new Picture(posX, posY, source);
+
         this.posX = posX;
         this.posY = posY;
         this.width = width;
         this.height = height;
-        this.color = color;
+
+        //this.color = color;
+
         show();
     }
 
@@ -92,18 +98,20 @@ public class GridPosition {
         this.posX = posX;
     }
 
-    public void setColor(Color color) {
+   /* public void setColor(Color color) {
         rectangle.setColor(color);
     }
+    */
 
     public void setWidth(int width) {
         this.width = width;
     }
 
     public void show() {
-        rectangle.setColor(color);
-        rectangle.fill();
+        //rectangle.setColor(color);
+        //rectangle.fill();
 
+        brickImage.draw();
     }
 
 
@@ -118,7 +126,8 @@ public class GridPosition {
 
 
     public void hide() {
-        rectangle.delete();
+        brickImage.delete();
+        //rectangle.delete();
     }
 
     public void hideBall() {
@@ -127,7 +136,8 @@ public class GridPosition {
 
     //Transformação de SuperBrick em Cara de MC
     public void transformBrick() {
-        rectangle.grow(-10,-5);
+        brickImage.grow(-10, -5);
+        //rectangle.grow(-10,-5);
     }
 
     public void move(GridDirection direction) {
@@ -143,7 +153,10 @@ public class GridPosition {
 
    public void moveBrick() {
         this.posY += 1;
-        rectangle.translate(0, 1);
+        brickImage.translate(0, 1);
+
+        //rectangle.translate(0, 1);
+
         if (posY + getHeight() == grid.getHeight()) {
             hide();
         }
@@ -201,38 +214,6 @@ public class GridPosition {
                 ", posY=" + posY +
                 ", width=" + width +
                 ", height=" + height +
-                ", rectangle=" + rectangle +
                 '}';
     }
 }
-
-  /*
-    public void moveBall(GridDirection direction) {
-        switch (direction) {
-            case DOWN:
-                this.posY += 1;
-                ellipse.translate(0, 1);
-                break;
-            case NE:
-                this.posX += 1;
-                this.posY -= 1;
-                ellipse.translate(1, -1);
-                break;
-            case NW:
-                this.posX -= 1;
-                this.posY -= 1;
-                ellipse.translate(-1, -1);
-                break;
-            case SW:
-                this.posX -= 1;
-                this.posY += 1;
-                ellipse.translate(-1,1);
-                break;
-            case SE:
-                this.posX += 1;
-                this.posY += 1;
-                ellipse.translate(1, 1);
-                break;
-
-        }
-    } */

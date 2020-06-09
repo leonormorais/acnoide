@@ -9,40 +9,50 @@ import org.academiadecodigo.bootcamp.Grid.GridPosition;
 
 public class ObjectFactory {
 
-    private final static int MARGIN_LEFT = 40;
+    private final static int MARGIN_LEFT = 45;
     public final static int BRICK_WIDTH = 60;
     public final static int BRICK_HEIGHT = 20;
     private final static double NORMAL_BRICK_PROB = 0.2;
 
-    private static int posX = 40;
+    private static int posX = 45;
     private static int posY = 100;
 
+    private static String[] sourceImg = {
+            "resources/brickBlue.jpg",
+            "resources/BrickCyan.jpg",
+            "resources/BrickGray.jpg",
+            "resources/brickGreen.jpg",
+            "resources/brickOrange.jpg",
+            "resources/brickPink.jpg",
+            "resources/brickRed.jpg",
+            "resources/brickYellow.jpg",
+    };
+
+    private static int colorCounter = 0;
 
    // private Brick[] bricks;
 
     public static Brick[] createBricks(int numberOfBricks, Grid grid) {
-        /* if (numberOfBricks % 9 != 0) {
-            System.out.println("error.");
-            return;
-        } */
+
         Brick[] bricks = new Brick[numberOfBricks];
 
         for (int i = 0; i < bricks.length; i++) {
             int j = i + 1;
             bricks[i] = getRandomBrick(grid);
 
-            posX += (BRICK_WIDTH + 1);
+            posX += BRICK_WIDTH;
 
             if (j % 9 == 0) {
-                posY += (BRICK_HEIGHT + 1);
+                posY += BRICK_HEIGHT;
                 posX = MARGIN_LEFT;
+                colorCounter++;
             }
         }
         return bricks;
     }
 
     private static Brick getRandomBrick(Grid grid) {
-        return (Math.random() > NORMAL_BRICK_PROB) ? new NormalBrick(grid.makeGridPosition(posX, posY, BRICK_WIDTH, BRICK_HEIGHT, BrickType.NORMAL.getColor())) : createSuperBrick(grid);
+        return (Math.random() > NORMAL_BRICK_PROB) ? new NormalBrick(grid.makeGridPosition(posX, posY, BRICK_WIDTH, BRICK_HEIGHT, sourceImg[colorCounter])) : createSuperBrick(grid);
     }
 
 
@@ -56,7 +66,7 @@ public class ObjectFactory {
 
         BrickType newBrick = bricksType[random];
 
-        return new SuperBrick(grid.makeGridPosition(posX, posY, BRICK_WIDTH, BRICK_HEIGHT, newBrick.getColor()), newBrick);
+        return new SuperBrick(grid.makeGridPosition(posX, posY, BRICK_WIDTH, BRICK_HEIGHT, sourceImg[colorCounter]));
 
     }
 

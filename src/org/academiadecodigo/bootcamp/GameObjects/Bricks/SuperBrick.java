@@ -9,8 +9,8 @@ public class SuperBrick extends Brick {
 
     private CollisionDetector collisionDetector;
 
-    public SuperBrick(GridPosition position, BrickType type) {
-        super(position, type);
+    public SuperBrick(GridPosition position) {
+        super(position, BrickType.SUPERBRICK);
     }
 
     //pensar em como integrar o collisionDetector no SuperBrick, uma vez que ele vai precisar de verificar se bateu na pltaforma
@@ -34,7 +34,7 @@ public class SuperBrick extends Brick {
         this.position.transformBrick();
         this.move();
 
-        collisionDetector.checkForCollisionPlatform();
+        // collisionDetector.checkForCollisionPlatform();
 
        // position.transform(); //tem de ser criado no position método transform
 

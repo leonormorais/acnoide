@@ -8,7 +8,8 @@ public enum BrickType {
     RITA(Color.CYAN),
     VANDO(Color.BLUE),
     PRIS(Color.RED),
-    LUIS(Color.MAGENTA);
+    LUIS(Color.MAGENTA),
+    SUPERBRICK(Color.YELLOW);
 
     private Color color;
 
