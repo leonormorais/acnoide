@@ -19,7 +19,7 @@ public class Grid {
 
        // background = new Rectangle(PADDING, PADDING, width, height); //substituido por picture
 
-        backgroundTest = new Picture(PADDING,PADDING, "src/org/academiadecodigo/bootcamp/assets/background_test.jpg");
+        backgroundTest = new Picture(PADDING,PADDING, "src/org/academiadecodigo/bootcamp/assets/backgroundV2.jpg");
     }
 
     //init dentro ou fora do construtor

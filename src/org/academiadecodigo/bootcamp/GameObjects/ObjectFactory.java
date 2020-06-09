@@ -15,7 +15,7 @@ public class ObjectFactory {
     private final static double NORMAL_BRICK_PROB = 0.2;
 
     private static int posX = 40;
-    private static int posY = 40;
+    private static int posY = 100;
 
 
    // private Brick[] bricks;
