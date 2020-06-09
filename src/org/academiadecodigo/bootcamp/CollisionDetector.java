@@ -64,8 +64,15 @@ public class CollisionDetector {
         for (Brick brick : bricks) {
 
             if (!brick.getIsDestroyed()) {
+
                    if(checkForHits(brick))  {
+
                     brick.destroy();
+
+                        if (brick instanceof SuperBrick) {
+                            ((SuperBrick) brick).setCollisionDetector(this);
+                        }
+
                     return true;
                 }
             }
@@ -91,9 +98,10 @@ public class CollisionDetector {
             return true;
         }
 
+        //edges
         if (hitEdges(hitable)) {
             ball.setNewXDirection(-ball.getXDirection());
-            ball.setNewYDirection(-ball.getYDirection());
+            ball.setNewYDirection(-ball.getYDirection()); //
             System.out.println("hit edge");
             return true;
         }
