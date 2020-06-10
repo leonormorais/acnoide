@@ -9,7 +9,7 @@ import org.academiadecodigo.bootcamp.Grid.Grid;
 public class Game {
 
     private final int BRICKS_NUMBER = 72; //Level 1
-    private final int DELAY = 50;
+    private final int DELAY = 75;
     private final String background = "resources/backgroundV3.jpg";
 
     private Grid grid;
