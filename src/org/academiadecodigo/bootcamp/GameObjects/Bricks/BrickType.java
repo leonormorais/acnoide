@@ -5,7 +5,7 @@ import org.academiadecodigo.simplegraphics.graphics.Color;
 public enum BrickType {
     NORMAL(""),
     SERGIO(""),
-    RITA(""),
+    RITA("resources/rita.png"),
     VANDO(""),
     PRIS("resources/pris.png"),
     LUIS("");
