@@ -14,12 +14,19 @@ public class Sound {
      /* IMPLEMENT A NEW SONG.
     private static String ballSound = "resources/testeSound.wav"; //source file
     static SoundEffect se = new SoundEffect(); //create object for the clip
-
     */
+
+    private static String pepinoSound = "resources/pipino.wav";
+    static SoundEffect se2 = new SoundEffect();
 
     public static void playBallEffect() {
         se.setFile(ballSound);
         se.play();
+    }
+
+    public static void playPipinoDNovo() {
+        se2.setFile(pepinoSound);
+        se2.play();
     }
 
     /* IMPLEMENT A NEW SONG. //method for play song from any class

@@ -10,6 +10,7 @@ public class Game {
 
     private final int BRICKS_NUMBER = 72; //Level 1
     private final int DELAY = 100;
+    private final String background = "resources/backgroundV3.jpg";
 
     private Grid grid;
     private Brick[] bricks;
@@ -18,8 +19,7 @@ public class Game {
     private CollisionDetector collisionDetector;
 
     public Game() {
-        this.grid = new Grid(600, 700);
-
+        this.grid = new Grid(600, 700, background);
     }
 
     public Grid getGrid() {
@@ -31,7 +31,6 @@ public class Game {
         grid.init();
 
         //create bricks and set grid for bricks
-
         bricks = ObjectFactory.createBricks(BRICKS_NUMBER, grid);
 
         for (Brick brick : bricks) {
@@ -46,8 +45,8 @@ public class Game {
         //initializing ball
         ball = new Ball(grid);
 
+        //initalizaing collision detector
         collisionDetector = new CollisionDetector(bricks, player.getPlatform(), ball);
-
         ball.setCollisionDetector(collisionDetector);
 
         for (Brick brick : bricks) {

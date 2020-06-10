@@ -4,11 +4,11 @@ import org.academiadecodigo.simplegraphics.graphics.Color;
 
 public enum BrickType {
     NORMAL(""),
-    SERGIO(""),
+    SERGIO("resources/sergio.png"),
     RITA("resources/rita.png"),
-    VANDO(""),
+    VANDO("resources/vando.png"),
     PRIS("resources/pris.png"),
-    LUIS("");
+    LUIS("resources/luis.png");
 
     private String sourceImg;
 
