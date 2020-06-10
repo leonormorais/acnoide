@@ -16,7 +16,7 @@ public class Sound {
     static SoundEffect se = new SoundEffect(); //create object for the clip
 
     */
-    
+
     public static void playBallEffect() {
         se.setFile(ballSound);
         se.play();
