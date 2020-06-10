@@ -4,7 +4,6 @@ import javax.print.DocFlavor;
 
 public enum GridDirection {
     LEFT,
-    RIGHT,
-    NW
+    RIGHT
 }
 

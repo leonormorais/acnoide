@@ -69,6 +69,7 @@ public class Ball {
     }
 
     //move
+
     public void move() {
 
         for (int i = 0; i < ballSpeed; i++) {

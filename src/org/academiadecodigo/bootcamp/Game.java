@@ -45,7 +45,7 @@ public class Game {
         //initializing ball
         ball = new Ball(grid);
 
-        //initalizaing collision detector
+        //initializing collision detector
         collisionDetector = new CollisionDetector(bricks, player.getPlatform(), ball);
         ball.setCollisionDetector(collisionDetector);
 
@@ -57,9 +57,6 @@ public class Game {
 
         //initializing score
         Score.createGridPosition(grid);
-
-
-
 
     }
 

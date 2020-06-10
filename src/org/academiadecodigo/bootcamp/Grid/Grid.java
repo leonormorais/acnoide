@@ -43,8 +43,8 @@ public class Grid {
         return new GridPosition(this, posX, posY, width, height);
     }
 
-    public GridPosition makeGridPosition(int posX, int posY, String name) {
-        return new GridPosition(this, posX, posY, name);
+    public GridPosition makeGridPosition(int posX, int posY, String futureEnum) {
+        return new GridPosition(this, posX, posY, futureEnum);
 
     }
 

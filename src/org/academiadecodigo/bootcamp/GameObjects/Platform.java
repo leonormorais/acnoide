@@ -6,20 +6,23 @@ import org.academiadecodigo.bootcamp.Grid.GridPosition;
 
 public class Platform implements Hittable {
 
-    private int plataformSpeed = 15;
+    private final int PLATFORM_POSITION_X = 300;
+    private final int PLATFORM_POSITION_Y = 675;
+
+    private int platformSpeed = 15;
 
     private GridPosition position;
 
     public Platform (Grid grid) {
-        this.position = grid.makeGridPosition(300,675 , "platform");
+        this.position = grid.makeGridPosition(PLATFORM_POSITION_X, PLATFORM_POSITION_Y, "platform");
     }
 
-    public void setPlataformSpeed(int speed){
-        plataformSpeed = speed;
+    public void setPlatformSpeed(int speed){
+        platformSpeed = speed;
     }
 
-    public int getPlataformSpeed(){
-        return plataformSpeed;
+    public int getPlatformSpeed(){
+        return platformSpeed;
     }
 
     public GridPosition getPosition() {
@@ -27,7 +30,7 @@ public class Platform implements Hittable {
     }
 
     public void moveRight() {
-        for (int i = 0; i < plataformSpeed; i++) {
+        for (int i = 0; i < platformSpeed; i++) {
             if (position.isOnEdgePlatform(GridDirection.RIGHT)) {
                 return;
             }
@@ -36,7 +39,7 @@ public class Platform implements Hittable {
     }
 
     public void moveLeft() {
-        for (int i = 0; i < plataformSpeed; i++) {
+        for (int i = 0; i < platformSpeed; i++) {
             if (position.isOnEdgePlatform(GridDirection.LEFT)) {
                 return;
             }

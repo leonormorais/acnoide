@@ -7,8 +7,7 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class GridPosition {
 
-    private final int BALL_POSITION_X = 295;
-    private final int BALL_POSITION_Y = 400;
+
     private final int PLATFORM_WIDTH = 50;
     private final int PLATFORM_HEIGHT = 20;
 
@@ -49,7 +48,7 @@ public class GridPosition {
         this.width = width;
         this.height = height;
 
-        ellipse = new Ellipse(BALL_POSITION_X, BALL_POSITION_Y, width, height);
+        ellipse = new Ellipse(posX, posY, width, height);
         this.color = Color.CYAN;
 
         showBall();
@@ -57,6 +56,7 @@ public class GridPosition {
     }
 
     public GridPosition (Grid grid, int posX, int posY, String futureEnum) {
+
         this.grid = grid;
         this.posX = posX;
         this.posY = posY;

@@ -5,7 +5,7 @@ import org.academiadecodigo.bootcamp.Grid.GridPosition;
 
 public class Score {
 
-    private static int score = 0;
+    private static int score;
     private static GridPosition position;
 
 

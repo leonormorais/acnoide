@@ -58,13 +58,14 @@ public class ObjectFactory {
 
     private static SuperBrick createSuperBrick(Grid grid) {
         BrickType[] bricksType = BrickType.values();
+        int rita = 2;
         int random = (int) (Math.random() * bricksType.length);
 
         if (random == 0) {
             return createSuperBrick(grid);
         }
 
-        BrickType newBrick = bricksType[random];
+        BrickType newBrick = bricksType[rita];
 
         return new SuperBrick(grid.makeGridPosition(posX, posY, BRICK_WIDTH, BRICK_HEIGHT, sourceImg[colorCounter]), newBrick);
 

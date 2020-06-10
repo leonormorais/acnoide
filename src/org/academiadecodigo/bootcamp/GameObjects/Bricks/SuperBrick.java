@@ -53,7 +53,7 @@ public class SuperBrick extends Brick {
                 scoreWhenStartedSP = Score.intGetScore();
                 System.out.println("Inicial " + scoreWhenStartedSP);
                 isActive = true;
-                collisionDetector.getPlatform().setPlataformSpeed(collisionDetector.getPlatform().getPlataformSpeed() * 2);
+                collisionDetector.getPlatform().setPlatformSpeed(collisionDetector.getPlatform().getPlatformSpeed() * 2);
                 break;
 
             case RITA:
@@ -84,6 +84,7 @@ public class SuperBrick extends Brick {
                 isActive = false;
                 additionalElement.hide();
                 break;
+
             case LUIS:
                 System.out.println("Delete Luís");
                 System.out.println("Final " + Score.intGetScore());
@@ -91,6 +92,7 @@ public class SuperBrick extends Brick {
                 collisionDetector.getBall().setIsLuisActive(false);
                 additionalElement.hide();
                 break;
+
             case VANDO:
                 System.out.println("Delete Vando");
                 System.out.println("Final " + Score.intGetScore());
@@ -102,7 +104,7 @@ public class SuperBrick extends Brick {
                 System.out.println("Delete Pris");
                 System.out.println("Final " + Score.intGetScore());
                 isActive = false;
-                collisionDetector.getPlatform().setPlataformSpeed(collisionDetector.getPlatform().getPlataformSpeed() / 2);
+                collisionDetector.getPlatform().setPlatformSpeed(collisionDetector.getPlatform().getPlatformSpeed() / 2);
                 break;
 
             case RITA:
