@@ -5,7 +5,7 @@ import org.academiadecodigo.bootcamp.Grid.GridDirection;
 import org.academiadecodigo.bootcamp.Grid.GridPosition;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 
-public class Platform implements Hitable {
+public class Platform implements Hittable {
 
     private int WIDTH = 40;
     private int HEIGHT = 10;
