@@ -31,7 +31,6 @@ public class User implements KeyboardHandler {
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
             keyPressed = true;
-        System.out.println(isKeyPressed());
     }
 
     @Override

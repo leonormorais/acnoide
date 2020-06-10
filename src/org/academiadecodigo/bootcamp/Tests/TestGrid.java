@@ -18,13 +18,13 @@ public class TestGrid {
 
         //testing initial menu
 
-        /*
+
         Menu m = new Menu();
 
 
         m.init();
         m.start();
-    */
+
 
         Game g = new Game();
 

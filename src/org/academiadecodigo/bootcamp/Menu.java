@@ -20,9 +20,11 @@ public class Menu {
     }
 
     public void start() {
-        while (!user.isKeyPressed()) {
-
-
+        while (isRunning) {
+            if (user.isKeyPressed()) {
+                isRunning = false;
+            }
         }
+        System.out.println("the key is: " + user.isKeyPressed());
     }
 }
