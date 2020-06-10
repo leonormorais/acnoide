@@ -96,26 +96,29 @@ public class SuperBrick extends Brick {
      */
     @Override
     public void destroy() {
+
         this.isDestroyed = true;
-        if (type == BrickType.PRIS) {
-            this.position.transformBrickInPris(BrickType.PRIS.getSourceImg());  //testing concept before implementing
-        } else {
-            this.position.transformBrick();
+
+        switch (type) {
+            case SERGIO:
+                this.position.transformBrickInPris(BrickType.SERGIO.getSourceImg());
+                break;
+            case LUIS:
+                this.position.transformBrickInPris(BrickType.LUIS.getSourceImg());
+                break;
+            case PRIS:
+                this.position.transformBrickInPris(BrickType.PRIS.getSourceImg());
+                break;
+            case RITA:
+                this.position.transformBrickInPris(BrickType.RITA.getSourceImg());
+                break;
+            case VANDO:
+                this.position.transformBrickInPris(BrickType.VANDO.getSourceImg());
+                break;
         }
+
         this.move();
-        
-        //collisionDetector.checkForCollisionPlatform();
 
-
-       // position.transform(); //tem de ser criado no position método transform
-
-       /* if (this.position.getColor() == Color.YELLOW) {
-            this.position.hide();
-            return;
-        }
-        this.position.setColor(Color.YELLOW);
-
-        */
     }
 
     @Override
