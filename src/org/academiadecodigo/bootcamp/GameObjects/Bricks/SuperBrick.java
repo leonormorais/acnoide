@@ -101,19 +101,19 @@ public class SuperBrick extends Brick {
 
         switch (type) {
             case SERGIO:
-                this.position.transformBrickInPris(BrickType.SERGIO.getSourceImg());
+                this.position.transformBrick(BrickType.SERGIO.getSourceImg());
                 break;
             case LUIS:
-                this.position.transformBrickInPris(BrickType.LUIS.getSourceImg());
+                this.position.transformBrick(BrickType.LUIS.getSourceImg());
                 break;
             case PRIS:
-                this.position.transformBrickInPris(BrickType.PRIS.getSourceImg());
+                this.position.transformBrick(BrickType.PRIS.getSourceImg());
                 break;
             case RITA:
-                this.position.transformBrickInPris(BrickType.RITA.getSourceImg());
+                this.position.transformBrick(BrickType.RITA.getSourceImg());
                 break;
             case VANDO:
-                this.position.transformBrickInPris(BrickType.VANDO.getSourceImg());
+                this.position.transformBrick(BrickType.VANDO.getSourceImg());
                 break;
         }
 

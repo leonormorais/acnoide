@@ -74,23 +74,10 @@ public class CollisionDetector {
     //bricks
     public boolean checkForCollisionBrick() {
         for (Brick brick : bricks) {
-
             if (!brick.getIsDestroyed()) {
-
                    if(checkForHits(brick))  {
-
                     brick.destroy();
-
-                    /*
-
-                    if (brick instanceof SuperBrick) {
-                        ((SuperBrick) brick).setCollisionDetector(this);
-                    }
-
-                    */
-
                     return true;
-
                 }
             }
         }

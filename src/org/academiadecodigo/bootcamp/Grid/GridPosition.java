@@ -114,23 +114,27 @@ public class GridPosition {
     }
     */
 
+    //Original 50
+    //Final 75
+
+
     public void increaseWidthPlatform() {
-        pepino.grow(width, 0);
+        int test = width / 2;
+        this.width += width / 2 ;
         posX -= width / 2;
-        this.width = width * 2;
+        pepino.grow(test, 0);
     }
 
+    //Original 75 ->
+    //final 50
     public void decreaseWidthPlatform() {
-        int cucumber = -(this.width);
+        int cucumber = -(this.width / 3);
+        posX += width / 3;
+        this.width -= width / 3;
         pepino.grow(cucumber , 0);
-        posX += width / 4;
-        this.width = width / 2;
     }
 
     public void show() {
-        //rectangle.setColor(color);
-        //rectangle.fill();
-
         brickImage.draw();
     }
 
@@ -152,20 +156,14 @@ public class GridPosition {
 
     public void hide() {
         brickImage.delete();
-        //rectangle.delete();
     }
 
     public void hideBall() {
         ellipse.delete();
     }
 
-    //Transformação de SuperBrick em Cara de MC
-    public void transformBrick() {
-        brickImage.grow(-10, -5);
-        //rectangle.grow(-10,-5);
-    }
 
-    public void transformBrickInPris(String source) {
+    public void transformBrick(String source) {
         //brickImage.grow(-10, 39);
         width = 50;
         height = 69;
@@ -187,8 +185,6 @@ public class GridPosition {
    public void moveBrick() {
         this.posY += 1;
         brickImage.translate(0, 1);
-
-        //rectangle.translate(0, 1);
 
         if (posY + getHeight() == grid.getHeight()) {
             hide();
