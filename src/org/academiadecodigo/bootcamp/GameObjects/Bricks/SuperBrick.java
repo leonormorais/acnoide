@@ -1,17 +1,14 @@
 package org.academiadecodigo.bootcamp.GameObjects.Bricks;
 import org.academiadecodigo.bootcamp.CollisionDetector;
-import org.academiadecodigo.bootcamp.Grid.Grid;
 import org.academiadecodigo.bootcamp.Grid.GridPosition;
 import org.academiadecodigo.bootcamp.Score;
-
-import java.sql.SQLOutput;
 
 public class SuperBrick extends Brick {
 
     private final int BRICK_SPEED = 5;
     private CollisionDetector collisionDetector;
     private int scoreWhenStartedSP; //Score quando começa o super poder
-    private boolean isActived; // Super power está ativo ou não.
+    private boolean isActive; // Super power está ativo ou não.
 
     public SuperBrick(GridPosition position, BrickType type) {
         super(position, type);
@@ -35,12 +32,12 @@ public class SuperBrick extends Brick {
             case LUIS:
                 System.out.println("Luís");
                 //Som do bebé a chorar
-                if (isActived) {
+                if (isActive) {
                     break;
                 }
                 scoreWhenStartedSP = Score.intGetScore();
                 System.out.println("Inicial " + scoreWhenStartedSP);
-                isActived = true;
+                isActive = true;
                 collisionDetector.getBall().setIsLuisActive(true);
                 break;
 
@@ -49,14 +46,14 @@ public class SuperBrick extends Brick {
                 //Bola torna-se um gato, toca som do gato
                 scoreWhenStartedSP = Score.intGetScore();
                 System.out.println("Inicial " + scoreWhenStartedSP);
-                isActived = true;
+                isActive = true;
                 collisionDetector.getPlatform().setPlataformSpeed(collisionDetector.getPlatform().getPlataformSpeed() * 2);
                 break;
 
             case RITA:
                 System.out.println("Rita");
                 scoreWhenStartedSP = Score.intGetScore();
-                isActived = true;
+                isActive = true;
                 collisionDetector.getPlatform().getPosition().increaseWidthPlatform();
                 break;
 
@@ -64,7 +61,7 @@ public class SuperBrick extends Brick {
                 System.out.println("Vando");
                 scoreWhenStartedSP = Score.intGetScore();
                 System.out.println("Inicial " + scoreWhenStartedSP);
-                isActived = true;
+                isActive = true;
                 collisionDetector.getBall().setBallSpeed(collisionDetector.getBall().getBallSpeed() / 2);
                 break;
         }
@@ -76,27 +73,28 @@ public class SuperBrick extends Brick {
             case LUIS:
                 System.out.println("Delete Luís");
                 System.out.println("Final " + Score.intGetScore());
-                isActived = false;
+                isActive = false;
                 collisionDetector.getBall().setIsLuisActive(false);
                 break;
 
             case VANDO:
                 System.out.println("Delete Vando");
                 System.out.println("Final " + Score.intGetScore());
-                isActived = false;
+                isActive = false;
                 collisionDetector.getBall().setBallSpeed(collisionDetector.getBall().getBallSpeed() * 2);
                 break;
 
             case PRIS:
                 System.out.println("Delete Pris");
                 System.out.println("Final " + Score.intGetScore());
-                isActived = false;
+                isActive = false;
                 collisionDetector.getPlatform().setPlataformSpeed(collisionDetector.getPlatform().getPlataformSpeed() / 2);
                 break;
+
             case RITA:
                 System.out.println("Delete Rita");
                 System.out.println("Final" + Score.intGetScore());
-                isActived = false;
+                isActive = false;
                 collisionDetector.getPlatform().getPosition().decreaseWidthPlatform();
 
         }
@@ -134,7 +132,7 @@ public class SuperBrick extends Brick {
     public void move() {
         for (int i = 0; i < BRICK_SPEED; i++) {
 
-            if(isActived) {
+            if(isActive) {
                 if (Score.intGetScore() - scoreWhenStartedSP >= 500) {
                     System.out.println(Score.intGetScore());
                     deleteSuperPower();
