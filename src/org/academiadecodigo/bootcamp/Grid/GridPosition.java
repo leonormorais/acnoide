@@ -22,6 +22,8 @@ public class GridPosition {
     private Picture pepino;
     private Ellipse ellipse;
     private Text text;
+    private Picture additional;
+
 
     private Color color;
 
@@ -78,6 +80,13 @@ public class GridPosition {
                 this.text = new Text(posX, posY, Score.stringGetScore());
                 showScore();
                 break;
+/*
+            case "additional":
+                this.width = 264;
+                this.height = 88;
+
+                additional = new Picture(posX, posY, "resources/1000.png");
+*/
         }
 
 
@@ -156,6 +165,13 @@ public class GridPosition {
 
     public void hide() {
         brickImage.delete();
+    }
+
+    public void showAdditional() {
+        additional.draw();
+    }
+    public void hideAdditional() {
+        additional.delete();
     }
 
     public void hideBall() {
@@ -245,6 +261,7 @@ public class GridPosition {
                 ", height=" + height +
                 '}';
     }
+
 
 
 }

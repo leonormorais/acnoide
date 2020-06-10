@@ -9,6 +9,7 @@ public class SuperBrick extends Brick {
     private CollisionDetector collisionDetector;
     private int scoreWhenStartedSP; //Score quando começa o super poder
     private boolean isActive; // Super power está ativo ou não.
+    private GridPosition additionalElement;
 
     public SuperBrick(GridPosition position, BrickType type) {
         super(position, type);
@@ -26,9 +27,11 @@ public class SuperBrick extends Brick {
             case SERGIO:
                 System.out.println("Sérgio");
                 Score.setScore(1000);
-                //1000 em grande
+                scoreWhenStartedSP = Score.intGetScore();
+                isActive = true;
+                additionalElement = grid.makeGridPosition(175, 350, 264, 88, "resources/1000.png");
+                additionalElement.show();
                 break;
-
             case LUIS:
                 System.out.println("Luís");
                 //Som do bebé a chorar
@@ -38,6 +41,8 @@ public class SuperBrick extends Brick {
                 scoreWhenStartedSP = Score.intGetScore();
                 System.out.println("Inicial " + scoreWhenStartedSP);
                 isActive = true;
+                additionalElement = grid.makeGridPosition(22, 690, 574, 20, "resources/baby.png");
+                additionalElement.show();
                 collisionDetector.getBall().setIsLuisActive(true);
                 break;
 
@@ -69,14 +74,19 @@ public class SuperBrick extends Brick {
 
     public void deleteSuperPower(){
         switch (type) {
-
+            case SERGIO:
+                System.out.println("Delete Sergio 1000");
+                System.out.println("Final " + Score.intGetScore());
+                isActive = false;
+                additionalElement.hide();
+                break;
             case LUIS:
                 System.out.println("Delete Luís");
                 System.out.println("Final " + Score.intGetScore());
                 isActive = false;
                 collisionDetector.getBall().setIsLuisActive(false);
+                additionalElement.hide();
                 break;
-
             case VANDO:
                 System.out.println("Delete Vando");
                 System.out.println("Final " + Score.intGetScore());
@@ -133,9 +143,12 @@ public class SuperBrick extends Brick {
         for (int i = 0; i < BRICK_SPEED; i++) {
 
             if(isActive) {
-                if (Score.intGetScore() - scoreWhenStartedSP >= 500) {
+                if (Score.intGetScore() - scoreWhenStartedSP >= 500
+                   || (type == BrickType.SERGIO && Score.intGetScore() - scoreWhenStartedSP >= 50)) {
+
                     System.out.println(Score.intGetScore());
                     deleteSuperPower();
+
                 }
             }
 
