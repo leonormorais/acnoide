@@ -9,7 +9,10 @@ import org.academiadecodigo.simplegraphics.graphics.Color;
 
 public class SuperBrick extends Brick {
 
+    private final int BRICK_SPEED = 5;
     private CollisionDetector collisionDetector;
+
+    private int scoreWhenStartedSP;
 
     public SuperBrick(GridPosition position, BrickType type) {
         super(position, type);
@@ -61,7 +64,11 @@ public class SuperBrick extends Brick {
     @Override
     public void destroy() {
         this.isDestroyed = true;
-        this.position.transformBrick();
+        if (type == BrickType.PRIS) {
+            this.position.transformBrickInPris(BrickType.PRIS.getSourceImg());  //testing concept before implementing
+        } else {
+            this.position.transformBrick();
+        }
         this.move();
         
         //collisionDetector.checkForCollisionPlatform();
@@ -80,16 +87,17 @@ public class SuperBrick extends Brick {
 
     @Override
     public void move() {
-        if (isDestroyed) {
-
-            if (collisionDetector.checkForCollisionSuperBrick(this)) {
-                superPower();
-                System.out.println("super power");
-                position.hide();
+        for (int i = 0; i < BRICK_SPEED; i++) {
+            if (isDestroyed) {
+                if (collisionDetector.checkForCollisionSuperBrick(this)) {
+                    superPower();
+                    System.out.println("super power");
+                    position.hide();
+                }
+                position.moveBrick();
             }
-
-            position.moveBrick();
         }
     }
+
 
 }

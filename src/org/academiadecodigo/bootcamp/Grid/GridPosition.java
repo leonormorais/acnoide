@@ -81,13 +81,6 @@ public class GridPosition {
         }
 
 
-
-
-
-
-
-
-
     }
 
 
@@ -161,6 +154,13 @@ public class GridPosition {
     public void transformBrick() {
         brickImage.grow(-10, -5);
         //rectangle.grow(-10,-5);
+    }
+
+    public void transformBrickInPris(String source) {
+        //brickImage.grow(-10, 39);
+        width = 50;
+        height = 69;
+        brickImage.load(source);
     }
 
     public void move(GridDirection direction) {
@@ -239,4 +239,6 @@ public class GridPosition {
                 ", height=" + height +
                 '}';
     }
+
+
 }
