@@ -68,7 +68,7 @@ public class GridPosition {
 
     public void increaseWidthPlatform() {
         int cucumber = width / 2;
-        pepino.grow(cucumber, 0);
+        picture.grow(cucumber, 0);
         width += width;
         posX -= width / 4;
 
@@ -79,7 +79,7 @@ public class GridPosition {
 
     public void decreaseWidthPlatform() {
         int cucumber = -(this.width / 4);
-        pepino.grow(cucumber, 0);
+        picture.grow(cucumber, 0);
         posX += width / 4;
         width -= width / 2;
 
