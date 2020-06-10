@@ -9,8 +9,8 @@ public class SuperBrick extends Brick {
 
     private CollisionDetector collisionDetector;
 
-    public SuperBrick(GridPosition position) {
-        super(position, BrickType.SUPERBRICK);
+    public SuperBrick(GridPosition position, BrickType type) {
+        super(position, type);
     }
 
     //pensar em como integrar o collisionDetector no SuperBrick, uma vez que ele vai precisar de verificar se bateu na pltaforma

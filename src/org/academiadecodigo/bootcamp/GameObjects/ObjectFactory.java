@@ -66,7 +66,7 @@ public class ObjectFactory {
 
         BrickType newBrick = bricksType[random];
 
-        return new SuperBrick(grid.makeGridPosition(posX, posY, BRICK_WIDTH, BRICK_HEIGHT, sourceImg[colorCounter]));
+        return new SuperBrick(grid.makeGridPosition(posX, posY, BRICK_WIDTH, BRICK_HEIGHT, sourceImg[colorCounter]), newBrick);
 
     }
 
