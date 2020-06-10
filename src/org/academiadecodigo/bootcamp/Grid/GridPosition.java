@@ -22,7 +22,6 @@ public class GridPosition {
     private Picture pepino;
     private Ellipse ellipse;
     private Text text;
-    private Score score;
 
     private Color color;
 
@@ -43,7 +42,7 @@ public class GridPosition {
         show();
     }
 
-
+    //Refactor grid position
     public GridPosition (Grid grid, int width, int height) {
         this.grid = grid;
 
@@ -59,26 +58,31 @@ public class GridPosition {
 
     }
 
-    public GridPosition (Grid grid, int posX, int posY, String platform) {
+    public GridPosition (Grid grid, int posX, int posY, String futureEnum) {
         this.grid = grid;
         this.posX = posX;
         this.posY = posY;
 
-        this.width = PLATFORM_WIDTH;
-        this.height = PLATFORM_HEIGHT;
 
-        pepino = new Picture(posX, posY, "resources/pepino.png");
+        switch (futureEnum) {
+            case "platform":
+                this.width = PLATFORM_WIDTH;
+                this.height = PLATFORM_HEIGHT;
 
-        showPlatform();
+                pepino = new Picture(posX, posY, "resources/pepino.png");
 
+                showPlatform();
+                break;
 
-               /* Implementar a Grid do score
-               break;
             case "score":
-                this.score = new Score(grid);
-                this.text = new Text(posX, posY, score.getScore() + "");
+                this.text = new Text(posX, posY, Score.getScore());
                 showScore();
-                break;*/
+                break;
+        }
+
+
+
+
 
 
 
@@ -128,7 +132,9 @@ public class GridPosition {
         brickImage.draw();
     }
 
-    private void showScore(){
+    public void showScore(){
+        text.setColor(Color.WHITE);
+        text.setText(Score.getScore());
         text.draw();
     }
 

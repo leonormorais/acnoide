@@ -2,6 +2,7 @@ package org.academiadecodigo.bootcamp;
 
 import org.academiadecodigo.bootcamp.GameObjects.Ball;
 import org.academiadecodigo.bootcamp.GameObjects.Bricks.Brick;
+import org.academiadecodigo.bootcamp.GameObjects.Bricks.SuperBrick;
 import org.academiadecodigo.bootcamp.GameObjects.ObjectFactory;
 import org.academiadecodigo.bootcamp.Grid.Grid;
 
@@ -14,7 +15,7 @@ public class Game {
     private Brick[] bricks;
     private Player player;
     private Ball ball;
-    private Score score;
+    private CollisionDetector collisionDetector;
 
     public Game() {
         this.grid = new Grid(600, 700);
@@ -44,10 +45,19 @@ public class Game {
 
         //initializing ball
         ball = new Ball(grid);
-        ball.setCollisionDetector(new CollisionDetector(bricks, player.getPlatform(), ball));
+
+        collisionDetector = new CollisionDetector(bricks, player.getPlatform(), ball);
+
+        ball.setCollisionDetector(collisionDetector);
+
+        for (Brick brick : bricks) {
+            if (brick instanceof SuperBrick) {
+                ((SuperBrick) brick).setCollisionDetector(collisionDetector);
+            }
+        }
 
         //initializing score
-        //score = new Score(grid);
+        Score.createGridPosition(grid);
 
 
 

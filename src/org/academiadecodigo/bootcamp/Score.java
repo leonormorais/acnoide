@@ -5,20 +5,26 @@ import org.academiadecodigo.bootcamp.Grid.GridPosition;
 
 public class Score {
 
-    private int score;
-    private GridPosition position;
+    private static int score = 0;
+    private static GridPosition position;
 
+    /*
     public Score(Grid grid){
         this.position = grid.makeGridPosition(20,20,"score");
     }
+    */
 
-
-    public void setScore(int sc){
-       this.score += sc;
+    public static void createGridPosition(Grid grid) {
+        position = grid.makeGridPosition(30, 30, "score");
     }
 
-    public int getScore(){
-        return score;
+    public static void setScore(int sc) {
+       score += sc;
+       position.showScore();
+    }
+
+    public static String getScore(){
+        return "Score: " + score;
     }
 
 

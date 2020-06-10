@@ -14,7 +14,6 @@ public class Platform implements Hittable {
 
     //private Grid grid;
     private GridPosition position;
-    private Color color;
 
     public void setSuperSize(String superPower){
         // fazer um switch por superpower;
@@ -27,8 +26,7 @@ public class Platform implements Hittable {
     }
 
     public Platform (Grid grid) {
-        this.color = Color.PINK;
-        this.position = grid.makeGridPosition(300 - superSize/2,675 , "platform");
+        this.position = grid.makeGridPosition(300,675 , "platform");
     }
 
     public int getWIDTH() {
@@ -87,7 +85,6 @@ public class Platform implements Hittable {
                 "WIDTH=" + WIDTH +
                 ", HEIGHT=" + HEIGHT +
                 ", position=" + position +
-                ", color=" + color +
                 '}';
     }
 }

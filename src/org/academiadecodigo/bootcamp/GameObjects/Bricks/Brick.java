@@ -16,7 +16,6 @@ abstract public class Brick implements Hittable {
     public Brick (GridPosition position, BrickType type) {
         this.position = position;
         this.type = type;
-        this.color = type.getColor();
         this.isDestroyed = false;
 
     }

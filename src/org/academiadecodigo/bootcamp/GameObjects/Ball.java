@@ -4,13 +4,15 @@ import org.academiadecodigo.bootcamp.CollisionDetector;
 import org.academiadecodigo.bootcamp.Grid.Grid;
 import org.academiadecodigo.bootcamp.Grid.GridDirection;
 import org.academiadecodigo.bootcamp.Grid.GridPosition;
+import org.academiadecodigo.bootcamp.Score;
 import org.academiadecodigo.bootcamp.Tests.Sound;
 
 public class Ball {
 
     private final static int BALL_WIDTH = 10;
     private final static int BALL_HEIGHT = 10;
-    private final static int BALL_SPEED = 10;
+
+    private int ballSpeed = 10;
 
     private GridPosition position;
     private GridDirection currentDirection;
@@ -38,6 +40,10 @@ public class Ball {
         return BALL_HEIGHT;
     }
 
+    public int getBallSpeed() {
+        return ballSpeed;
+    }
+
     public int getXDirection() {
         return direction[0];
     }
@@ -47,6 +53,11 @@ public class Ball {
     }
 
     //setters
+
+    public void setBallSpeed(int ballSpeed) {
+        this.ballSpeed = ballSpeed;
+    }
+
     public void setNewXDirection(int x) {
         direction[0] = x;
     }
@@ -62,7 +73,7 @@ public class Ball {
     //move
     public void move() {
 
-        for (int i = 0; i < BALL_SPEED; i++) {
+        for (int i = 0; i < ballSpeed; i++) {
 
         if (position.isOnTopEdge()) {
             direction[1] = - direction[1];
@@ -86,6 +97,7 @@ public class Ball {
 
         if (collisionDetector.checkForCollisionBrick()) {
             Sound.playBallEffect(); //testing sound
+            Score.setScore(200);
             direction[1] = - direction[1]; //y
 
             //currentDirection = GridDirection.NE;
@@ -94,6 +106,8 @@ public class Ball {
         position.moveBall(direction);
 
         }
+
+        Score.setScore(1);
     }
 
     public void gameOver() {

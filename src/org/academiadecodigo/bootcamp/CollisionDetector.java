@@ -2,6 +2,7 @@ package org.academiadecodigo.bootcamp;
 
 import org.academiadecodigo.bootcamp.GameObjects.Ball;
 import org.academiadecodigo.bootcamp.GameObjects.Bricks.Brick;
+import org.academiadecodigo.bootcamp.GameObjects.Bricks.SuperBrick;
 import org.academiadecodigo.bootcamp.GameObjects.Hittable;
 import org.academiadecodigo.bootcamp.GameObjects.Platform;
 
@@ -18,6 +19,10 @@ public class CollisionDetector {
         this.bricks = bricks;
         this.platform = platform;
         this.ball = ball;
+    }
+
+    public Ball getBall() {
+        return ball;
     }
 
     //platform
@@ -74,17 +79,24 @@ public class CollisionDetector {
 
                     brick.destroy();
 
-                       /* if (brick instanceof SuperBrick) {
-                            ((SuperBrick) brick).setCollisionDetector(this);
-                        }
+                    /*
 
-                        */
+                    if (brick instanceof SuperBrick) {
+                        ((SuperBrick) brick).setCollisionDetector(this);
+                    }
+
+                    */
 
                     return true;
+
                 }
             }
         }
         return false;
+    }
+
+    public boolean checkForCollisionSuperBrick(Hittable superBrick) {
+        return hitSuperBrick(superBrick);
     }
 
     private boolean checkForHits(Hittable hittable) {
@@ -227,6 +239,12 @@ public class CollisionDetector {
                 ball.getPosition().getPosY() + ball.getPosition().getHeight() == hittable.getPosition().getPosY() + 1) &&
                 ball.getPosition().getPosX() + ball.getPosition().getWidth() >= hittable.getPosition().getPosX() + (hittable.getPosition().getWidth() / 2) - BRICK_CENTER &&
                 ball.getPosition().getPosX() <= hittable.getPosition().getPosX() + (hittable.getPosition().getWidth() / 2) + BRICK_CENTER;
+    }
+
+    private boolean hitSuperBrick(Hittable superBrick) {
+        return superBrick.getPosition().getPosY() + superBrick.getPosition().getHeight() == platform.getPosition().getPosY() &&
+                superBrick.getPosition().getPosX() + superBrick.getPosition().getWidth() >= platform.getPosition().getPosX() &&
+                superBrick.getPosition().getPosX() <= platform.getPosition().getPosX() + platform.getPosition().getWidth();
     }
 }
 
