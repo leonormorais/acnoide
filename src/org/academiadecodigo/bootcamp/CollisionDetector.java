@@ -8,7 +8,7 @@ import org.academiadecodigo.bootcamp.GameObjects.Platform;
 
 public class CollisionDetector {
 
-    private final int BRICK_WIDTH = 40;
+    private final int BRICK_WIDTH = 60;
     private final int BRICK_CENTER = 8;
 
     private Brick[] bricks;

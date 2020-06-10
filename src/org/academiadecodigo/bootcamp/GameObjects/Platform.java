@@ -6,34 +6,27 @@ import org.academiadecodigo.bootcamp.Grid.GridPosition;
 
 public class Platform implements Hittable {
 
-    private int WIDTH = 40;
-    private int HEIGHT = 10;
+    private int width = 40;
+    private int height = 10;
     private int plataformSpeed = 15;
     private int superSize = 0;
 
     //private Grid grid;
     private GridPosition position;
 
-    public void setSuperSize(String superPower){
-        // fazer um switch por superpower;
-        switch (superPower){
-            case "Sergio": //dizer qual caso;
-                setSuperSize(20);
-                setWIDTH(getWIDTH() + superSize);
-                break;
-        }
-    }
+
+
 
     public Platform (Grid grid) {
         this.position = grid.makeGridPosition(300,675 , "platform");
     }
 
-    public int getWIDTH() {
-        return WIDTH;
+    public int getWidth() {
+        return width;
     }
 
-    public int getHEIGHT() {
-        return HEIGHT;
+    public int getHeight() {
+        return height;
     }
 
     public void setPlataformSpeed(int speed){
@@ -72,8 +65,8 @@ public class Platform implements Hittable {
         }
     }
 
-    public void setWIDTH(int WIDTH) {
-        this.WIDTH = WIDTH;
+    public void setWidth(int width) {
+        this.width = width;
     }
 
     public int getSuperSize() {
@@ -89,8 +82,8 @@ public class Platform implements Hittable {
     @Override
     public String toString() {
         return "Platform{" +
-                "WIDTH=" + WIDTH +
-                ", HEIGHT=" + HEIGHT +
+                "WIDTH=" + width +
+                ", HEIGHT=" + height +
                 ", position=" + position +
                 '}';
     }

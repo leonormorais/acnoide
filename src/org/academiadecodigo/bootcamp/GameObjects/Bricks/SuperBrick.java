@@ -45,6 +45,10 @@ public class SuperBrick extends Brick {
 
             case RITA:
                 System.out.println("Rita");
+                scoreWhenStartedSP = Score.intGetScore();
+                isActived = true;
+                collisionDetector.getPlatform().getPosition().increaseWidthPlatform();
+
                 break;
 
             case VANDO:
@@ -73,6 +77,11 @@ public class SuperBrick extends Brick {
                 isActived = false;
                 collisionDetector.getPlatform().setPlataformSpeed(collisionDetector.getPlatform().getPlataformSpeed() / 2);
                 break;
+            case RITA:
+                System.out.println("Delete Rita");
+                System.out.println("Final" + Score.intGetScore());
+                isActived = false;
+                collisionDetector.getPlatform().getPosition().decreaseWidthPlatform();
 
         }
 
