@@ -8,16 +8,15 @@ import javax.sound.sampled.Clip;
 
 public class Sound {
 
+
     private static String ballSound = "resources/testeSound.wav";
     static SoundEffect se = new SoundEffect();
 
-     /* IMPLEMENT A NEW SONG.
-    private static String ballSound = "resources/testeSound.wav"; //source file
-    static SoundEffect se = new SoundEffect(); //create object for the clip
-    */
-
     private static String pepinoSound = "resources/pipino.wav";
     static SoundEffect se2 = new SoundEffect();
+
+    private static String meowSound = "resources/meow.wav";
+    static SoundEffect se3 = new SoundEffect();
 
     public static void playBallEffect() {
         se.setFile(ballSound);
@@ -29,12 +28,10 @@ public class Sound {
         se2.play();
     }
 
-    /* IMPLEMENT A NEW SONG. //method for play song from any class
-    public static void newSong() {
-        se.setFile(ballSound);
-        se.play();
+    public static void playMeow() {
+        se3.setFile(meowSound);
+        se3.play();
     }
-    */
 
 
     public static class SoundEffect {

@@ -2,6 +2,7 @@ package org.academiadecodigo.bootcamp.GameObjects.Bricks;
 import org.academiadecodigo.bootcamp.CollisionDetector;
 import org.academiadecodigo.bootcamp.Grid.GridPosition;
 import org.academiadecodigo.bootcamp.Score;
+import org.academiadecodigo.bootcamp.Tests.Sound;
 
 public class SuperBrick extends Brick {
 
@@ -48,6 +49,7 @@ public class SuperBrick extends Brick {
                 break;
 
             case PRIS:
+                Sound.playMeow();
                 System.out.println("Pris");
                 //Bola torna-se um gato, toca som do gato
                 scoreWhenStartedSP = Score.intGetScore();

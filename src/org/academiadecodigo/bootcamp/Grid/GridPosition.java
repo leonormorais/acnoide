@@ -19,9 +19,10 @@ public class GridPosition {
     //private Rectangle rectangle;
     private Picture brickImage;
     private Picture pepino;
-    private Ellipse ellipse;
+    //private Ellipse ellipse;
     private Text text;
     private Picture additional;
+    private Picture ball;
 
 
     private Color color;
@@ -48,7 +49,7 @@ public class GridPosition {
         this.width = width;
         this.height = height;
 
-        ellipse = new Ellipse(posX, posY, width, height);
+        ball = new Picture(posX, posY, "resources/ball.png");
         this.color = Color.CYAN;
 
         showBall();
@@ -148,8 +149,7 @@ public class GridPosition {
     }
 
     private void showBall() {
-        ellipse.setColor(color);
-        ellipse.fill();
+        ball.draw();
     }
 
     private void showPlatform() {
@@ -169,7 +169,7 @@ public class GridPosition {
     }
 
     public void hideBall() {
-        ellipse.delete();
+        ball.delete();
     }
 
 
@@ -205,7 +205,7 @@ public class GridPosition {
    public void moveBall(int[] direction) {
        this.posX += direction[0];
        this.posY += direction[1];
-       ellipse.translate(direction[0], direction[1]);
+       ball.translate(direction[0], direction[1]);
    }
 
 
