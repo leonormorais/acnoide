@@ -8,7 +8,10 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Timer;
+import java.util.TimerTask;
 
 public class Menu implements KeyboardHandler {
 
@@ -35,16 +38,39 @@ public class Menu implements KeyboardHandler {
         keyboard.addEventListener(inputStart);
 
         textStart = grid.makeGridPosition(170, 550, 286, 26, "resources/start.png");
+
     }
 
+
     public void start() throws InterruptedException {
+
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            private int i;
+            @Override
+            public void run() {
+                if (i % 2 == 0)
+                    textStart.show();
+                else
+                    textStart.hide();
+                i++;
+            }
+        }, 0, 400);
+
         while (isRunning) {
-            textStart.show();
+
+            Thread.sleep(50);
         }
+
+        timer.cancel();
         Sound.playPipinoDNovo();
         Thread.sleep(1000);
         grid.hide();
+
     }
+
+
+
 
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
@@ -55,4 +81,6 @@ public class Menu implements KeyboardHandler {
     public void keyReleased(KeyboardEvent keyboardEvent) {
 
     }
+
+
 }
