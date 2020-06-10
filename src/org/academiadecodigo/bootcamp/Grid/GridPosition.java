@@ -75,7 +75,7 @@ public class GridPosition {
                 break;
 
             case "score":
-                this.text = new Text(posX, posY, Score.getScore());
+                this.text = new Text(posX, posY, Score.stringGetScore());
                 showScore();
                 break;
         }
@@ -127,7 +127,7 @@ public class GridPosition {
 
     public void showScore(){
         text.setColor(Color.WHITE);
-        text.setText(Score.getScore());
+        text.setText(Score.stringGetScore());
         text.draw();
     }
 

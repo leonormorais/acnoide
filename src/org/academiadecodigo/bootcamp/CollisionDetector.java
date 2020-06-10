@@ -25,6 +25,8 @@ public class CollisionDetector {
         return ball;
     }
 
+    public Platform getPlatform(){ return platform;}
+
     //platform
     public boolean checkForCollisionPlatform() {
 

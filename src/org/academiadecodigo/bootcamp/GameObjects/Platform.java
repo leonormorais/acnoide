@@ -3,13 +3,12 @@ package org.academiadecodigo.bootcamp.GameObjects;
 import org.academiadecodigo.bootcamp.Grid.Grid;
 import org.academiadecodigo.bootcamp.Grid.GridDirection;
 import org.academiadecodigo.bootcamp.Grid.GridPosition;
-import org.academiadecodigo.simplegraphics.graphics.Color;
 
 public class Platform implements Hittable {
 
     private int WIDTH = 40;
     private int HEIGHT = 10;
-    private final static int PLATFORM_SPEED = 15;
+    private int plataformSpeed = 15;
     private int superSize = 0;
 
     //private Grid grid;
@@ -37,6 +36,14 @@ public class Platform implements Hittable {
         return HEIGHT;
     }
 
+    public void setPlataformSpeed(int speed){
+        plataformSpeed = speed;
+    }
+
+    public int getPlataformSpeed(){
+        return plataformSpeed;
+    }
+
     /*
     public void setGrid(Grid grid) {
         this.grid = grid;
@@ -47,7 +54,7 @@ public class Platform implements Hittable {
     }
 
     public void moveRight() {
-        for (int i = 0; i < PLATFORM_SPEED; i++) {
+        for (int i = 0; i < plataformSpeed; i++) {
             if (position.isOnEdgePlatform(GridDirection.RIGHT)) {
                 return;
             }
@@ -56,7 +63,7 @@ public class Platform implements Hittable {
     }
 
     public void moveLeft() {
-        for (int i = 0; i < PLATFORM_SPEED; i++) {
+        for (int i = 0; i < plataformSpeed; i++) {
             if (position.isOnEdgePlatform(GridDirection.LEFT)) {
                 return;
             }

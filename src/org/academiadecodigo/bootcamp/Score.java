@@ -23,9 +23,11 @@ public class Score {
        position.showScore();
     }
 
-    public static String getScore(){
+    public static String stringGetScore(){
         return "Score: " + score;
     }
+
+    public static int intGetScore() { return score; }
 
 
 
