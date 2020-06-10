@@ -15,15 +15,14 @@ public class Ball {
     private int ballSpeed = 10;
 
     private GridPosition position;
-    private GridDirection currentDirection;
     private CollisionDetector collisionDetector;
     private boolean isRunning;
+    private boolean isLuisActive;
 
     private int[] direction;
 
     public Ball (Grid grid) {
         this.position = grid.makeGridPosition(BALL_WIDTH, BALL_HEIGHT);
-        this.currentDirection = GridDirection.NW;
         this.isRunning = true;
         this.direction = new int[2];
 
@@ -32,13 +31,6 @@ public class Ball {
     }
 
     //getters
-    public int getBallWidth() {
-        return BALL_WIDTH;
-    }
-
-    public int getBallHeight() {
-        return BALL_HEIGHT;
-    }
 
     public int getBallSpeed() {
         return ballSpeed;
@@ -56,6 +48,10 @@ public class Ball {
 
     public void setBallSpeed(int ballSpeed) {
         this.ballSpeed = ballSpeed;
+    }
+
+    public void setIsLuisActive(boolean isLuisActive) {
+        this.isLuisActive = isLuisActive;
     }
 
     public void setNewXDirection(int x) {
@@ -77,30 +73,29 @@ public class Ball {
 
         if (position.isOnTopEdge()) {
             direction[1] = - direction[1];
-            // currentDirection = GridDirection.getNewTopDirection(currentDirection);
         }
 
         if (position.isOnEdge()) {
             direction[0] = - direction[0];
-           //currentDirection = GridDirection.getNewDirection(currentDirection);
         }
 
         if (position.isOnBottomEdge()) {
-            gameOver();
-            break;
+            if (isLuisActive) {
+                direction[1] = - direction[1];
+            } else {
+                gameOver();
+                break;
+            }
         }
 
         if (collisionDetector.checkForCollisionPlatform()) {
             direction[1] = - direction[1];
-            //currentDirection = GridDirection.NE;
         }
 
         if (collisionDetector.checkForCollisionBrick()) {
             Sound.playBallEffect(); //testing sound
             Score.setScore(200);
             direction[1] = - direction[1]; //y
-
-            //currentDirection = GridDirection.NE;
         }
 
         position.moveBall(direction);

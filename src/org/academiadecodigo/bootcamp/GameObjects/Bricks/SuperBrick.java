@@ -1,7 +1,10 @@
 package org.academiadecodigo.bootcamp.GameObjects.Bricks;
 import org.academiadecodigo.bootcamp.CollisionDetector;
+import org.academiadecodigo.bootcamp.Grid.Grid;
 import org.academiadecodigo.bootcamp.Grid.GridPosition;
 import org.academiadecodigo.bootcamp.Score;
+
+import java.sql.SQLOutput;
 
 public class SuperBrick extends Brick {
 
@@ -32,11 +35,18 @@ public class SuperBrick extends Brick {
             case LUIS:
                 System.out.println("Luís");
                 //Som do bebé a chorar
+                if (isActived) {
+                    break;
+                }
+                scoreWhenStartedSP = Score.intGetScore();
+                System.out.println("Inicial " + scoreWhenStartedSP);
+                isActived = true;
+                collisionDetector.getBall().setIsLuisActive(true);
                 break;
 
             case PRIS:
                 System.out.println("Pris");
-                //Bola torna-se um gato e torna-se mais rápido, toca som do gato
+                //Bola torna-se um gato, toca som do gato
                 scoreWhenStartedSP = Score.intGetScore();
                 System.out.println("Inicial " + scoreWhenStartedSP);
                 isActived = true;
@@ -48,7 +58,6 @@ public class SuperBrick extends Brick {
                 scoreWhenStartedSP = Score.intGetScore();
                 isActived = true;
                 collisionDetector.getPlatform().getPosition().increaseWidthPlatform();
-
                 break;
 
             case VANDO:
@@ -63,6 +72,13 @@ public class SuperBrick extends Brick {
 
     public void deleteSuperPower(){
         switch (type) {
+
+            case LUIS:
+                System.out.println("Delete Luís");
+                System.out.println("Final " + Score.intGetScore());
+                isActived = false;
+                collisionDetector.getBall().setIsLuisActive(false);
+                break;
 
             case VANDO:
                 System.out.println("Delete Vando");
@@ -87,13 +103,6 @@ public class SuperBrick extends Brick {
 
     }
 
-
-
-
-    /*
-    ** Desencadear comportamento adicional do SuperBrick
-    * Load nova imagem e moveDown.
-     */
     @Override
     public void destroy() {
 
@@ -141,10 +150,7 @@ public class SuperBrick extends Brick {
                 position.moveBrick();
             }
 
-
-
         }
     }
-
 
 }

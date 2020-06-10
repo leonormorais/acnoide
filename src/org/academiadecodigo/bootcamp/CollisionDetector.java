@@ -232,8 +232,8 @@ public class CollisionDetector {
 
     private boolean hitSuperBrick(Hittable superBrick) {
         return superBrick.getPosition().getPosY() + superBrick.getPosition().getHeight() == platform.getPosition().getPosY() &&
-                superBrick.getPosition().getPosX() + superBrick.getPosition().getWidth() >= platform.getPosition().getPosX() &&
-                superBrick.getPosition().getPosX() <= platform.getPosition().getPosX() + platform.getPosition().getWidth();
+               superBrick.getPosition().getPosX() + superBrick.getPosition().getWidth() >= platform.getPosition().getPosX() &&
+               superBrick.getPosition().getPosX() <= platform.getPosition().getPosX() + platform.getPosition().getWidth();
     }
 }
 
