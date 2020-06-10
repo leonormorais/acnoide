@@ -9,6 +9,8 @@ import org.academiadecodigo.bootcamp.Tests.Sound;
 
 public class Ball {
 
+    private final int BALL_POSITION_X = 295;
+    private final int BALL_POSITION_Y = 400;
     private final static int BALL_WIDTH = 10;
     private final static int BALL_HEIGHT = 10;
 
@@ -22,7 +24,7 @@ public class Ball {
     private int[] direction;
 
     public Ball (Grid grid) {
-        this.position = grid.makeGridPosition(BALL_WIDTH, BALL_HEIGHT);
+        this.position = grid.makeGridPosition(BALL_POSITION_X, BALL_POSITION_Y, BALL_WIDTH, BALL_HEIGHT);
         this.isRunning = true;
         this.direction = new int[2];
 

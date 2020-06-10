@@ -30,8 +30,6 @@ public class GridPosition {
     public GridPosition(Grid grid, int posX, int posY, int width, int height, String source) {
         this.grid = grid;
 
-        //rectangle = new Rectangle(posX, posY, width, height);
-
         brickImage = new Picture(posX, posY, source);
 
         this.posX = posX;
@@ -39,17 +37,15 @@ public class GridPosition {
         this.width = width;
         this.height = height;
 
-        //this.color = color;
-
         show();
     }
 
     //Refactor grid position
-    public GridPosition (Grid grid, int width, int height) {
+    public GridPosition (Grid grid, int posX, int posY, int width, int height) {
         this.grid = grid;
 
-        this.posX = BALL_POSITION_X;
-        this.posY = BALL_POSITION_Y;
+        this.posX = posX;
+        this.posY = posY;
         this.width = width;
         this.height = height;
 
@@ -118,29 +114,27 @@ public class GridPosition {
         this.posX = posX;
     }
 
-   /* public void setColor(Color color) {
-        rectangle.setColor(color);
-    }
-    */
-
     //Original 50
     //Final 75
 
 
     public void increaseWidthPlatform() {
-        int test = width / 2;
-        this.width += width / 2 ;
-        posX -= width / 2;
-        pepino.grow(test, 0);
+        int cucumber = width / 2;
+        pepino.grow(cucumber, 0);
+        width += width;
+        posX -= width / 4;
+
     }
 
-    //Original 75 ->
+    //Original 75
     //final 50
+
     public void decreaseWidthPlatform() {
-        int cucumber = -(this.width / 3);
-        this.width -= width / 3;
-        posX += width / 3;
-        pepino.grow(cucumber , 0);
+        int cucumber = -(this.width / 6);
+        pepino.grow(cucumber, 0);
+        posX += width / 6;
+        width -= width / 3;
+
     }
 
     public void show() {

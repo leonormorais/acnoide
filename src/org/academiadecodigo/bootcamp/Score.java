@@ -8,11 +8,6 @@ public class Score {
     private static int score = 0;
     private static GridPosition position;
 
-    /*
-    public Score(Grid grid){
-        this.position = grid.makeGridPosition(20,20,"score");
-    }
-    */
 
     public static void createGridPosition(Grid grid) {
         position = grid.makeGridPosition(30, 30, "score");

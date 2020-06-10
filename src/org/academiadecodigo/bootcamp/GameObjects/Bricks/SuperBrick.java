@@ -32,6 +32,7 @@ public class SuperBrick extends Brick {
                 additionalElement = grid.makeGridPosition(175, 350, 264, 88, "resources/1000.png");
                 additionalElement.show();
                 break;
+
             case LUIS:
                 System.out.println("Luís");
                 //Som do bebé a chorar
@@ -57,6 +58,9 @@ public class SuperBrick extends Brick {
 
             case RITA:
                 System.out.println("Rita");
+                if (isActive) {
+                    break;
+                }
                 scoreWhenStartedSP = Score.intGetScore();
                 isActive = true;
                 collisionDetector.getPlatform().getPosition().increaseWidthPlatform();
