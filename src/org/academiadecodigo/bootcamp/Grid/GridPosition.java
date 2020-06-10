@@ -117,7 +117,7 @@ public class GridPosition {
     public void increaseWidthPlatform() {
         pepino.grow(width, 0);
         posX -= width / 2;
-        this.width = width;
+        this.width = width * 2;
     }
 
     public void decreaseWidthPlatform() {
