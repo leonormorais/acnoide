@@ -8,8 +8,6 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -45,6 +43,7 @@ public class Menu implements KeyboardHandler {
     public void start() throws InterruptedException {
 
         Timer timer = new Timer();
+
         timer.schedule(new TimerTask() {
             private int i;
             @Override
