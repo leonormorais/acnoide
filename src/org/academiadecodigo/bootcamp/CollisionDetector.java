@@ -87,9 +87,10 @@ public class CollisionDetector {
     }
 
     private boolean checkForHits(Hittable hittable) {
+
         //bottom
         if (hitBottomLeftHalf(hittable)) {
-            if(ball.getXDirection() == 0) {  // Só mudou este em relação à plataforma.
+            if(ball.getXDirection() == 0) {
                 ball.setNewXDirection(1);
             }
             if (ball.getXDirection() == 2) {
@@ -98,13 +99,11 @@ public class CollisionDetector {
             if (ball.getXDirection() == -1) {
                 ball.setNewXDirection(-2);
             }
-            System.out.println("Hit bottom left");
             return true;
         }
 
-
         if (hitBottomRightHalf(hittable)) {
-            if(ball.getXDirection() == 0) {  // Só mudou este em relação à plataforma.
+            if(ball.getXDirection() == 0) {
                 ball.setNewXDirection(-1);
             }
             if (ball.getXDirection() == -2) {
@@ -113,13 +112,11 @@ public class CollisionDetector {
             if (ball.getXDirection() == 1) {
                 ball.setNewXDirection(2);
             }
-            System.out.println("Hit bottom right");
             return true;
         }
 
         if (hitBottomCenter(hittable)) {
             ball.setNewXDirection(0);
-            System.out.println("Hit bottom center");
             return true;
         }
 
@@ -127,12 +124,11 @@ public class CollisionDetector {
         if (hitEdges(hittable)) {
             ball.setNewXDirection(-ball.getXDirection());
             ball.setNewYDirection(-ball.getYDirection());
-            System.out.println("hit edge");
             return true;
         }
 
         //top
-        if (hitTopLeftHalf(hittable)) {              // Igual à plataforma
+        if (hitTopLeftHalf(hittable)) {
             if(ball.getXDirection() == 0) {
                 ball.setNewXDirection(-1);
             }
@@ -142,7 +138,6 @@ public class CollisionDetector {
             if (ball.getXDirection() == -1) {
                 ball.setNewXDirection(-2);
             }
-            System.out.println("hit top left");
             return true;
         }
 
@@ -156,13 +151,11 @@ public class CollisionDetector {
             if (ball.getXDirection() == 1) {
                 ball.setNewXDirection(2);
             }
-            System.out.println("hit top right");
             return true;
         }
 
         if (hitTopCenter(hittable)) {
             ball.setNewXDirection(0);
-            System.out.println("hit top center");
             return true;
         }
 
@@ -233,17 +226,3 @@ public class CollisionDetector {
                superBrick.getPosition().getPosX() <= platform.getPosition().getPosX() + platform.getPosition().getWidth();
     }
 }
-
-  /*
-            //lógica para bater apenas em um lado (implementar)
-            if (ball.getPosition().getPosY() <= brick.getPosition().getPosY() + brick.getPosition().getHeight() &&
-                    ball.getPosition().getPosY() + ball.getPosition().getHeight() >= brick.getPosition().getHeight() &&
-                    ball.getPosition().getPosX() + ball.getPosition().getWidth() >= brick.getPosition().getPosX() &&
-                    ball.getPosition().getPosX() <= brick.getPosition().getPosX() + brick.getPosition().getWidth()) {
-
-               if (!brick.getIsDestroyed()) {
-
-               }
-
-           }
-            */

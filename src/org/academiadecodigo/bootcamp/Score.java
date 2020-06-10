@@ -12,19 +12,18 @@ public class Score {
     private static GridPosition position;
 
     public static void createGridPosition(Grid grid) {
-        position = grid.makeGridPosition(SCORE_POSITION_X, SCORE_POSITION_Y, "score");
+        position = grid.makeGridPosition(SCORE_POSITION_X, SCORE_POSITION_Y);
+    }
+    public static int intGetScore() { return score; }
+
+    public static String stringGetScore(){
+        return "Score: " + score;
     }
 
     public static void setScore(int sc) {
        score += sc;
        position.showScore();
     }
-
-    public static String stringGetScore(){
-        return "Score: " + score;
-    }
-
-    public static int intGetScore() { return score; }
 
 
 

@@ -16,21 +16,14 @@ public class GridPosition {
     private int posY;
     private int width;
     private int height;
-    //private Rectangle rectangle;
-    private Picture brickImage;
+    private Picture picture;
     private Picture pepino;
-    //private Ellipse ellipse;
     private Text text;
-    private Picture additional;
-    private Picture ball;
-
-
-    private Color color;
 
     public GridPosition(Grid grid, int posX, int posY, int width, int height, String source) {
         this.grid = grid;
 
-        brickImage = new Picture(posX, posY, source);
+        picture = new Picture(posX, posY, source);
 
         this.posX = posX;
         this.posY = posY;
@@ -40,52 +33,14 @@ public class GridPosition {
         show();
     }
 
-    //Refactor grid position
-    public GridPosition (Grid grid, int posX, int posY, int width, int height) {
-        this.grid = grid;
-
-        this.posX = posX;
-        this.posY = posY;
-        this.width = width;
-        this.height = height;
-
-        ball = new Picture(posX, posY, "resources/ball.png");
-        this.color = Color.CYAN;
-
-        showBall();
-
-    }
-
-    public GridPosition (Grid grid, int posX, int posY, String futureEnum) {
+    public GridPosition (Grid grid, int posX, int posY) {
 
         this.grid = grid;
         this.posX = posX;
         this.posY = posY;
 
-
-        switch (futureEnum) {
-            case "platform":
-                this.width = PLATFORM_WIDTH;
-                this.height = PLATFORM_HEIGHT;
-
-                pepino = new Picture(posX, posY, "resources/pepino.png");
-
-                showPlatform();
-                break;
-
-            case "score":
-                this.text = new Text(posX, posY, Score.stringGetScore());
-                showScore();
-                break;
-/*
-            case "additional":
-                this.width = 264;
-                this.height = 88;
-
-                additional = new Picture(posX, posY, "resources/1000.png");
-*/
-        }
-
+        this.text = new Text(posX, posY, Score.stringGetScore());
+        showScore();
 
     }
 
@@ -107,14 +62,6 @@ public class GridPosition {
         return posY;
     }
 
-    public Color getColor() {
-        return this.color;
-    }
-
-    public void setPosX(int posX) {
-        this.posX = posX;
-    }
-
     //Original 50
     //Final 75
 
@@ -131,15 +78,15 @@ public class GridPosition {
     //final 50
 
     public void decreaseWidthPlatform() {
-        int cucumber = -(this.width / 6);
+        int cucumber = -(this.width / 4);
         pepino.grow(cucumber, 0);
-        posX += width / 6;
-        width -= width / 3;
+        posX += width / 4;
+        width -= width / 2;
 
     }
 
     public void show() {
-        brickImage.draw();
+        picture.draw();
     }
 
     public void showScore(){
@@ -148,36 +95,19 @@ public class GridPosition {
         text.draw();
     }
 
-    private void showBall() {
-        ball.draw();
-    }
-
     private void showPlatform() {
-        pepino.draw();
+        picture.draw();
     }
-
 
     public void hide() {
-        brickImage.delete();
+        picture.delete();
     }
-
-    public void showAdditional() {
-        additional.draw();
-    }
-    public void hideAdditional() {
-        additional.delete();
-    }
-
-    public void hideBall() {
-        ball.delete();
-    }
-
 
     public void transformBrick(String source) {
-        //brickImage.grow(-10, 39);
+        //picture.grow(-10, 39);
         width = 50;
         height = 69;
-        brickImage.load(source);
+        picture.load(source);
     }
 
     public void move(GridDirection direction) {
@@ -194,31 +124,31 @@ public class GridPosition {
 
    public void moveBrick() {
         this.posY += 1;
-        brickImage.translate(0, 1);
+        picture.translate(0, 1);
 
         if (posY + getHeight() == grid.getHeight()) {
             hide();
         }
    }
 
-    //pensar numa solução única com o tipo de Game Object (Ball Or Brick)
+   //pensar numa solução única com o tipo de Game Object (Ball Or Brick)
    public void moveBall(int[] direction) {
        this.posX += direction[0];
        this.posY += direction[1];
-       ball.translate(direction[0], direction[1]);
+       picture.translate(direction[0], direction[1]);
    }
 
 
    //move platform
     private void moveLeft() {
         this.posX -= 1;
-        pepino.translate(-1, 0);
+        picture.translate(-1, 0);
     }
 
     //move platform
     private void moveRight() {
         this.posX += 1;
-        pepino.translate(1, 0);
+        picture.translate(1, 0);
     }
 
 

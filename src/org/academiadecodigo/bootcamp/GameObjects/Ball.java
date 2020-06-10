@@ -2,7 +2,6 @@ package org.academiadecodigo.bootcamp.GameObjects;
 
 import org.academiadecodigo.bootcamp.CollisionDetector;
 import org.academiadecodigo.bootcamp.Grid.Grid;
-import org.academiadecodigo.bootcamp.Grid.GridDirection;
 import org.academiadecodigo.bootcamp.Grid.GridPosition;
 import org.academiadecodigo.bootcamp.Score;
 import org.academiadecodigo.bootcamp.Tests.Sound;
@@ -24,7 +23,7 @@ public class Ball {
     private int[] direction;
 
     public Ball (Grid grid) {
-        this.position = grid.makeGridPosition(BALL_POSITION_X, BALL_POSITION_Y, BALL_WIDTH, BALL_HEIGHT);
+        this.position = grid.makeGridPosition(BALL_POSITION_X, BALL_POSITION_Y, BALL_WIDTH, BALL_HEIGHT, "resources/ball.png");
         this.isRunning = true;
         this.direction = new int[2];
 
@@ -116,7 +115,7 @@ public class Ball {
     }
 
     public void gameOver() {
-        position.hideBall();
+        position.hide();
         isRunning = false;
     }
 
