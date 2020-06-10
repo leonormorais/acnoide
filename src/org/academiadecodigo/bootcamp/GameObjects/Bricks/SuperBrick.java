@@ -36,7 +36,7 @@ public class SuperBrick extends Brick {
             case LUIS:
                 System.out.println("Luís");
                 //Som do bebé a chorar
-                if (isActive) {
+                if (collisionDetector.getBall().getIsLuisActive()) {
                     break;
                 }
                 scoreWhenStartedSP = Score.intGetScore();
@@ -58,12 +58,13 @@ public class SuperBrick extends Brick {
 
             case RITA:
                 System.out.println("Rita");
-                if (isActive) {
+                if (collisionDetector.getPlatform().getIsRitaActive()) {
                     break;
                 }
                 scoreWhenStartedSP = Score.intGetScore();
                 isActive = true;
                 collisionDetector.getPlatform().getPosition().increaseWidthPlatform();
+                collisionDetector.getPlatform().setIsRitaActive(true);
                 break;
 
             case VANDO:
@@ -112,6 +113,7 @@ public class SuperBrick extends Brick {
                 System.out.println("Final" + Score.intGetScore());
                 isActive = false;
                 collisionDetector.getPlatform().getPosition().decreaseWidthPlatform();
+                collisionDetector.getPlatform().setIsRitaActive(false);
 
         }
 

@@ -46,6 +46,10 @@ public class Ball {
         return direction[1];
     }
 
+    public boolean getIsLuisActive() {
+        return isLuisActive;
+    }
+
     //setters
 
     public void setBallSpeed(int ballSpeed) {
@@ -82,13 +86,16 @@ public class Ball {
             direction[0] = - direction[0];
         }
 
-        if (position.isOnBottomEdge()) {
+        if (position.isOnBottomBabies()) {
             if (isLuisActive) {
                 direction[1] = - direction[1];
-            } else {
-                gameOver();
-                break;
             }
+
+        }
+
+        if (position.isOnBottomEdge()) {
+            gameOver();
+            break;
         }
 
         if (collisionDetector.checkForCollisionPlatform()) {

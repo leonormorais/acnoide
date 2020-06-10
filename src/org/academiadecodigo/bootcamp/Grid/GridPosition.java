@@ -234,6 +234,10 @@ public class GridPosition {
         return posY + height == grid.getHeight() + Grid.PADDING;
     }
 
+    public boolean isOnBottomBabies() {
+        return posY + height == grid.getHeight();
+    }
+
     public boolean isOnEdgePlatform(GridDirection direction) {
         switch (direction) {
             case RIGHT:

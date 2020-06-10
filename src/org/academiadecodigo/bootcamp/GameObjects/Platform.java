@@ -7,22 +7,30 @@ import org.academiadecodigo.bootcamp.Grid.GridPosition;
 public class Platform implements Hittable {
 
     private final int PLATFORM_POSITION_X = 300;
-    private final int PLATFORM_POSITION_Y = 675;
+    private final int PLATFORM_POSITION_Y = 670;
 
     private int platformSpeed = 15;
+    private boolean isRitaActive;
 
     private GridPosition position;
 
     public Platform (Grid grid) {
         this.position = grid.makeGridPosition(PLATFORM_POSITION_X, PLATFORM_POSITION_Y, "platform");
     }
+    public int getPlatformSpeed(){
+        return platformSpeed;
+    }
+
+    public boolean getIsRitaActive() {
+        return isRitaActive;
+    }
 
     public void setPlatformSpeed(int speed){
         platformSpeed = speed;
     }
 
-    public int getPlatformSpeed(){
-        return platformSpeed;
+    public void setIsRitaActive(boolean isRitaActive) {
+        this.isRitaActive = isRitaActive;
     }
 
     public GridPosition getPosition() {
