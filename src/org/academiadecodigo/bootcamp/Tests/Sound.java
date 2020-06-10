@@ -11,10 +11,24 @@ public class Sound {
     private static String ballSound = "resources/testeSound.wav";
     static SoundEffect se = new SoundEffect();
 
+     /* IMPLEMENT A NEW SONG.
+    private static String ballSound = "resources/testeSound.wav"; //source file
+    static SoundEffect se = new SoundEffect(); //create object for the clip
+
+    */
+    
     public static void playBallEffect() {
         se.setFile(ballSound);
         se.play();
     }
+
+    /* IMPLEMENT A NEW SONG. //method for play song from any class
+    public static void newSong() {
+        se.setFile(ballSound);
+        se.play();
+    }
+    */
+
 
     public static class SoundEffect {
         Clip clip;
