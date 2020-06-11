@@ -109,6 +109,11 @@ public class Ball {
             direction[1] = - direction[1];
         }
 
+        if (collisionDetector.getIsCollidedPlatform()) {
+            direction[1] = - direction[1];
+            collisionDetector.setIsCollidedPlatform(false);
+        }
+
         if (collisionDetector.checkForCollisionBrick()) {
             Sound.playBallEffect(); //testing sound
             Score.setScore(200);

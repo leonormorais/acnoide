@@ -13,6 +13,7 @@ public class CollisionDetector {
     private Platform platform;
     private Ball ball;
     private int destroyedBricksCounter = 0;
+    private boolean isCollidedPlatform;
 
     public CollisionDetector(Brick[] bricks, Platform platform, Ball ball) {
         this.bricks = bricks;
@@ -28,6 +29,14 @@ public class CollisionDetector {
 
     public int getDestroyedBricksCounter() {
         return destroyedBricksCounter;
+    }
+
+    public boolean getIsCollidedPlatform() {
+        return isCollidedPlatform;
+    }
+
+    public void setIsCollidedPlatform(boolean isCollidedPlatform) {
+        this.isCollidedPlatform = isCollidedPlatform;
     }
 
     public void resetDestroyedBricks() {
@@ -129,7 +138,6 @@ public class CollisionDetector {
             ball.setNewXDirection(0);
             return true;
         }
-
 
         return false;
     }
