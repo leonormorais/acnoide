@@ -21,6 +21,8 @@ public class Sound {
     private static String babySound = "resources/baby.wav";
     static SoundEffect se4 = new SoundEffect();
 
+    private static String gameOverSound = "resources/gameover.wav";
+    static SoundEffect se5 = new SoundEffect();
 
     public static void playBallEffect() {
         se.setFile(ballSound);
@@ -41,6 +43,12 @@ public class Sound {
         se4.setFile(babySound);
         se4.play();
     }
+
+    public static void playGameOverSound() {
+        se5.setFile(gameOverSound);
+        se5.play();
+    }
+
 
 
     public static class SoundEffect {

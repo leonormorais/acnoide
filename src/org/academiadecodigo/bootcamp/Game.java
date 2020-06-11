@@ -7,6 +7,7 @@ import org.academiadecodigo.bootcamp.GameObjects.ObjectFactory;
 import org.academiadecodigo.bootcamp.GameObjects.Score;
 import org.academiadecodigo.bootcamp.Grid.Grid;
 import org.academiadecodigo.bootcamp.Grid.GridPosition;
+import org.academiadecodigo.bootcamp.Tests.Sound;
 
 public class Game {
 
@@ -89,6 +90,8 @@ public class Game {
             if (!ball.isBallRunning()) {
                 output = "gameover";
                 isGameRunning = false;
+                Sound.playGameOverSound();
+                Thread.sleep(500);
                 break;
             }
 
