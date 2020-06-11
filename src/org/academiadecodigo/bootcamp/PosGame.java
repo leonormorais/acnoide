@@ -11,20 +11,21 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Menu implements KeyboardHandler {
+public class PosGame implements KeyboardHandler {
 
     private final String background = "resources/ACNOID2020.jpg";
 
     private Grid grid;
     private Keyboard keyboard;
-    private boolean isRunning = true;
+    private boolean isRunning;
     private GridPosition textStart;
 
+    private boolean restart = false;
 
-    public Menu () {
+    public PosGame() {
         this.grid = new Grid(600, 700, background);
         keyboard = new Keyboard(this);
-
+        this.isRunning = true;
     }
 
     public void init() {
@@ -36,9 +37,7 @@ public class Menu implements KeyboardHandler {
         keyboard.addEventListener(inputStart);
 
         textStart = grid.makeGridPosition(170, 550, 286, 26, "resources/start.png");
-
     }
-
 
     public void start() throws InterruptedException {
 
@@ -67,18 +66,18 @@ public class Menu implements KeyboardHandler {
 
     }
 
-
-
+    public boolean restartInvoked() {
+        return restart;
+    }
 
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
         isRunning = false;
+        restart = true;
     }
 
     @Override
     public void keyReleased(KeyboardEvent keyboardEvent) {
 
     }
-
-
 }

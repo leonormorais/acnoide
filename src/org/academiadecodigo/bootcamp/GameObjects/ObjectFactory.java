@@ -38,6 +38,10 @@ public class ObjectFactory {
 
     public static Brick[] createBricks(int numberOfBricks, Grid grid) {
 
+        colorCounter = 0;
+        posX = 41;
+        posY = 100;
+
         Brick[] bricks = new Brick[numberOfBricks];
 
         for (int i = 0; i < bricks.length; i++) {

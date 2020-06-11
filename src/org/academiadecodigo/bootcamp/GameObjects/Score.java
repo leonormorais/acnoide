@@ -30,6 +30,10 @@ public class Score {
        position.showScore();
     }
 
+    public static void resetScore() {
+        score = 0;
+    }
+
 
 
 

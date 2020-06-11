@@ -2,7 +2,6 @@ package org.academiadecodigo.bootcamp;
 
 import org.academiadecodigo.bootcamp.GameObjects.Ball;
 import org.academiadecodigo.bootcamp.GameObjects.Bricks.Brick;
-import org.academiadecodigo.bootcamp.GameObjects.Bricks.SuperBrick;
 import org.academiadecodigo.bootcamp.GameObjects.Hittable;
 import org.academiadecodigo.bootcamp.GameObjects.Platform;
 
@@ -13,7 +12,7 @@ public class CollisionDetector {
     private Brick[] bricks;
     private Platform platform;
     private Ball ball;
-    private int detroyedBricksCounter = 0;
+    private int destroyedBricksCounter = 0;
 
     public CollisionDetector(Brick[] bricks, Platform platform, Ball ball) {
         this.bricks = bricks;
@@ -27,8 +26,12 @@ public class CollisionDetector {
 
     public Platform getPlatform(){ return platform;}
 
-    public int getDetroyedBricksCounter() {
-        return detroyedBricksCounter;
+    public int getDestroyedBricksCounter() {
+        return destroyedBricksCounter;
+    }
+
+    public void resetDestroyedBricks() {
+        this.destroyedBricksCounter = 0;
     }
 
     //platform
@@ -107,7 +110,7 @@ public class CollisionDetector {
             if (!brick.getIsDestroyed()) {
                    if(checkForHits(brick))  {
                     brick.destroy();
-                    this.detroyedBricksCounter++;
+                    this.destroyedBricksCounter++;
                     return true;
                 }
             }

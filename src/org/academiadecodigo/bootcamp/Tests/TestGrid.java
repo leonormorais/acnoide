@@ -9,8 +9,12 @@ import org.academiadecodigo.bootcamp.Grid.Grid;
 import org.academiadecodigo.bootcamp.Grid.GridPosition;
 import org.academiadecodigo.bootcamp.Menu;
 import org.academiadecodigo.bootcamp.Player;
+import org.academiadecodigo.bootcamp.PosGame;
 
 public class TestGrid {
+
+    private static String lastGame;
+    private static boolean newGame = true;
 
     public static void main(String[] args) throws InterruptedException {
 
@@ -18,9 +22,18 @@ public class TestGrid {
         m.init();
         m.start();
 
-        Game g = new Game();
-        g.init();
-        g.start();
+        while (newGame) {
+            Game g = new Game();
+            g.init();
+            g.start();
+            lastGame = g.posGame();
+
+            PosGame p = new PosGame();
+            p.init();
+            p.start();
+            newGame = p.restartInvoked();
+        }
+
 
     }
 }

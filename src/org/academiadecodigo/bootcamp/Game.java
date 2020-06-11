@@ -7,7 +7,6 @@ import org.academiadecodigo.bootcamp.GameObjects.ObjectFactory;
 import org.academiadecodigo.bootcamp.GameObjects.Score;
 import org.academiadecodigo.bootcamp.Grid.Grid;
 import org.academiadecodigo.bootcamp.Grid.GridPosition;
-import org.academiadecodigo.simplegraphics.graphics.Text;
 
 public class Game {
 
@@ -23,6 +22,7 @@ public class Game {
     private boolean isGameRunning;
     private GridPosition testPosition;
 
+    private String output;
 
     public Game() {
         this.grid = new Grid(600, 700, background);
@@ -68,36 +68,40 @@ public class Game {
    public void start() throws InterruptedException {
 
         isGameRunning = true;
+        collisionDetector.resetDestroyedBricks();
+        Score.resetScore();
 
         while(isGameRunning) {
 
-
-        ball.move();
+            ball.move();
 
             for (Brick brick : bricks) {
                 brick.move();
 
             }
 
-            if (collisionDetector.getDetroyedBricksCounter() == bricks.length) {
-                System.out.println(Score.getScore());
-                System.out.println("Win");
-                grid.makeGridPosition(300,300);
-
+            if (collisionDetector.getDestroyedBricksCounter() == bricks.length) {
+                output = "win";
                 isGameRunning = false;
-
                 break;
             }
 
+            if (!ball.isBallRunning()) {
+                output = "gameover";
+                isGameRunning = false;
+                break;
+            }
 
             //animation speed
             Thread.sleep(DELAY);
 
         }
 
-
-       System.out.println("Off while loop");
     }
 
+
+    public String posGame() {
+        return output;
+    }
 
 }
