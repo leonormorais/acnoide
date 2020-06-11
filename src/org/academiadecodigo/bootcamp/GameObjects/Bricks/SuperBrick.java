@@ -85,23 +85,23 @@ public class SuperBrick extends Brick {
 
         switch(type) {
             case SERGIO:
-                textInformation = grid.makeGridPosition(175, 600, 264, 88, "resources/1000score.png");
+                textInformation = grid.makeGridPosition(175, 600, 280, 20, "resources/1000score.png");
                 textInformation.show();
                 break;
             case LUIS:
-                textInformation = grid.makeGridPosition(175, 600, 264, 88, "resources/babynet.png");
+                textInformation = grid.makeGridPosition(175, 600, 280, 20, "resources/babynet.png");
                 textInformation.show();
                 break;
             case PRIS:
-                textInformation = grid.makeGridPosition(175, 600, 264, 88, "resources/CucumberSpeed.png");
+                textInformation = grid.makeGridPosition(175, 600, 280, 20, "resources/CucumberSpeed.png");
                 textInformation.show();
                 break;
             case RITA:
-                textInformation = grid.makeGridPosition(175, 600, 264, 88, "resources/cucumberx2.png");
+                textInformation = grid.makeGridPosition(175, 600, 280, 20, "resources/cucumberx2.png");
                 textInformation.show();
                 break;
             case VANDO:
-                textInformation = grid.makeGridPosition(175, 600, 264, 88, "resources/ballspeed.png");
+                textInformation = grid.makeGridPosition(175, 600, 280, 20, "resources/ballspeed.png");
                 textInformation.show();
                 break;
         }
