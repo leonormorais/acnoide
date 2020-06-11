@@ -29,9 +29,8 @@ abstract public class Brick implements Hittable {
         position.hide();
     }
 
-    public void move() {
+    public void move() { }
 
-    }
 
     public GridPosition getPosition() {
         return position;

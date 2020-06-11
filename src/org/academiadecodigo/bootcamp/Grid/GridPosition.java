@@ -113,6 +113,11 @@ public class GridPosition {
         }
    }
 
+   public void moveText() {
+        this.posY -= 1;
+        picture.translate(0, -1);
+   }
+
    public void moveBall(int[] direction) {
        this.posX += direction[0];
        this.posY += direction[1];
