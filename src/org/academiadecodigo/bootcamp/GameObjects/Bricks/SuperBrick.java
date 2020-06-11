@@ -133,6 +133,7 @@ public class SuperBrick extends Brick {
 
             case VANDO:
                 collisionDetector.getBall().setBallSpeed(Ball.MAXIMUM_SPEED);
+                collisionDetector.getBall().setIsVandoActive(false);
                 break;
 
         }

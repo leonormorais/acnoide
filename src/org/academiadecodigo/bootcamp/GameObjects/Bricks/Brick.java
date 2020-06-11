@@ -9,7 +9,6 @@ abstract public class Brick implements Hittable {
 
     protected Grid grid;
     protected GridPosition position;
-    protected Color color;
     protected BrickType type;
     protected boolean isDestroyed;
 
@@ -39,11 +38,5 @@ abstract public class Brick implements Hittable {
     public void setGrid(Grid grid) {
         this.grid = grid;
     }
-
-    public Color getColor() {
-        return color;
-    }
-
-
 
 }
