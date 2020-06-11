@@ -47,11 +47,6 @@ public class CollisionDetector {
             return true;
         }
 
-        if(hitTopCenter(platform)) {
-            ball.setNewXDirection(0);
-            return true;
-        }
-
         if(hitTopRightHalf(platform)) {
             if(ball.getXDirection() == 0) {
                 ball.setNewXDirection(1);
@@ -65,9 +60,41 @@ public class CollisionDetector {
             return true;
         }
 
+        if(hitTopCenter(platform)) {
+            ball.setNewXDirection(0);
+            return true;
+        }
+
+
         if(hitEdges(platform)) {
             ball.setNewXDirection(-ball.getXDirection());
             ball.setNewYDirection(-ball.getYDirection());
+            return true;
+        }
+
+        if (hitBottomLeftHalf(platform)) {
+            if(ball.getXDirection() == 0) {
+                ball.setNewXDirection(1);
+            }
+            if (ball.getXDirection() == 2) {
+                ball.setNewXDirection(1);
+            }
+            if (ball.getXDirection() == -1) {
+                ball.setNewXDirection(-2);
+            }
+            return true;
+        }
+
+        if (hitBottomRightHalf(platform)) {
+            if(ball.getXDirection() == 0) {
+                ball.setNewXDirection(-1);
+            }
+            if (ball.getXDirection() == -2) {
+                ball.setNewXDirection(-1);
+            }
+            if (ball.getXDirection() == 1) {
+                ball.setNewXDirection(2);
+            }
             return true;
         }
 

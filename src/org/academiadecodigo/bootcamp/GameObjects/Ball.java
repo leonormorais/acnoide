@@ -15,6 +15,8 @@ public class Ball {
     private boolean isRunning;
     private boolean isLuisActive;
     private boolean isVandoActive;
+    private boolean isPrisActive;
+
     private int[] direction;
 
     public Ball (GridPosition gridPosition) {
@@ -48,6 +50,8 @@ public class Ball {
         return isVandoActive;
     }
 
+    public boolean getIsPrisActive() { return  isPrisActive;}
+
     //setters
 
     public void setBallSpeed(int ballSpeed) {
@@ -61,6 +65,8 @@ public class Ball {
     public void setIsVandoActive(boolean isVandoActive) {
         this.isVandoActive = isVandoActive;
     }
+
+    public void setIsPrisActive( boolean isPrisActive) {this.isPrisActive = isPrisActive;}
 
     public void setNewXDirection(int x) {
         direction[0] = x;
