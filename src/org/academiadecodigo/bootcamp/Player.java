@@ -52,15 +52,6 @@ public class Player implements KeyboardHandler {
 
        }
 
-        /*
-        If Pressed Key Space
-            game.start();
-        If pressed key left
-            platform.moveleft();
-        If pressed key right;
-            platform.moveright();
-
-         */
     }
 
     @Override

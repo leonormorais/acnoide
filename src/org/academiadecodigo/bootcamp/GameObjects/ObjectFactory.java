@@ -10,9 +10,15 @@ import org.academiadecodigo.bootcamp.Grid.GridPosition;
 public class ObjectFactory {
 
     private final static int MARGIN_LEFT = 41;
+
     public final static int BRICK_WIDTH = 60;
     public final static int BRICK_HEIGHT = 20;
     private final static double NORMAL_BRICK_PROB = 0.2;
+
+    private final static int BALL_POSITION_X = 295;
+    private final static int BALL_POSITION_Y = 400;
+    private final static int BALL_WIDTH = 10;
+    private final static int BALL_HEIGHT = 10;
 
     private static int posX = 41;
     private static int posY = 100;
@@ -67,6 +73,12 @@ public class ObjectFactory {
         BrickType newBrick = bricksType[random];
 
         return new SuperBrick(grid.makeGridPosition(posX, posY, BRICK_WIDTH, BRICK_HEIGHT, sourceImg[colorCounter]), newBrick);
+
+    }
+
+    public static Ball createBall(Grid grid) {
+        return new Ball(grid.makeGridPosition(BALL_POSITION_X, BALL_POSITION_Y, BALL_WIDTH, BALL_HEIGHT, "resources/ball.png"));
+
 
     }
 

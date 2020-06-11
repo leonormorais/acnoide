@@ -8,22 +8,15 @@ import org.academiadecodigo.bootcamp.Tests.Sound;
 
 public class Ball {
 
-    private final int BALL_POSITION_X = 295;
-    private final int BALL_POSITION_Y = 400;
-    private final static int BALL_WIDTH = 10;
-    private final static int BALL_HEIGHT = 10;
-
     private int ballSpeed = 10;
-
     private GridPosition position;
     private CollisionDetector collisionDetector;
     private boolean isRunning;
     private boolean isLuisActive;
-
     private int[] direction;
 
-    public Ball (Grid grid) {
-        this.position = grid.makeGridPosition(BALL_POSITION_X, BALL_POSITION_Y, BALL_WIDTH, BALL_HEIGHT, "resources/ball.png");
+    public Ball (GridPosition gridPosition) {
+        this.position = gridPosition;
         this.isRunning = true;
         this.direction = new int[2];
 
@@ -72,7 +65,6 @@ public class Ball {
     }
 
     //move
-
     public void move() {
 
         for (int i = 0; i < ballSpeed; i++) {
