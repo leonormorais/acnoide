@@ -9,6 +9,9 @@ import org.academiadecodigo.bootcamp.Grid.Grid;
 import org.academiadecodigo.bootcamp.Grid.GridPosition;
 import org.academiadecodigo.bootcamp.Tests.Sound;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class Game {
 
     private final int BRICKS_NUMBER = 72; //Level 1
@@ -67,9 +70,18 @@ public class Game {
         //initializing score
         Score.createGridPosition(grid);
 
+
     }
 
    public void start() throws InterruptedException {
+
+        Timer themeSongTimer = new Timer();
+        themeSongTimer.schedule(new TimerTask() {
+           @Override
+           public void run() {
+               Sound.playGameSong();
+           }
+       },500, 257000);
 
         isGameRunning = true;
         collisionDetector.resetDestroyedBricks();
@@ -104,6 +116,9 @@ public class Game {
             Thread.sleep(DELAY);
 
         }
+
+       Sound.stopGameSong();
+       themeSongTimer.cancel();
 
     }
 

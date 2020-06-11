@@ -14,6 +14,9 @@ public class Sound {
     private static String themeSong = "resources/entryTheme.wav";
     static SoundEffect theme1 = new SoundEffect();
 
+    private static String gameSong = "resources/themesong.wav";
+    static SoundEffect theme2 = new SoundEffect();
+
     private static String ballSound = "resources/testeSound.wav";
     static SoundEffect se = new SoundEffect();
 
@@ -47,6 +50,15 @@ public class Sound {
     public static void playEntryThemeSong() {
         theme1.setFile(themeSong);
         theme1.play();
+    }
+
+    public static void playGameSong(){
+        theme2.setFile(gameSong);
+        theme2.play();
+    }
+
+    public static void stopGameSong(){
+        theme2.stop();
     }
 
     public static void stopThemeSong() {
