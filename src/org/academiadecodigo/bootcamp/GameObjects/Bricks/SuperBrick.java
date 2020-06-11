@@ -116,9 +116,6 @@ public class SuperBrick extends Brick {
 
 
         switch (type) {
-            case SERGIO:
-                additionalElement.hide();
-                break;
 
             case LUIS:
                 collisionDetector.getBall().setIsLuisActive(false);
