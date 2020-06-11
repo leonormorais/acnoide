@@ -9,7 +9,7 @@ import org.academiadecodigo.bootcamp.Sound;
 
 public class SuperBrick extends Brick {
 
-    private Sound sound;
+    private Sound sound = new Sound();
     private final int BRICK_SPEED = 5;
     private CollisionDetector collisionDetector;
     private int scoreWhenStartedSP; //Score when superpower starts
@@ -21,8 +21,6 @@ public class SuperBrick extends Brick {
     public SuperBrick(GridPosition position, BrickType type) {
         super(position, type);
         this.isActive = false;
-
-        sound = new Sound();
     }
 
 

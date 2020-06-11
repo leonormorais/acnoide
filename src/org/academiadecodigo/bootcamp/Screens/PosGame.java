@@ -16,7 +16,7 @@ public class PosGame implements KeyboardHandler {
 
     private final String background = "resources/finalscreen.jpg";
 
-    private Sound sound;
+    private Sound sound = new Sound();
     private Grid grid;
     private Keyboard keyboard;
     private boolean isRunning;

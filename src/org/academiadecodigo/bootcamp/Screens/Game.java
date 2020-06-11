@@ -13,13 +13,14 @@ import org.academiadecodigo.bootcamp.Sound;
 import java.util.Timer;
 import java.util.TimerTask;
 
+
 public class Game {
 
     private final int BRICKS_NUMBER = 72; //Level 1
     private final int DELAY = 75;
     private final String background = "resources/backgroundV3.jpg";
 
-    private Sound sound;
+    private Sound sound = new Sound();
     private Grid grid;
     private Brick[] bricks;
     private Player player;
@@ -40,7 +41,6 @@ public class Game {
 
         grid.init();
 
-        sound = new Sound();
         //create bricks and set grid for bricks
         bricks = ObjectFactory.createBricks(BRICKS_NUMBER, grid);
 
@@ -76,7 +76,8 @@ public class Game {
    public void start() throws InterruptedException {
 
         Timer themeSongTimer = new Timer();
-        themeSongTimer.schedule(new TimerTask() {
+
+       themeSongTimer.schedule(new TimerTask() {
            @Override
            public void run() {
                sound.playGameSong();

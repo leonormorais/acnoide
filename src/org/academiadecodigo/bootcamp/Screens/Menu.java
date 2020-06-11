@@ -11,11 +11,12 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 import java.util.Timer;
 import java.util.TimerTask;
 
+
 public class Menu implements KeyboardHandler {
 
     private final String background = "resources/ACNOID2020.jpg";
 
-    private Sound sound;
+    private Sound sound = new Sound();
     private Grid grid;
     private Keyboard keyboard;
     private boolean isRunning = true;
@@ -25,13 +26,10 @@ public class Menu implements KeyboardHandler {
     public Menu () {
         this.grid = new Grid(600, 700, background);
         keyboard = new Keyboard(this);
-
     }
 
     public void init() {
         grid.init();
-
-        sound = new Sound();
 
         KeyboardEvent inputStart = new KeyboardEvent();
         inputStart.setKey(KeyboardEvent.KEY_SPACE);
@@ -44,6 +42,7 @@ public class Menu implements KeyboardHandler {
 
 
     public void start() throws InterruptedException {
+
 
         Timer timer = new Timer();
         Timer themeSongTimer = new Timer();
@@ -60,11 +59,14 @@ public class Menu implements KeyboardHandler {
             }
         }, 0, 400);
 
+
         themeSongTimer.schedule(new TimerTask() {
+
             @Override
             public void run() {
                 sound.playEntryThemeSong();
             }
+
         },400, 120000);
 
         while (isRunning) {

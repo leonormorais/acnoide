@@ -1,10 +1,11 @@
 package org.academiadecodigo.bootcamp;
 
-import java.io.BufferedInputStream;
 import java.io.File;
-import java.io.InputStream;
 import java.net.URL;
+import java.io.BufferedInputStream;
+import java.io.InputStream;
 import javax.sound.sampled.*;
+
 
 public class Sound {
 
@@ -50,7 +51,8 @@ public class Sound {
 
     public void playEntryThemeSong() {
         try {
-            InputStream audiosrc = getClass().getResourceAsStream("resources/entryTheme.wav");
+            //String currentDir = System.getProperty("user.dir");
+            InputStream audiosrc = getClass().getClassLoader().getResourceAsStream("resources/entryTheme.wav");
             InputStream bufferedIn = new BufferedInputStream(audiosrc);
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(bufferedIn);
 
@@ -61,12 +63,13 @@ public class Sound {
             themeSong.start();
         } catch (Exception e) {
             System.err.println(e.getMessage());
+
         }
     }
 
     public void playGameSong() {
         try {
-            InputStream audiosrc = getClass().getResourceAsStream("resources/themesong.wav");
+            InputStream audiosrc = getClass().getClassLoader().getResourceAsStream("resources/themesong.wav");
             InputStream bufferedIn = new BufferedInputStream(audiosrc);
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(bufferedIn);
 
@@ -82,7 +85,7 @@ public class Sound {
 
     public void playPosGameSong() {
         try {
-            InputStream audiosrc = getClass().getResourceAsStream("resources/lastsong.wav");
+            InputStream audiosrc = getClass().getClassLoader().getResourceAsStream("resources/lastsong.wav");
             InputStream bufferedIn = new BufferedInputStream(audiosrc);
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(bufferedIn);
 
@@ -98,7 +101,7 @@ public class Sound {
 
     public void playBallEffect() {
         try {
-            InputStream audiosrc = getClass().getResourceAsStream("resources/testeSound.wav");
+            InputStream audiosrc = getClass().getClassLoader().getResourceAsStream("resources/testeSound.wav");
             InputStream bufferedIn = new BufferedInputStream(audiosrc);
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(bufferedIn);
 
@@ -114,7 +117,7 @@ public class Sound {
 
     public void playPipinoDNovo() {
         try {
-            InputStream audiosrc = getClass().getResourceAsStream("resources/pipino.wav");
+            InputStream audiosrc = getClass().getClassLoader().getResourceAsStream("resources/pipino.wav");
             InputStream bufferedIn = new BufferedInputStream(audiosrc);
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(bufferedIn);
 
@@ -130,7 +133,7 @@ public class Sound {
 
     public void playMeow() {
         try {
-            InputStream audiosrc = getClass().getResourceAsStream("resources/meow.wav");
+            InputStream audiosrc = getClass().getClassLoader().getResourceAsStream("resources/meow.wav");
             InputStream bufferedIn = new BufferedInputStream(audiosrc);
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(bufferedIn);
 
@@ -146,7 +149,7 @@ public class Sound {
 
     public void playBaby() {
         try {
-            InputStream audiosrc = getClass().getResourceAsStream("resources/baby.wav");
+            InputStream audiosrc = getClass().getClassLoader().getResourceAsStream("resources/baby.wav");
             InputStream bufferedIn = new BufferedInputStream(audiosrc);
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(bufferedIn);
 
@@ -162,7 +165,7 @@ public class Sound {
 
     public void playGameOverSound() {
         try {
-            InputStream audiosrc = getClass().getResourceAsStream("resources/gameover.wav");
+            InputStream audiosrc = getClass().getClassLoader().getResourceAsStream("resources/gameover.wav");
             InputStream bufferedIn = new BufferedInputStream(audiosrc);
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(bufferedIn);
 
@@ -178,7 +181,7 @@ public class Sound {
 
     public void playWinSound()  {
         try {
-            InputStream audiosrc = getClass().getResourceAsStream("resources/win.wav");
+            InputStream audiosrc = getClass().getClassLoader().getResourceAsStream("resources/win.wav");
             InputStream bufferedIn = new BufferedInputStream(audiosrc);
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(bufferedIn);
 
@@ -194,7 +197,7 @@ public class Sound {
 
     public void playTadaSound()  {
         try {
-            InputStream audiosrc = getClass().getResourceAsStream("resources/tada.wav");
+            InputStream audiosrc = getClass().getClassLoader().getResourceAsStream("resources/tada.wav");
             InputStream bufferedIn = new BufferedInputStream(audiosrc);
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(bufferedIn);
 
@@ -210,7 +213,7 @@ public class Sound {
 
     public void playRitaSound()   {
         try {
-            InputStream audiosrc = getClass().getResourceAsStream("resources/rita.wav");
+            InputStream audiosrc = getClass().getClassLoader().getResourceAsStream("resources/rita.wav");
             InputStream bufferedIn = new BufferedInputStream(audiosrc);
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(bufferedIn);
 
@@ -227,7 +230,7 @@ public class Sound {
 
     public void playVandoSound()  {
         try {
-            InputStream audiosrc = getClass().getResourceAsStream("resources/vando.wav");
+            InputStream audiosrc = getClass().getClassLoader().getResourceAsStream("resources/vando.wav");
             InputStream bufferedIn = new BufferedInputStream(audiosrc);
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(bufferedIn);
 
@@ -241,133 +244,125 @@ public class Sound {
         }
     }
 
-
-
-
-
-
+}
 
 
 /*
-    //private static String ritaSound = "resources/rita.wav";
-    static URL ritaSound = Sound.class.getResource("resources/rita.wav");
-    static SoundEffect se8 = new SoundEffect();
 
-    //private static String vandoSound = "resources/vando.wav";
-    static URL vandoSound = Sound.class.getResource("resources/vando.wav");
-    static SoundEffect se9 = new SoundEffect();
+    private String ritaSound = "resources/rita.wav";
+   // URL ritaSound = getClass().getResource("resources/rita.wav");
+    SoundEffect se8 = new SoundEffect();
 
-/*
- //private static String themeSong = "resources/entryTheme.wav";
-    static URL themeSong = Sound.class.getResource("resources/entryTheme.wav");
-    static SoundEffect theme1 = new SoundEffect();
+    private String vandoSound = "resources/vando.wav";
+    // URL vandoSound = getClass().getResource("resources/vando.wav");
+     SoundEffect se9 = new SoundEffect();
 
-    //private static String gameSong = "resources/themesong.wav";
-    static URL gameSong = Sound.class.getResource("resources/themesong.wav");
-    static SoundEffect theme2 = new SoundEffect();
+    private String themeSong = "resources/entryTheme.wav";
+   // URL themeSong = getClass().getResource("resources/entryTheme.wav");
+    SoundEffect theme1 = new SoundEffect();
 
-    //private static String lastSong = "resources/lastsong.wav";
-    static URL lastSong = Sound.class.getResource("resources/lastsong.wav");
-    static SoundEffect theme3 = new SoundEffect();
+    private String gameSong = "resources/themesong.wav";
+   // URL gameSong = getClass().getResource("resources/themesong.wav");
+    SoundEffect theme2 = new SoundEffect();
 
-  //private static String ballSound = "resources/testeSound.wav";
-    static URL ballSound = Sound.class.getResource("resources/testeSound.wav");
-    static SoundEffect se = new SoundEffect();
+    private String lastSong = "resources/lastsong.wav";
+   // URL lastSong = getClass().getResource("resources/lastsong.wav");
+    SoundEffect theme3 = new SoundEffect();
 
+     private String ballSound = "resources/testeSound.wav";
+    //URL ballSound = getClass().getResource("resources/testeSound.wav");
+     SoundEffect se = new SoundEffect();
 
-   //private static String pepinoSound = "resources/pipino.wav";
-   static URL pepinoSound = Sound.class.getResource("resources/pipino.wav");
-    static SoundEffect se2 = new SoundEffect();
+   private String pepinoSound = "resources/pipino.wav";
+    //URL pepinoSound = getClass().getResource("resources/pipino.wav");
+     SoundEffect se2 = new SoundEffect();
 
-        //private static String meowSound = "resources/meow.wav";
-    static URL meowSound = Sound.class.getResource("resources/meow.wav");
-    static SoundEffect se3 = new SoundEffect();
+    private String meowSound = "resources/meow.wav";
+  //  URL meowSound = getClass().getResource("resources/meow.wav");
+   SoundEffect se3 = new SoundEffect();
 
+    private String babySound = "resources/baby.wav";
+    //URL babySound = getClass().getResource("resources/baby.wav");
+    SoundEffect se4 = new SoundEffect();
 
-    //private static String babySound = "resources/baby.wav";
-    static URL babySound = Sound.class.getResource("resources/baby.wav");
-    static SoundEffect se4 = new SoundEffect();
-
-
-    //private static String gameOverSound = "resources/gameover.wav";
-    static URL gameOverSound = Sound.class.getResource("resources/gameover.wav");
-    static SoundEffect se5 = new SoundEffect();
+    private String gameOverSound = "resources/gameover.wav";
+    // URL gameOverSound = getClass().getResource("resources/gameover.wav");
+    SoundEffect se5 = new SoundEffect();
 
 
-    //private static String winSound = "resources/win.wav";
-    static URL winSound = Sound.class.getResource("resources/win.wav");
-    static SoundEffect se6 = new SoundEffect();
+    private String winSound = "resources/win.wav";
+   // URL winSound = getClass().getResource("resources/win.wav");
+    SoundEffect se6 = new SoundEffect();
 
-      //private static String tadaSound = "resources/tada.wav";
-    static URL tadaSound = Sound.class.getResource("resources/tada.wav");
-    static SoundEffect se7 = new SoundEffect();
+    private String tadaSound = "resources/tada.wav";
+    // URL tadaSound = getClass().getResource("resources/tada.wav");
+     SoundEffect se7 = new SoundEffect();
 
 
-    public static void playEntryThemeSong() {
+    public void playEntryThemeSong() {
         theme1.setFile(themeSong);
         theme1.play();
     }
 
-    public static void playGameSong(){
+    public void playGameSong(){
         theme2.setFile(gameSong);
         theme2.play();
 
     }
-    public static void playPosGameSong(){
+    public void playPosGameSong(){
         theme3.setFile(lastSong);
         theme3.play();
     }
-    */
-/*
-    public static void stopPosGameSong(){
+
+    public void stopPosGameSong(){
         theme3.stop();
     }
 
-    public static void stopGameSong(){
+    public void stopGameSong(){
         theme2.stop();
     }
 
-    public static void stopThemeSong() {
+    public void stopThemeSong() {
         theme1.stop();
     }
 
-    public static void playBallEffect() {
+    public void playBallEffect() {
         se.setFile(ballSound);
         se.play();
     }
 
-    public static void playPipinoDNovo() {
+    public void playPipinoDNovo() {
         se2.setFile(pepinoSound);
         se2.play();
     }
 
 
 
-    public static void playMeow() {
+    public void playMeow() {
         se3.setFile(meowSound);
         se3.play();
     }
 
 
 
-    public static void playBaby() {
+    public void playBaby() {
         se4.setFile(babySound);
         se4.play();
     }
 
 
 
-    public static void playGameOverSound() {
+    public void playGameOverSound() {
         se5.setFile(gameOverSound);
         se5.play();
     }
 
-    public static void playWinSound() {
+    public void playWinSound() {
         se6.setFile(winSound);
         se6.play();
     }
 
-    public static void playTadaSound() {
+    public void playTadaSound() {
         se7.setFile(tadaSound);
         se7.play();
     }
@@ -389,14 +384,14 @@ public class Sound {
     public static class SoundEffect {
         Clip clip;
 
-        public void setFile(URL url) {
+        public void setFile(String path) {
 
             try {
-               // File file = new File(soundFileName);
-                // AudioInputStream sound = AudioSystem.getAudioInputStream(file);
+               File file = new File(path);
+               AudioInputStream sound = AudioSystem.getAudioInputStream(file);
 
+               // AudioInputStream sound = AudioSystem.getAudioInputStream(url);
                 clip = AudioSystem.getClip();
-                AudioInputStream sound = AudioSystem.getAudioInputStream(url);
                 clip.open(sound);
 
             } catch (Exception e) {
@@ -415,7 +410,5 @@ public class Sound {
         }
 
     }
- */
-}
-
+*/
 
