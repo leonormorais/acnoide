@@ -35,6 +35,15 @@ public class Sound {
     private static String tadaSound = "resources/tada.wav";
     static SoundEffect se7 = new SoundEffect();
 
+    private static String ritaSound = "resources/rita.wav";
+    static SoundEffect se8 = new SoundEffect();
+
+    private static String vandoSound = "resources/vando.wav";
+    static SoundEffect se9 = new SoundEffect();
+
+
+
+
     public static void playEntryThemeSong() {
         theme1.setFile(themeSong);
         theme1.play();
@@ -77,6 +86,16 @@ public class Sound {
     public static void playTadaSound() {
         se7.setFile(tadaSound);
         se7.play();
+    }
+
+    public static void playRitaSound() {
+        se8.setFile(ritaSound);
+        se8.play();
+    }
+
+    public static void playVandoSound() {
+        se9.setFile(vandoSound);
+        se9.play();
     }
 
 

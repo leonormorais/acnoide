@@ -67,6 +67,7 @@ public class SuperBrick extends Brick {
                 if (collisionDetector.getPlatform().getIsRitaActive()) {
                     break;
                 }
+                Sound.playRitaSound();
                 scoreWhenStartedSP = Score.intGetScore();
                 collisionDetector.getPlatform().getPosition().increaseWidthPlatform();
                 collisionDetector.getPlatform().setIsRitaActive(true);
@@ -78,6 +79,7 @@ public class SuperBrick extends Brick {
                 if (collisionDetector.getBall().getIsVandoActive()) {
                     break;
                 }
+                Sound.playVandoSound();
                 scoreWhenStartedSP = Score.intGetScore();
                 collisionDetector.getBall().setBallSpeed(Ball.MINOR_SPEED);
                 collisionDetector.getBall().setIsVandoActive(true);
