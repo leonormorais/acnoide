@@ -41,10 +41,8 @@ public class Game {
         //initializing player and set grid to platform
         player = new Player(grid);
         player.init();
-        //player.getPlatform().setGrid(grid);
 
         //initializing ball
-        //ball = new Ball(grid);
         ball = ObjectFactory.createBall(grid);
 
         //initializing collision detector
