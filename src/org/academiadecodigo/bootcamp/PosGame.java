@@ -39,17 +39,16 @@ public class PosGame implements KeyboardHandler {
         inputStart.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         keyboard.addEventListener(inputStart);
 
-        textStart = grid.makeGridPosition(170, 400, 286, 26, "resources/start.png");
+        textStart = grid.makeGridPosition(170, 400, 286, 26, "resources/playagain.png");
 
         if (lastGame.equals("win")) {
-            //substituir imagem pelo CONGRATS
-            titleImage = grid.makeGridPosition(200, 200, 286,26,"resources/start.png");
+            titleImage = grid.makeGridPosition(200, 200, 286,26,"resources/congrats.png");
         }
-            //substituir imagem pelo GAMEOVER.
+
         if (lastGame.equals("gameover")){
-            titleImage = grid.makeGridPosition(200, 200, 286,26,"resources/cucumberx2.png");
+            titleImage = grid.makeGridPosition(200, 200, 286,26,"resources/gameover.png");
         }
-        
+
 
     }
 
