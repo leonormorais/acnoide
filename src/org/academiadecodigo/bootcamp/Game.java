@@ -6,6 +6,8 @@ import org.academiadecodigo.bootcamp.GameObjects.Bricks.SuperBrick;
 import org.academiadecodigo.bootcamp.GameObjects.ObjectFactory;
 import org.academiadecodigo.bootcamp.GameObjects.Score;
 import org.academiadecodigo.bootcamp.Grid.Grid;
+import org.academiadecodigo.bootcamp.Grid.GridPosition;
+import org.academiadecodigo.simplegraphics.graphics.Text;
 
 public class Game {
 
@@ -18,6 +20,9 @@ public class Game {
     private Player player;
     private Ball ball;
     private CollisionDetector collisionDetector;
+    private boolean isGameRunning;
+    private GridPosition testPosition;
+
 
     public Game() {
         this.grid = new Grid(600, 700, background);
@@ -62,13 +67,28 @@ public class Game {
 
    public void start() throws InterruptedException {
 
-        while (ball.isBallRunning()) {
+        isGameRunning = true;
 
-            ball.move();
+        while(isGameRunning) {
+
+
+        ball.move();
 
             for (Brick brick : bricks) {
                 brick.move();
+
             }
+
+            if (collisionDetector.getDetroyedBricksCounter() == bricks.length) {
+                System.out.println(Score.getScore());
+                System.out.println("Win");
+                grid.makeGridPosition(300,300);
+
+                isGameRunning = false;
+
+                break;
+            }
+
 
             //animation speed
             Thread.sleep(DELAY);

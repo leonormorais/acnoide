@@ -14,6 +14,11 @@ public class Score {
     public static void createGridPosition(Grid grid) {
         position = grid.makeGridPosition(SCORE_POSITION_X, SCORE_POSITION_Y);
     }
+
+    public static int getScore() {
+        return score;
+    }
+
     public static int intGetScore() { return score; }
 
     public static String stringGetScore(){

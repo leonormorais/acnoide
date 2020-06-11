@@ -13,6 +13,7 @@ public class CollisionDetector {
     private Brick[] bricks;
     private Platform platform;
     private Ball ball;
+    private int detroyedBricksCounter = 0;
 
     public CollisionDetector(Brick[] bricks, Platform platform, Ball ball) {
         this.bricks = bricks;
@@ -25,6 +26,10 @@ public class CollisionDetector {
     }
 
     public Platform getPlatform(){ return platform;}
+
+    public int getDetroyedBricksCounter() {
+        return detroyedBricksCounter;
+    }
 
     //platform
     public boolean checkForCollisionPlatform() {
@@ -75,6 +80,7 @@ public class CollisionDetector {
             if (!brick.getIsDestroyed()) {
                    if(checkForHits(brick))  {
                     brick.destroy();
+                    this.detroyedBricksCounter++;
                     return true;
                 }
             }
