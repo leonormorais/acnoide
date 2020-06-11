@@ -6,6 +6,9 @@ import org.academiadecodigo.bootcamp.Tests.Sound;
 
 public class Ball {
 
+    public static final int MINOR_SPEED = 5;
+    public static final int BALL_SPEED = 10;
+
     private int ballSpeed = 10;
     private GridPosition position;
     private CollisionDetector collisionDetector;
@@ -100,7 +103,6 @@ public class Ball {
         position.moveBall(direction);
 
         }
-        System.out.println("Speed " + ballSpeed);
         Score.setScore(1);
     }
 

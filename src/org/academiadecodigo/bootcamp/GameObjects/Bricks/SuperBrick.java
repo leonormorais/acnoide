@@ -1,5 +1,6 @@
 package org.academiadecodigo.bootcamp.GameObjects.Bricks;
 import org.academiadecodigo.bootcamp.CollisionDetector;
+import org.academiadecodigo.bootcamp.GameObjects.Ball;
 import org.academiadecodigo.bootcamp.Grid.GridPosition;
 import org.academiadecodigo.bootcamp.GameObjects.Score;
 import org.academiadecodigo.bootcamp.Tests.Sound;
@@ -16,6 +17,7 @@ public class SuperBrick extends Brick {
 
     public SuperBrick(GridPosition position, BrickType type) {
         super(position, type);
+        this.isActive = false;
     }
 
 
@@ -25,65 +27,54 @@ public class SuperBrick extends Brick {
 
     public void superPower() {
 
+
+
+        scoreWhenStartedSP = Score.intGetScore();
+        showInformation();
+
         switch (type) {
 
             case SERGIO:
-                System.out.println("Sérgio");
                 Score.setScore(1000);
-                scoreWhenStartedSP = Score.intGetScore();
-                isActive = true;
                 additionalElement = grid.makeGridPosition(175, 350, 264, 88, "resources/1000.png");
                 additionalElement.show();
+                isActive = true;
                 break;
 
-
             case LUIS:
-                System.out.println("Luís");
-                //Som do bebé a chorar
                 if (collisionDetector.getBall().getIsLuisActive()) {
                     break;
                 }
-                scoreWhenStartedSP = Score.intGetScore();
-                System.out.println("Inicial " + scoreWhenStartedSP);
-                isActive = true;
                 additionalElement = grid.makeGridPosition(22, 690, 574, 20, "resources/baby.png");
                 additionalElement.show();
                 collisionDetector.getBall().setIsLuisActive(true);
+                isActive = true;
                 break;
 
             case PRIS:
                 Sound.playMeow();
-                System.out.println("Pris");
-                //Bola torna-se um gato, toca som do gato
-                scoreWhenStartedSP = Score.intGetScore();
-                System.out.println("Inicial " + scoreWhenStartedSP);
-                isActive = true;
                 collisionDetector.getPlatform().setPlatformSpeed(collisionDetector.getPlatform().getPlatformSpeed() * 2);
+                isActive = true;
                 break;
 
-
             case RITA:
-                System.out.println("Rita");
                 if (collisionDetector.getPlatform().getIsRitaActive()) {
                     break;
                 }
-                scoreWhenStartedSP = Score.intGetScore();
-                isActive = true;
                 collisionDetector.getPlatform().getPosition().increaseWidthPlatform();
                 collisionDetector.getPlatform().setIsRitaActive(true);
+                isActive = true;
                 break;
 
-
             case VANDO:
-                System.out.println("Vando");
-                scoreWhenStartedSP = Score.intGetScore();
-                System.out.println("Inicial " + scoreWhenStartedSP);
+                collisionDetector.getBall().setBallSpeed(Ball.MINOR_SPEED);
                 isActive = true;
-                collisionDetector.getBall().setBallSpeed(collisionDetector.getBall().getBallSpeed() / 2);
                 break;
 
         }
 
+        System.out.println("power is active: " + isActive);
+        System.out.println("is destroyed: " + isDestroyed);
 
     }
 
@@ -120,47 +111,36 @@ public class SuperBrick extends Brick {
 
     public void deleteSuperPower(){
 
+        System.out.println("###DELETED##");
+
+
         switch (type) {
             case SERGIO:
-                System.out.println("Delete Sergio 1000");
-                System.out.println("Final " + Score.intGetScore());
-                isActive = false;
                 additionalElement.hide();
                 break;
 
-
             case LUIS:
-                System.out.println("Delete Luís");
-                System.out.println("Final " + Score.intGetScore());
-                isActive = false;
                 collisionDetector.getBall().setIsLuisActive(false);
                 additionalElement.hide();
                 break;
 
-
             case PRIS:
-                System.out.println("Delete Pris");
-                System.out.println("Final " + Score.intGetScore());
-                isActive = false;
                 collisionDetector.getPlatform().setPlatformSpeed(collisionDetector.getPlatform().getPlatformSpeed() / 2);
                 break;
 
-
-
             case RITA:
-                System.out.println("Delete Rita");
-                System.out.println("Final" + Score.intGetScore());
-                isActive = false;
                 collisionDetector.getPlatform().getPosition().decreaseWidthPlatform();
                 collisionDetector.getPlatform().setIsRitaActive(false);
-
+                break;
 
             case VANDO:
-                isActive = false;
-                collisionDetector.getBall().setBallSpeed(collisionDetector.getBall().getBallSpeed() * 2);
+                collisionDetector.getBall().setBallSpeed(Ball.BALL_SPEED);
                 break;
 
         }
+        isActive = false;
+        System.out.println("power is active: " + isActive);
+        System.out.println("is destroyed: " + isDestroyed);
 
     }
 
@@ -194,31 +174,30 @@ public class SuperBrick extends Brick {
     @Override
     public void move() {
         for (int i = 0; i < BRICK_SPEED; i++) {
+
             if(isActive) {
-               /* if (Score.intGetScore() - scoreWhenStartedSP >= 50 || isVando()) {
+               if (Score.intGetScore() - scoreWhenStartedSP >= 50 || isVando()) {
                     textInformation.hide();
                     textOn = false;
                 }
-                */
+
                 if (Score.intGetScore() - scoreWhenStartedSP >= 500) {
-                    //textInformation.hide(); //test
                    deleteSuperPower();
-                   break;
                 }
 
                 if (isTextOn()) {
-                    //textInformation.moveText();
+                    textInformation.moveText();
+                }
+
+            } else {
+                if (isDestroyed) {
+                    if (collisionDetector.checkForCollisionSuperBrick(this)) {
+                        superPower();
+                        position.hide();
+                    }
+                    position.moveBrick();
                 }
             }
-
-            if (isDestroyed) {
-                if (collisionDetector.checkForCollisionSuperBrick(this)) {
-                    superPower();
-                    position.hide();
-                }
-                position.moveBrick();
-            }
-
         }
     }
 
