@@ -1,7 +1,7 @@
 package org.academiadecodigo.bootcamp.Grid;
 
 
-import org.academiadecodigo.bootcamp.Score;
+import org.academiadecodigo.bootcamp.GameObjects.Score;
 import org.academiadecodigo.simplegraphics.graphics.*;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 

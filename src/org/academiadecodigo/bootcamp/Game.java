@@ -4,6 +4,7 @@ import org.academiadecodigo.bootcamp.GameObjects.Ball;
 import org.academiadecodigo.bootcamp.GameObjects.Bricks.Brick;
 import org.academiadecodigo.bootcamp.GameObjects.Bricks.SuperBrick;
 import org.academiadecodigo.bootcamp.GameObjects.ObjectFactory;
+import org.academiadecodigo.bootcamp.GameObjects.Score;
 import org.academiadecodigo.bootcamp.Grid.Grid;
 
 public class Game {

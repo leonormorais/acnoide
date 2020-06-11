@@ -1,4 +1,4 @@
-package org.academiadecodigo.bootcamp;
+package org.academiadecodigo.bootcamp.GameObjects;
 
 import org.academiadecodigo.bootcamp.Grid.Grid;
 import org.academiadecodigo.bootcamp.Grid.GridPosition;

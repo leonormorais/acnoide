@@ -36,8 +36,6 @@ public class ObjectFactory {
 
     private static int colorCounter = 0;
 
-   // private Brick[] bricks;
-
     public static Brick[] createBricks(int numberOfBricks, Grid grid) {
 
         Brick[] bricks = new Brick[numberOfBricks];
@@ -63,6 +61,7 @@ public class ObjectFactory {
 
 
     private static SuperBrick createSuperBrick(Grid grid) {
+
         BrickType[] bricksType = BrickType.values();
         int random = (int) (Math.random() * bricksType.length);
 
@@ -71,15 +70,12 @@ public class ObjectFactory {
         }
 
         BrickType newBrick = bricksType[random];
-
         return new SuperBrick(grid.makeGridPosition(posX, posY, BRICK_WIDTH, BRICK_HEIGHT, sourceImg[colorCounter]), newBrick);
 
     }
 
     public static Ball createBall(Grid grid) {
         return new Ball(grid.makeGridPosition(BALL_POSITION_X, BALL_POSITION_Y, BALL_WIDTH, BALL_HEIGHT, "resources/ball.png"));
-
-
     }
 
 
