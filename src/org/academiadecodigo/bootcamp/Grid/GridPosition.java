@@ -58,18 +58,23 @@ public class GridPosition {
     }
 
     public void increaseWidthPlatform() {
-        int temp = width / 2;
+       /*int temp = width / 2;
         picture.grow(temp, 0);
         width += width;
         posX -= width / 4;
 
+        */
+
     }
 
     public void decreaseWidthPlatform() {
+        /*
         int temp = -(this.width / 4);
         picture.grow(temp, 0);
         posX += width / 4;
         width -= width / 2;
+
+         */
 
     }
 

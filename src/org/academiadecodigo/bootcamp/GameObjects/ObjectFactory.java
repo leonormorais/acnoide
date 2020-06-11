@@ -13,7 +13,7 @@ public class ObjectFactory {
 
     public final static int BRICK_WIDTH = 60;
     public final static int BRICK_HEIGHT = 20;
-    private final static double NORMAL_BRICK_PROB = 0.2;
+    private final static double NORMAL_BRICK_PROB = 0.8;
 
     private final static int BALL_POSITION_X = 295;
     private final static int BALL_POSITION_Y = 400;

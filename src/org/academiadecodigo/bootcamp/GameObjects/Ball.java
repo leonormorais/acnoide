@@ -100,7 +100,7 @@ public class Ball {
         position.moveBall(direction);
 
         }
-
+        System.out.println("Speed " + ballSpeed);
         Score.setScore(1);
     }
 

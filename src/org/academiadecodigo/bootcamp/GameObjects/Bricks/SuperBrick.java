@@ -25,20 +25,27 @@ public class SuperBrick extends Brick {
 
     public void superPower() {
 
-        scoreWhenStartedSP = Score.intGetScore();
-        isActive = true;
-        showInformation();
-
         switch (type) {
+
             case SERGIO:
+                System.out.println("Sérgio");
                 Score.setScore(1000);
+                scoreWhenStartedSP = Score.intGetScore();
+                isActive = true;
+                additionalElement = grid.makeGridPosition(175, 350, 264, 88, "resources/1000.png");
+                additionalElement.show();
                 break;
 
+
             case LUIS:
+                System.out.println("Luís");
                 //Som do bebé a chorar
                 if (collisionDetector.getBall().getIsLuisActive()) {
                     break;
                 }
+                scoreWhenStartedSP = Score.intGetScore();
+                System.out.println("Inicial " + scoreWhenStartedSP);
+                isActive = true;
                 additionalElement = grid.makeGridPosition(22, 690, 574, 20, "resources/baby.png");
                 additionalElement.show();
                 collisionDetector.getBall().setIsLuisActive(true);
@@ -46,21 +53,38 @@ public class SuperBrick extends Brick {
 
             case PRIS:
                 Sound.playMeow();
+                System.out.println("Pris");
+                //Bola torna-se um gato, toca som do gato
+                scoreWhenStartedSP = Score.intGetScore();
+                System.out.println("Inicial " + scoreWhenStartedSP);
+                isActive = true;
                 collisionDetector.getPlatform().setPlatformSpeed(collisionDetector.getPlatform().getPlatformSpeed() * 2);
                 break;
 
+
             case RITA:
+                System.out.println("Rita");
                 if (collisionDetector.getPlatform().getIsRitaActive()) {
                     break;
                 }
+                scoreWhenStartedSP = Score.intGetScore();
+                isActive = true;
                 collisionDetector.getPlatform().getPosition().increaseWidthPlatform();
                 collisionDetector.getPlatform().setIsRitaActive(true);
                 break;
 
+
             case VANDO:
+                System.out.println("Vando");
+                scoreWhenStartedSP = Score.intGetScore();
+                System.out.println("Inicial " + scoreWhenStartedSP);
+                isActive = true;
                 collisionDetector.getBall().setBallSpeed(collisionDetector.getBall().getBallSpeed() / 2);
                 break;
+
         }
+
+
     }
 
     private void showInformation() {
@@ -90,30 +114,49 @@ public class SuperBrick extends Brick {
                 break;
         }
 
+
+
     }
 
     public void deleteSuperPower(){
 
-        isActive = false;
-
         switch (type) {
             case SERGIO:
+                System.out.println("Delete Sergio 1000");
+                System.out.println("Final " + Score.intGetScore());
+                isActive = false;
+                additionalElement.hide();
                 break;
 
+
             case LUIS:
+                System.out.println("Delete Luís");
+                System.out.println("Final " + Score.intGetScore());
+                isActive = false;
                 collisionDetector.getBall().setIsLuisActive(false);
                 additionalElement.hide();
                 break;
 
+
             case PRIS:
+                System.out.println("Delete Pris");
+                System.out.println("Final " + Score.intGetScore());
+                isActive = false;
                 collisionDetector.getPlatform().setPlatformSpeed(collisionDetector.getPlatform().getPlatformSpeed() / 2);
                 break;
 
+
+
             case RITA:
+                System.out.println("Delete Rita");
+                System.out.println("Final" + Score.intGetScore());
+                isActive = false;
                 collisionDetector.getPlatform().getPosition().decreaseWidthPlatform();
                 collisionDetector.getPlatform().setIsRitaActive(false);
 
+
             case VANDO:
+                isActive = false;
                 collisionDetector.getBall().setBallSpeed(collisionDetector.getBall().getBallSpeed() * 2);
                 break;
 
@@ -151,21 +194,20 @@ public class SuperBrick extends Brick {
     @Override
     public void move() {
         for (int i = 0; i < BRICK_SPEED; i++) {
-
             if(isActive) {
-                if (Score.intGetScore() - scoreWhenStartedSP >= 50 || isVando()) {
+               /* if (Score.intGetScore() - scoreWhenStartedSP >= 50 || isVando()) {
                     textInformation.hide();
                     textOn = false;
                 }
-
-                if (isTextOn()) {
-                    textInformation.moveText();
+                */
+                if (Score.intGetScore() - scoreWhenStartedSP >= 500) {
+                    //textInformation.hide(); //test
+                   deleteSuperPower();
+                   break;
                 }
 
-                if (Score.intGetScore() - scoreWhenStartedSP >= 500) {
-
-                    System.out.println(Score.intGetScore());
-                    deleteSuperPower();
+                if (isTextOn()) {
+                    //textInformation.moveText();
                 }
             }
 
