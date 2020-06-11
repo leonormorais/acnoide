@@ -5,7 +5,6 @@ import org.academiadecodigo.bootcamp.GameObjects.Bricks.BrickType;
 import org.academiadecodigo.bootcamp.GameObjects.Bricks.NormalBrick;
 import org.academiadecodigo.bootcamp.GameObjects.Bricks.SuperBrick;
 import org.academiadecodigo.bootcamp.Grid.Grid;
-import org.academiadecodigo.bootcamp.Grid.GridPosition;
 
 public class ObjectFactory {
 

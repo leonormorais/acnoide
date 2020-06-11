@@ -3,7 +3,6 @@ package org.academiadecodigo.bootcamp.GameObjects.Bricks;
 import org.academiadecodigo.bootcamp.GameObjects.Hittable;
 import org.academiadecodigo.bootcamp.Grid.Grid;
 import org.academiadecodigo.bootcamp.Grid.GridPosition;
-import org.academiadecodigo.simplegraphics.graphics.Color;
 
 abstract public class Brick implements Hittable {
 

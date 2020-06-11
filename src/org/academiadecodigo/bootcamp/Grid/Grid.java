@@ -1,14 +1,12 @@
 package org.academiadecodigo.bootcamp.Grid;
 
-import org.academiadecodigo.simplegraphics.graphics.Color;
-import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Grid {
 
     public static final int PADDING = 10;
-    private int width; //em px
-    private int height; //em px
+    private int width; //px
+    private int height; //px
     private Picture backgroundTest;
 
     public Grid (int width, int height, String source) {

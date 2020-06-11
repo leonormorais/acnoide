@@ -1,10 +1,11 @@
 package org.academiadecodigo.bootcamp.GameObjects.Bricks;
+
 import org.academiadecodigo.bootcamp.CollisionDetector;
 import org.academiadecodigo.bootcamp.GameObjects.Ball;
 import org.academiadecodigo.bootcamp.GameObjects.Platform;
 import org.academiadecodigo.bootcamp.Grid.GridPosition;
 import org.academiadecodigo.bootcamp.GameObjects.Score;
-import org.academiadecodigo.bootcamp.Tests.Sound;
+import org.academiadecodigo.bootcamp.Sound;
 
 public class SuperBrick extends Brick {
 
@@ -89,9 +90,6 @@ public class SuperBrick extends Brick {
 
         }
 
-        System.out.println("power is active: " + isActive);
-        System.out.println("is destroyed: " + isDestroyed);
-
     }
 
     private void showInformation() {
@@ -127,9 +125,6 @@ public class SuperBrick extends Brick {
 
     public void deleteSuperPower(){
 
-        System.out.println("###DELETED##");
-
-
         switch (type) {
 
             case LUIS:
@@ -154,8 +149,6 @@ public class SuperBrick extends Brick {
 
         }
         isActive = false;
-        System.out.println("power is active: " + isActive);
-        System.out.println("is destroyed: " + isDestroyed);
 
     }
 

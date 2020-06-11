@@ -2,7 +2,7 @@ package org.academiadecodigo.bootcamp.GameObjects;
 
 import org.academiadecodigo.bootcamp.CollisionDetector;
 import org.academiadecodigo.bootcamp.Grid.GridPosition;
-import org.academiadecodigo.bootcamp.Tests.Sound;
+import org.academiadecodigo.bootcamp.Sound;
 
 public class Ball {
 
