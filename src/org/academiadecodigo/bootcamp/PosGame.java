@@ -13,19 +13,22 @@ import java.util.TimerTask;
 
 public class PosGame implements KeyboardHandler {
 
-    private final String background = "resources/ACNOID2020.jpg";
+    private final String background = "resources/finalscreen.jpg";
 
     private Grid grid;
     private Keyboard keyboard;
     private boolean isRunning;
+    private String lastGame;
     private GridPosition textStart;
+    private GridPosition titleImage;
 
     private boolean restart = false;
 
-    public PosGame() {
+    public PosGame(String lastGame) {
         this.grid = new Grid(600, 700, background);
         keyboard = new Keyboard(this);
         this.isRunning = true;
+        this.lastGame = lastGame;
     }
 
     public void init() {
@@ -36,7 +39,18 @@ public class PosGame implements KeyboardHandler {
         inputStart.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         keyboard.addEventListener(inputStart);
 
-        textStart = grid.makeGridPosition(170, 550, 286, 26, "resources/start.png");
+        textStart = grid.makeGridPosition(170, 400, 286, 26, "resources/start.png");
+
+        if (lastGame.equals("win")) {
+            //substituir imagem pelo CONGRATS
+            titleImage = grid.makeGridPosition(200, 200, 286,26,"resources/start.png");
+        }
+            //substituir imagem pelo GAMEOVER.
+        if (lastGame.equals("gameover")){
+            titleImage = grid.makeGridPosition(200, 200, 286,26,"resources/cucumberx2.png");
+        }
+        
+
     }
 
     public void start() throws InterruptedException {

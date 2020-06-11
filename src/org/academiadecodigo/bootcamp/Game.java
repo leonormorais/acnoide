@@ -21,6 +21,7 @@ public class Game {
     private Ball ball;
     private CollisionDetector collisionDetector;
     private boolean isGameRunning;
+
     private GridPosition testPosition;
 
     private String output;

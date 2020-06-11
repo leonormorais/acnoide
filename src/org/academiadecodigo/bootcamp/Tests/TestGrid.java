@@ -28,7 +28,7 @@ public class TestGrid {
             g.start();
             lastGame = g.posGame();
 
-            PosGame p = new PosGame();
+            PosGame p = new PosGame(lastGame);
             p.init();
             p.start();
             newGame = p.restartInvoked();
