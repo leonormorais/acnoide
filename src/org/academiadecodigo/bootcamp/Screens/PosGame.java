@@ -16,6 +16,7 @@ public class PosGame implements KeyboardHandler {
 
     private final String background = "resources/finalscreen.jpg";
 
+    private Sound sound;
     private Grid grid;
     private Keyboard keyboard;
     private boolean isRunning;
@@ -67,7 +68,7 @@ public class PosGame implements KeyboardHandler {
 
             @Override
             public void run() {
-                Sound.playPosGameSong();
+                sound.playPosGameSong();
             }
         },500, 212000);
 
@@ -88,10 +89,10 @@ public class PosGame implements KeyboardHandler {
         }
 
         themeSong.cancel();
-        Sound.stopPosGameSong();
+        sound.stopPosGameSong();
 
         timer.cancel();
-        Sound.playPipinoDNovo();
+        sound.playPipinoDNovo();
         Thread.sleep(1000);
         grid.hide();
 

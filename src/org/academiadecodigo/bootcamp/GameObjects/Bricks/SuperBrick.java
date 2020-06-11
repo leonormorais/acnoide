@@ -9,6 +9,7 @@ import org.academiadecodigo.bootcamp.Sound;
 
 public class SuperBrick extends Brick {
 
+    private Sound sound;
     private final int BRICK_SPEED = 5;
     private CollisionDetector collisionDetector;
     private int scoreWhenStartedSP; //Score when superpower starts
@@ -20,6 +21,8 @@ public class SuperBrick extends Brick {
     public SuperBrick(GridPosition position, BrickType type) {
         super(position, type);
         this.isActive = false;
+
+        sound = new Sound();
     }
 
 
@@ -32,7 +35,7 @@ public class SuperBrick extends Brick {
         switch (type) {
 
             case SERGIO:
-                Sound.playTadaSound();
+                sound.playTadaSound();
                 Score.setScore(1000);
                 scoreWhenStartedSP = Score.intGetScore();
                 isActive = true;
@@ -43,7 +46,7 @@ public class SuperBrick extends Brick {
                 if (collisionDetector.getBall().getIsLuisActive()) {
                     break;
                 }
-                Sound.playBaby();
+                sound.playBaby();
                 scoreWhenStartedSP = Score.intGetScore();
                 additionalElement = grid.makeGridPosition(22, 690, 574, 20, "resources/baby.png");
                 additionalElement.show();
@@ -56,7 +59,7 @@ public class SuperBrick extends Brick {
                 if (collisionDetector.getBall().getIsPrisActive()){
                     break;
                 }
-                Sound.playMeow();
+                sound.playMeow();
                 scoreWhenStartedSP = Score.intGetScore();
                 collisionDetector.getPlatform().setPlatformSpeed(Platform.MAXIMUM_SPEED);
                 collisionDetector.getBall().setIsPrisActive(true);
@@ -68,7 +71,7 @@ public class SuperBrick extends Brick {
                 if (collisionDetector.getPlatform().getIsRitaActive()) {
                     break;
                 }
-                Sound.playRitaSound();
+                sound.playRitaSound();
                 scoreWhenStartedSP = Score.intGetScore();
                 collisionDetector.getPlatform().getPosition().increaseWidthPlatform();
                 collisionDetector.getPlatform().setIsRitaActive(true);
@@ -80,7 +83,7 @@ public class SuperBrick extends Brick {
                 if (collisionDetector.getBall().getIsVandoActive()) {
                     break;
                 }
-                Sound.playVandoSound();
+                sound.playVandoSound();
                 scoreWhenStartedSP = Score.intGetScore();
                 collisionDetector.getBall().setBallSpeed(Ball.MINOR_SPEED);
                 collisionDetector.getBall().setIsVandoActive(true);

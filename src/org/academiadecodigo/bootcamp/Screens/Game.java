@@ -7,7 +7,6 @@ import org.academiadecodigo.bootcamp.GameObjects.Bricks.SuperBrick;
 import org.academiadecodigo.bootcamp.GameObjects.ObjectFactory;
 import org.academiadecodigo.bootcamp.GameObjects.Score;
 import org.academiadecodigo.bootcamp.Grid.Grid;
-import org.academiadecodigo.bootcamp.Grid.GridPosition;
 import org.academiadecodigo.bootcamp.Player;
 import org.academiadecodigo.bootcamp.Sound;
 
@@ -20,6 +19,7 @@ public class Game {
     private final int DELAY = 75;
     private final String background = "resources/backgroundV3.jpg";
 
+    private Sound sound;
     private Grid grid;
     private Brick[] bricks;
     private Player player;
@@ -40,6 +40,7 @@ public class Game {
 
         grid.init();
 
+        sound = new Sound();
         //create bricks and set grid for bricks
         bricks = ObjectFactory.createBricks(BRICKS_NUMBER, grid);
 
@@ -78,7 +79,7 @@ public class Game {
         themeSongTimer.schedule(new TimerTask() {
            @Override
            public void run() {
-               Sound.playGameSong();
+               sound.playGameSong();
            }
        },500, 257000);
 
@@ -98,7 +99,7 @@ public class Game {
             if (collisionDetector.getDestroyedBricksCounter() == bricks.length) {
                 output = "win";
                 isGameRunning = false;
-                Sound.playWinSound();
+                sound.playWinSound();
                 Thread.sleep(500);
                 break;
             }
@@ -106,7 +107,7 @@ public class Game {
             if (!ball.isBallRunning()) {
                 output = "gameover";
                 isGameRunning = false;
-                Sound.playGameOverSound();
+                sound.playGameOverSound();
                 Thread.sleep(500);
                 break;
             }
@@ -116,7 +117,7 @@ public class Game {
 
         }
 
-       Sound.stopGameSong();
+       sound.stopGameSong();
        themeSongTimer.cancel();
 
     }

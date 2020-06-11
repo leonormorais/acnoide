@@ -15,6 +15,7 @@ public class Menu implements KeyboardHandler {
 
     private final String background = "resources/ACNOID2020.jpg";
 
+    private Sound sound;
     private Grid grid;
     private Keyboard keyboard;
     private boolean isRunning = true;
@@ -29,6 +30,8 @@ public class Menu implements KeyboardHandler {
 
     public void init() {
         grid.init();
+
+        sound = new Sound();
 
         KeyboardEvent inputStart = new KeyboardEvent();
         inputStart.setKey(KeyboardEvent.KEY_SPACE);
@@ -60,7 +63,7 @@ public class Menu implements KeyboardHandler {
         themeSongTimer.schedule(new TimerTask() {
             @Override
             public void run() {
-                Sound.playEntryThemeSong();
+                sound.playEntryThemeSong();
             }
         },400, 120000);
 
@@ -69,12 +72,12 @@ public class Menu implements KeyboardHandler {
         }
 
 
-        Sound.stopThemeSong();
+        sound.stopThemeSong();
 
         themeSongTimer.cancel();
         timer.cancel();
 
-        Sound.playPipinoDNovo();
+        sound.playPipinoDNovo();
 
         Thread.sleep(1000);
 

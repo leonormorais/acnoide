@@ -9,6 +9,7 @@ public class Ball {
     public static final int MINOR_SPEED = 5;
     public static final int MAXIMUM_SPEED = 10;
 
+    private Sound sound;
     private int ballSpeed = 10;
     private GridPosition position;
     private CollisionDetector collisionDetector;
@@ -26,6 +27,8 @@ public class Ball {
 
         direction[0] = 0; //x
         direction[1] = 1; //y
+
+        sound = new Sound();
     }
 
     //getters
@@ -115,7 +118,7 @@ public class Ball {
         }
 
         if (collisionDetector.checkForCollisionBrick()) {
-            Sound.playBallEffect(); //testing sound
+            sound.playBallEffect(); //testing sound
             Score.setScore(200);
             direction[1] = - direction[1]; //y
         }
