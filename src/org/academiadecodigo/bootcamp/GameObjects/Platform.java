@@ -1,5 +1,6 @@
 package org.academiadecodigo.bootcamp.GameObjects;
 
+import org.academiadecodigo.bootcamp.CollisionDetector;
 import org.academiadecodigo.bootcamp.Grid.Grid;
 import org.academiadecodigo.bootcamp.Grid.GridDirection;
 import org.academiadecodigo.bootcamp.Grid.GridPosition;
@@ -16,6 +17,7 @@ public class Platform implements Hittable {
     public static final int MINIMUM_SPEED = 15;
 
     private int platformSpeed = 15;
+    private CollisionDetector collisionDetector;
 
     private boolean isRitaActive;
 
@@ -23,9 +25,6 @@ public class Platform implements Hittable {
 
     public Platform (Grid grid) {
         this.position = grid.makeGridPosition(PLATFORM_POSITION_X, PLATFORM_POSITION_Y, PLATFORM_WIDTH, PLATFORM_HEIGHT,"resources/pepino.png");
-    }
-    public int getPlatformSpeed(){
-        return platformSpeed;
     }
 
     public boolean getIsRitaActive() {
@@ -40,6 +39,10 @@ public class Platform implements Hittable {
         this.isRitaActive = isRitaActive;
     }
 
+    public void setCollisionDetector(CollisionDetector collisionDetector) {
+        this.collisionDetector = collisionDetector;
+    }
+
     public GridPosition getPosition() {
         return position;
     }
@@ -48,6 +51,9 @@ public class Platform implements Hittable {
         for (int i = 0; i < platformSpeed; i++) {
             if (position.isOnEdgePlatform(GridDirection.RIGHT)) {
                 return;
+            }
+            if (collisionDetector.getIsCollidedPlatform()) {
+                collisionDetector.setIsCollidedPlatform(true);
             }
             position.move(GridDirection.RIGHT);
         }
@@ -58,8 +64,10 @@ public class Platform implements Hittable {
             if (position.isOnEdgePlatform(GridDirection.LEFT)) {
                 return;
             }
+            if (collisionDetector.getIsCollidedPlatform()) {
+                collisionDetector.setIsCollidedPlatform(true);
+            }
             position.move(GridDirection.LEFT);
-
         }
     }
 

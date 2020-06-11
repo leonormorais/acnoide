@@ -56,6 +56,8 @@ public class Game {
         collisionDetector = new CollisionDetector(bricks, player.getPlatform(), ball);
         ball.setCollisionDetector(collisionDetector);
 
+        player.getPlatform().setCollisionDetector(collisionDetector);
+
         for (Brick brick : bricks) {
             if (brick instanceof SuperBrick) {
                 ((SuperBrick) brick).setCollisionDetector(collisionDetector);
