@@ -1,5 +1,6 @@
 package org.academiadecodigo.bootcamp;
 
+import org.academiadecodigo.bootcamp.GameObjects.Score;
 import org.academiadecodigo.bootcamp.Grid.Grid;
 import org.academiadecodigo.bootcamp.Grid.GridPosition;
 import org.academiadecodigo.bootcamp.Tests.Sound;
@@ -21,6 +22,7 @@ public class PosGame implements KeyboardHandler {
     private String lastGame;
     private GridPosition textStart;
     private GridPosition titleImage;
+    private GridPosition score;
 
     private boolean restart = false;
 
@@ -39,15 +41,19 @@ public class PosGame implements KeyboardHandler {
         inputStart.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         keyboard.addEventListener(inputStart);
 
-        textStart = grid.makeGridPosition(170, 400, 286, 26, "resources/playagain.png");
+        textStart = grid.makeGridPosition(120, 425, 286, 26, "resources/playagain.png");
 
         if (lastGame.equals("win")) {
-            titleImage = grid.makeGridPosition(200, 200, 286,26,"resources/congrats.png");
+            titleImage = grid.makeGridPosition(150, 215, 286,26,"resources/congrats.png");
         }
 
         if (lastGame.equals("gameover")){
-            titleImage = grid.makeGridPosition(200, 200, 286,26,"resources/gameover.png");
+            titleImage = grid.makeGridPosition(150, 215, 286,26,"resources/gameover.png");
         }
+
+        score = grid.makeGridPosition(305, 345, Score.stringGetScore());
+        score.growScore(75, 25);
+
 
 
     }

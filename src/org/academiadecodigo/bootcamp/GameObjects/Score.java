@@ -12,16 +12,17 @@ public class Score {
     private static GridPosition position;
 
     public static void createGridPosition(Grid grid) {
-        position = grid.makeGridPosition(SCORE_POSITION_X, SCORE_POSITION_Y);
+        position = grid.makeGridPosition(SCORE_POSITION_X, SCORE_POSITION_Y, stringConcat());
     }
 
-    public static int getScore() {
-        return score;
-    }
 
     public static int intGetScore() { return score; }
 
     public static String stringGetScore(){
+        return "" + score;
+    }
+
+    public static String stringConcat(){
         return "Score: " + score;
     }
 
@@ -33,9 +34,5 @@ public class Score {
     public static void resetScore() {
         score = 0;
     }
-
-
-
-
 
 }

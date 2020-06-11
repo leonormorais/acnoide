@@ -28,16 +28,17 @@ public class GridPosition {
         show();
     }
 
-    public GridPosition (Grid grid, int posX, int posY) {
+    public GridPosition (Grid grid, int posX, int posY, String text) {
 
         this.grid = grid;
         this.posX = posX;
         this.posY = posY;
 
-        this.text = new Text(posX, posY, Score.stringGetScore());
+        this.text = new Text(posX, posY, text);
         showScore();
 
     }
+
 
 
     public int getWidth() {
@@ -97,6 +98,10 @@ public class GridPosition {
         text.setColor(Color.WHITE);
         text.setText(Score.stringGetScore());
         text.draw();
+    }
+
+    public void growScore(int x, int y) {
+        text.grow(x, y);
     }
 
     public void hide() {
