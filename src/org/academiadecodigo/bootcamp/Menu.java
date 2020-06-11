@@ -43,6 +43,7 @@ public class Menu implements KeyboardHandler {
     public void start() throws InterruptedException {
 
         Timer timer = new Timer();
+        Timer themeSongTimer = new Timer();
 
         timer.schedule(new TimerTask() {
             private int i;
@@ -55,6 +56,15 @@ public class Menu implements KeyboardHandler {
                 i++;
             }
         }, 0, 400);
+
+        themeSongTimer.schedule(new TimerTask() {
+
+            @Override
+            public void run() {
+
+            }
+        },0, 400);
+
 
         while (isRunning) {
             Thread.sleep(50);
