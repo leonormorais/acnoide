@@ -59,14 +59,13 @@ public class GridPosition {
 
     public void increaseWidthPlatform() {
         if(posX > 500) {
-            posX = 500;
+            posX -= 50;
             picture.translate(-25, 0);
             picture.grow(width / 2,0);
             width += width;
             return;
         }
         if (posX < 70) {
-            posX = 20;
             picture.translate(25,0);
             picture.grow(width / 2,0);
             this.width += width;
