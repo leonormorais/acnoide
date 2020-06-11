@@ -34,7 +34,9 @@ public class GridPosition {
         this.posY = posY;
 
         this.text = new Text(posX, posY, text);
-        showScore();
+        this.text.setColor(Color.WHITE);
+        this.text.setText(text);
+        this.text.draw();
 
     }
 
@@ -95,7 +97,7 @@ public class GridPosition {
 
     public void showScore(){
         text.setColor(Color.WHITE);
-        text.setText(Score.stringGetScore());
+        text.setText(Score.stringConcat());
         text.draw();
     }
 
