@@ -84,6 +84,8 @@ public class Game {
             if (collisionDetector.getDestroyedBricksCounter() == bricks.length) {
                 output = "win";
                 isGameRunning = false;
+                Sound.playWinSound();
+                Thread.sleep(500);
                 break;
             }
 

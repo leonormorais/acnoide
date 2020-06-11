@@ -1,6 +1,7 @@
 package org.academiadecodigo.bootcamp.Tests;
 
 import java.io.File;
+import java.net.URL;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -8,6 +9,7 @@ import javax.sound.sampled.Clip;
 
 public class Sound {
 
+    //URL beepURL = Sound.class.getResource("resources/testeSound.wav");
 
     private static String ballSound = "resources/testeSound.wav";
     static SoundEffect se = new SoundEffect();
@@ -23,6 +25,9 @@ public class Sound {
 
     private static String gameOverSound = "resources/gameover.wav";
     static SoundEffect se5 = new SoundEffect();
+
+    private static String winSound = "resources/win.wav";
+    static SoundEffect se6 = new SoundEffect();
 
     public static void playBallEffect() {
         se.setFile(ballSound);
@@ -49,6 +54,10 @@ public class Sound {
         se5.play();
     }
 
+    public static void playWinSound() {
+        se6.setFile(winSound);
+        se6.play();
+    }
 
 
     public static class SoundEffect {
