@@ -1,6 +1,7 @@
 package org.academiadecodigo.bootcamp.GameObjects.Bricks;
 import org.academiadecodigo.bootcamp.CollisionDetector;
 import org.academiadecodigo.bootcamp.GameObjects.Ball;
+import org.academiadecodigo.bootcamp.GameObjects.Platform;
 import org.academiadecodigo.bootcamp.Grid.GridPosition;
 import org.academiadecodigo.bootcamp.GameObjects.Score;
 import org.academiadecodigo.bootcamp.Tests.Sound;
@@ -9,8 +10,8 @@ public class SuperBrick extends Brick {
 
     private final int BRICK_SPEED = 5;
     private CollisionDetector collisionDetector;
-    private int scoreWhenStartedSP; //Score quando começa o super poder
-    private boolean isActive; // Super power está ativo ou não.
+    private int scoreWhenStartedSP; //Score when superpower starts
+    private boolean isActive; // if super power is active or not
     private GridPosition additionalElement;
     private GridPosition textInformation;
     private boolean textOn;
@@ -27,8 +28,6 @@ public class SuperBrick extends Brick {
 
     public void superPower() {
 
-
-
         scoreWhenStartedSP = Score.intGetScore();
         showInformation();
 
@@ -36,8 +35,6 @@ public class SuperBrick extends Brick {
 
             case SERGIO:
                 Score.setScore(1000);
-                additionalElement = grid.makeGridPosition(175, 350, 264, 88, "resources/1000.png");
-                additionalElement.show();
                 isActive = true;
                 break;
 
@@ -53,7 +50,7 @@ public class SuperBrick extends Brick {
 
             case PRIS:
                 Sound.playMeow();
-                collisionDetector.getPlatform().setPlatformSpeed(collisionDetector.getPlatform().getPlatformSpeed() * 2);
+                collisionDetector.getPlatform().setPlatformSpeed(Platform.MAXIMUM_SPEED);
                 isActive = true;
                 break;
 
@@ -67,7 +64,11 @@ public class SuperBrick extends Brick {
                 break;
 
             case VANDO:
+                if (collisionDetector.getBall().getIsVandoActive()) {
+                    break;
+                }
                 collisionDetector.getBall().setBallSpeed(Ball.MINOR_SPEED);
+                collisionDetector.getBall().setIsVandoActive(true);
                 isActive = true;
                 break;
 
@@ -125,7 +126,7 @@ public class SuperBrick extends Brick {
                 break;
 
             case PRIS:
-                collisionDetector.getPlatform().setPlatformSpeed(collisionDetector.getPlatform().getPlatformSpeed() / 2);
+                collisionDetector.getPlatform().setPlatformSpeed(Platform.MINIMUM_SPEED);
                 break;
 
             case RITA:
@@ -134,7 +135,7 @@ public class SuperBrick extends Brick {
                 break;
 
             case VANDO:
-                collisionDetector.getBall().setBallSpeed(Ball.BALL_SPEED);
+                collisionDetector.getBall().setBallSpeed(Ball.MAXIMUM_SPEED);
                 break;
 
         }
@@ -175,7 +176,7 @@ public class SuperBrick extends Brick {
     public void move() {
         for (int i = 0; i < BRICK_SPEED; i++) {
 
-            if(isActive) {
+            if (isActive) {
                if (Score.intGetScore() - scoreWhenStartedSP >= 50 || isVando()) {
                     textInformation.hide();
                     textOn = false;
@@ -202,7 +203,7 @@ public class SuperBrick extends Brick {
     }
 
     private boolean isVando() {
-        return type == BrickType.VANDO && Score.intGetScore() - scoreWhenStartedSP >= 50 / 2;
+        return collisionDetector.getBall().getIsVandoActive() && Score.intGetScore() - scoreWhenStartedSP >= 50 / 2;
     }
 
     public boolean isTextOn() {

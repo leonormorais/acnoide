@@ -6,12 +6,17 @@ import org.academiadecodigo.bootcamp.Grid.GridPosition;
 
 public class Platform implements Hittable {
 
+
     private final int PLATFORM_POSITION_X = 300;
     private final int PLATFORM_POSITION_Y = 670;
     private final int PLATFORM_WIDTH = 50;
     private final int PLATFORM_HEIGHT = 20;
 
+    public static final int MAXIMUM_SPEED = 30;
+    public static final int MINIMUM_SPEED = 15;
+
     private int platformSpeed = 15;
+
     private boolean isRitaActive;
 
     private GridPosition position;

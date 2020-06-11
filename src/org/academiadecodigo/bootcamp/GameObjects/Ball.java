@@ -7,13 +7,14 @@ import org.academiadecodigo.bootcamp.Tests.Sound;
 public class Ball {
 
     public static final int MINOR_SPEED = 5;
-    public static final int BALL_SPEED = 10;
+    public static final int MAXIMUM_SPEED = 10;
 
     private int ballSpeed = 10;
     private GridPosition position;
     private CollisionDetector collisionDetector;
     private boolean isRunning;
     private boolean isLuisActive;
+    private boolean isVandoActive;
     private int[] direction;
 
     public Ball (GridPosition gridPosition) {
@@ -43,6 +44,10 @@ public class Ball {
         return isLuisActive;
     }
 
+    public boolean getIsVandoActive() {
+        return isVandoActive;
+    }
+
     //setters
 
     public void setBallSpeed(int ballSpeed) {
@@ -51,6 +56,10 @@ public class Ball {
 
     public void setIsLuisActive(boolean isLuisActive) {
         this.isLuisActive = isLuisActive;
+    }
+
+    public void setIsVandoActive(boolean isVandoActive) {
+        this.isVandoActive = isVandoActive;
     }
 
     public void setNewXDirection(int x) {
