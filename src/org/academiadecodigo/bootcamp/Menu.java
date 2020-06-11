@@ -58,21 +58,26 @@ public class Menu implements KeyboardHandler {
         }, 0, 400);
 
         themeSongTimer.schedule(new TimerTask() {
-
             @Override
             public void run() {
-
+                Sound.playEntryThemeSong();
             }
-        },0, 400);
-
+        },400, 120000);
 
         while (isRunning) {
             Thread.sleep(50);
         }
 
+
+        Sound.stopThemeSong();
+
+        themeSongTimer.cancel();
         timer.cancel();
+
         Sound.playPipinoDNovo();
+
         Thread.sleep(1000);
+
         grid.hide();
 
     }

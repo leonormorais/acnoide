@@ -11,7 +11,7 @@ public class Sound {
 
     //URL beepURL = Sound.class.getResource("resources/testeSound.wav");
 
-    private static String themeSong = "resources/tada.wav";
+    private static String themeSong = "resources/entryTheme.wav";
     static SoundEffect theme1 = new SoundEffect();
 
     private static String ballSound = "resources/testeSound.wav";
@@ -38,6 +38,10 @@ public class Sound {
     public static void playEntryThemeSong() {
         theme1.setFile(themeSong);
         theme1.play();
+    }
+
+    public static void stopThemeSong() {
+        theme1.stop();
     }
 
     public static void playBallEffect() {
@@ -78,6 +82,7 @@ public class Sound {
 
 
 
+
     public static class SoundEffect {
         Clip clip;
 
@@ -99,6 +104,11 @@ public class Sound {
             clip.start();
 
         }
+
+        public void stop() {
+            clip.stop();
+        }
+
     }
 
 }

@@ -31,7 +31,7 @@ public class SuperBrick extends Brick {
         switch (type) {
 
             case SERGIO:
-
+                Sound.playTadaSound();
                 Score.setScore(1000);
                 scoreWhenStartedSP = Score.intGetScore();
                 isActive = true;
@@ -39,7 +39,6 @@ public class SuperBrick extends Brick {
                 break;
 
             case LUIS:
-
                 if (collisionDetector.getBall().getIsLuisActive()) {
                     break;
                 }
