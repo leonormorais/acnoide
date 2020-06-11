@@ -42,6 +42,7 @@ public class SuperBrick extends Brick {
                 if (collisionDetector.getBall().getIsLuisActive()) {
                     break;
                 }
+                Sound.playBaby();
                 additionalElement = grid.makeGridPosition(22, 690, 574, 20, "resources/baby.png");
                 additionalElement.show();
                 collisionDetector.getBall().setIsLuisActive(true);

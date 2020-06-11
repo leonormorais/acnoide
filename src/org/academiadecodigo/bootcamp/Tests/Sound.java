@@ -18,6 +18,10 @@ public class Sound {
     private static String meowSound = "resources/meow.wav";
     static SoundEffect se3 = new SoundEffect();
 
+    private static String babySound = "resources/baby.wav";
+    static SoundEffect se4 = new SoundEffect();
+
+
     public static void playBallEffect() {
         se.setFile(ballSound);
         se.play();
@@ -31,6 +35,11 @@ public class Sound {
     public static void playMeow() {
         se3.setFile(meowSound);
         se3.play();
+    }
+
+    public static void playBaby() {
+        se4.setFile(babySound);
+        se4.play();
     }
 
 
