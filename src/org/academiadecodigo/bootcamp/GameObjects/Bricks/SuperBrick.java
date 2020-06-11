@@ -53,9 +53,13 @@ public class SuperBrick extends Brick {
                 break;
 
             case PRIS:
-                scoreWhenStartedSP = Score.intGetScore();
+                if (collisionDetector.getBall().getIsPrisActive()){
+                    break;
+                }
                 Sound.playMeow();
+                scoreWhenStartedSP = Score.intGetScore();
                 collisionDetector.getPlatform().setPlatformSpeed(Platform.MAXIMUM_SPEED);
+                collisionDetector.getBall().setIsPrisActive(true);
                 isActive = true;
                 showInformation();
                 break;
@@ -134,6 +138,7 @@ public class SuperBrick extends Brick {
 
             case PRIS:
                 collisionDetector.getPlatform().setPlatformSpeed(Platform.MINIMUM_SPEED);
+                collisionDetector.getBall().setIsPrisActive(false);
                 break;
 
             case RITA:
