@@ -28,49 +28,58 @@ public class SuperBrick extends Brick {
 
     public void superPower() {
 
-        scoreWhenStartedSP = Score.intGetScore();
-        showInformation();
-
         switch (type) {
 
             case SERGIO:
+
                 Score.setScore(1000);
+                scoreWhenStartedSP = Score.intGetScore();
                 isActive = true;
+                showInformation();
                 break;
 
             case LUIS:
+
                 if (collisionDetector.getBall().getIsLuisActive()) {
                     break;
                 }
                 Sound.playBaby();
+                scoreWhenStartedSP = Score.intGetScore();
                 additionalElement = grid.makeGridPosition(22, 690, 574, 20, "resources/baby.png");
                 additionalElement.show();
                 collisionDetector.getBall().setIsLuisActive(true);
                 isActive = true;
+                showInformation();
                 break;
 
             case PRIS:
+                scoreWhenStartedSP = Score.intGetScore();
                 Sound.playMeow();
                 collisionDetector.getPlatform().setPlatformSpeed(Platform.MAXIMUM_SPEED);
                 isActive = true;
+                showInformation();
                 break;
 
             case RITA:
                 if (collisionDetector.getPlatform().getIsRitaActive()) {
                     break;
                 }
+                scoreWhenStartedSP = Score.intGetScore();
                 collisionDetector.getPlatform().getPosition().increaseWidthPlatform();
                 collisionDetector.getPlatform().setIsRitaActive(true);
                 isActive = true;
+                showInformation();
                 break;
 
             case VANDO:
                 if (collisionDetector.getBall().getIsVandoActive()) {
                     break;
                 }
+                scoreWhenStartedSP = Score.intGetScore();
                 collisionDetector.getBall().setBallSpeed(Ball.MINOR_SPEED);
                 collisionDetector.getBall().setIsVandoActive(true);
                 isActive = true;
+                showInformation();
                 break;
 
         }
