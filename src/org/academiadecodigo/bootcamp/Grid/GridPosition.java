@@ -7,17 +7,12 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class GridPosition {
 
-
-    private final int PLATFORM_WIDTH = 50;
-    private final int PLATFORM_HEIGHT = 20;
-
     private Grid grid;
     private int posX;
     private int posY;
     private int width;
     private int height;
     private Picture picture;
-    private Picture pepino;
     private Text text;
 
     public GridPosition(Grid grid, int posX, int posY, int width, int height, String source) {
@@ -62,24 +57,17 @@ public class GridPosition {
         return posY;
     }
 
-    //Original 50
-    //Final 75
-
-
     public void increaseWidthPlatform() {
-        int cucumber = width / 2;
-        picture.grow(cucumber, 0);
+        int temp = width / 2;
+        picture.grow(temp, 0);
         width += width;
         posX -= width / 4;
 
     }
 
-    //Original 75
-    //final 50
-
     public void decreaseWidthPlatform() {
-        int cucumber = -(this.width / 4);
-        picture.grow(cucumber, 0);
+        int temp = -(this.width / 4);
+        picture.grow(temp, 0);
         posX += width / 4;
         width -= width / 2;
 
@@ -95,16 +83,11 @@ public class GridPosition {
         text.draw();
     }
 
-    private void showPlatform() {
-        picture.draw();
-    }
-
     public void hide() {
         picture.delete();
     }
 
     public void transformBrick(String source) {
-        //picture.grow(-10, 39);
         width = 50;
         height = 69;
         picture.load(source);
@@ -119,7 +102,6 @@ public class GridPosition {
                 moveRight();
                 break;
         }
-        //System.out.println(toString());
     }
 
    public void moveBrick() {
@@ -131,13 +113,11 @@ public class GridPosition {
         }
    }
 
-   //pensar numa solução única com o tipo de Game Object (Ball Or Brick)
    public void moveBall(int[] direction) {
        this.posX += direction[0];
        this.posY += direction[1];
        picture.translate(direction[0], direction[1]);
    }
-
 
    //move platform
     private void moveLeft() {
@@ -145,7 +125,6 @@ public class GridPosition {
         picture.translate(-1, 0);
     }
 
-    //move platform
     private void moveRight() {
         this.posX += 1;
         picture.translate(1, 0);
@@ -179,7 +158,6 @@ public class GridPosition {
     }
 
 
-
     @Override
     public String toString() {
         return "GridPosition{" +
@@ -189,7 +167,5 @@ public class GridPosition {
                 ", height=" + height +
                 '}';
     }
-
-
 
 }
